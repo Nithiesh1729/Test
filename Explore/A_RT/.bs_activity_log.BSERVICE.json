@@ -1,0 +1,53 @@
+{
+  "objectInfo" : {
+    "id" : "7DAH3ma7tixjut3DWTsZav",
+    "name" : "bs_activity_log",
+    "type" : "BSERVICE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CRY27000000000006"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      }, {
+        "name" : "012CRY28000000000008",
+        "value" : "7DAH3ma7tixjut3DWTsZav@activityLog"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2025-04-23T11:07:13.011Z",
+  "objectRefs" : [ {
+    "id" : "2uSFuJJDSEghETvqW9hRWa",
+    "name" : "Activity_Log_V2_RT",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CRY0B000000000010"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,0 +1,2876 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "Load_to_GBQ_New",
+    "links" : [
+      {
+        "link" : "src_gbq -> Target"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-04-16T09:15:07.217Z",
+        "name" : "src_gbq",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "a1a_resultsduedate"
+            },
+            "name" : "a1a_resultsduedate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_enddate"
+            },
+            "name" : "a1a_enddate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_lastdaytowithdraw"
+            },
+            "name" : "a1a_lastdaytowithdraw",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_startdate"
+            },
+            "name" : "a1a_startdate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_modifiedonbehalfby_value"
+            },
+            "name" : "_modifiedonbehalfby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_createdonbehalfby_value"
+            },
+            "name" : "_createdonbehalfby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_14dayspriortostart"
+            },
+            "name" : "a1a_14dayspriortostart",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "timezoneruleversionnumber"
+            },
+            "name" : "timezoneruleversionnumber",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "modifiedon"
+            },
+            "name" : "modifiedon",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_owningbusinessunit_value"
+            },
+            "name" : "_owningbusinessunit_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_academicwithdrawaldate"
+            },
+            "name" : "a1a_academicwithdrawaldate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "overriddencreatedon"
+            },
+            "name" : "overriddencreatedon",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_name"
+            },
+            "name" : "a1a_name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_resultreleasedate"
+            },
+            "name" : "a1a_resultreleasedate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "statecode"
+            },
+            "name" : "statecode",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_a1a_coursetermid_value"
+            },
+            "name" : "_a1a_coursetermid_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "importsequencenumber"
+            },
+            "name" : "importsequencenumber",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_censusdate"
+            },
+            "name" : "a1a_censusdate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_owninguser_value"
+            },
+            "name" : "_owninguser_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_termid"
+            },
+            "name" : "a1a_termid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "createdon"
+            },
+            "name" : "createdon",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_owningteam_value"
+            },
+            "name" : "_owningteam_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "versionnumber"
+            },
+            "name" : "versionnumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_modifiedby_value"
+            },
+            "name" : "_modifiedby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "utcconversiontimezonecode"
+            },
+            "name" : "utcconversiontimezonecode",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "statuscode"
+            },
+            "name" : "statuscode",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_odsuniqueid"
+            },
+            "name" : "a1a_odsuniqueid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_createdby_value"
+            },
+            "name" : "_createdby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_termcode"
+            },
+            "name" : "a1a_termcode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_ownerid_value"
+            },
+            "name" : "_ownerid_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Source_Data_Extract_Date"
+            },
+            "name" : "Source_Data_Extract_Date",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Row_Insert_Date"
+            },
+            "name" : "Row_Insert_Date",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "UUID"
+            },
+            "name" : "UUID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@28Tc3nb55yVeMReS6Kgns4",
+          "connectionName" : "GBQ_V2_RT_Working",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "gcsdataset/a1a_term",
+            "label" : "a1a_term",
+            "objectName" : "a1a_term",
+            "path" : "gcsdataset/a1a_term",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "a1a_resultsduedate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_resultsduedate",
+                "nativeName" : "a1a_resultsduedate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_enddate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_enddate",
+                "nativeName" : "a1a_enddate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_lastdaytowithdraw",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_lastdaytowithdraw",
+                "nativeName" : "a1a_lastdaytowithdraw",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_startdate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_startdate",
+                "nativeName" : "a1a_startdate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_modifiedonbehalfby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_modifiedonbehalfby_value",
+                "nativeName" : "_modifiedonbehalfby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_createdonbehalfby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_createdonbehalfby_value",
+                "nativeName" : "_createdonbehalfby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_14dayspriortostart",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_14dayspriortostart",
+                "nativeName" : "a1a_14dayspriortostart",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "timezoneruleversionnumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "timezoneruleversionnumber",
+                "nativeName" : "timezoneruleversionnumber",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "modifiedon",
+                "fieldType" : "CONNECTOR",
+                "label" : "modifiedon",
+                "nativeName" : "modifiedon",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_owningbusinessunit_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_owningbusinessunit_value",
+                "nativeName" : "_owningbusinessunit_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_academicwithdrawaldate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_academicwithdrawaldate",
+                "nativeName" : "a1a_academicwithdrawaldate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "overriddencreatedon",
+                "fieldType" : "CONNECTOR",
+                "label" : "overriddencreatedon",
+                "nativeName" : "overriddencreatedon",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_name",
+                "nativeName" : "a1a_name",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_resultreleasedate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_resultreleasedate",
+                "nativeName" : "a1a_resultreleasedate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "statecode",
+                "fieldType" : "CONNECTOR",
+                "label" : "statecode",
+                "nativeName" : "statecode",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_a1a_coursetermid_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_a1a_coursetermid_value",
+                "nativeName" : "_a1a_coursetermid_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "importsequencenumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "importsequencenumber",
+                "nativeName" : "importsequencenumber",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_censusdate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_censusdate",
+                "nativeName" : "a1a_censusdate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_owninguser_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_owninguser_value",
+                "nativeName" : "_owninguser_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_termid",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_termid",
+                "nativeName" : "a1a_termid",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "createdon",
+                "fieldType" : "CONNECTOR",
+                "label" : "createdon",
+                "nativeName" : "createdon",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_owningteam_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_owningteam_value",
+                "nativeName" : "_owningteam_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "versionnumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "versionnumber",
+                "nativeName" : "versionnumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_modifiedby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_modifiedby_value",
+                "nativeName" : "_modifiedby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "utcconversiontimezonecode",
+                "fieldType" : "CONNECTOR",
+                "label" : "utcconversiontimezonecode",
+                "nativeName" : "utcconversiontimezonecode",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "statuscode",
+                "fieldType" : "CONNECTOR",
+                "label" : "statuscode",
+                "nativeName" : "statuscode",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_odsuniqueid",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_odsuniqueid",
+                "nativeName" : "a1a_odsuniqueid",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_createdby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_createdby_value",
+                "nativeName" : "_createdby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_termcode",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_termcode",
+                "nativeName" : "a1a_termcode",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "_ownerid_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_ownerid_value",
+                "nativeName" : "_ownerid_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "Source_Data_Extract_Date",
+                "fieldType" : "CONNECTOR",
+                "label" : "Source_Data_Extract_Date",
+                "nativeName" : "Source_Data_Extract_Date",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "Row_Insert_Date",
+                "fieldType" : "CONNECTOR",
+                "label" : "Row_Insert_Date",
+                "nativeName" : "Row_Insert_Date",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              },
+              {
+                "name" : "UUID",
+                "fieldType" : "CONNECTOR",
+                "label" : "UUID",
+                "nativeName" : "UUID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "connectorType",
+                "value" : "Simple"
+              },
+              {
+                "name" : "originalDataSetId",
+                "value" : "gcsdataset"
+              },
+              {
+                "name" : "recordType",
+                "value" : "TABLE"
+              },
+              {
+                "name" : "uniqueId",
+                "value" : "31e5c53f-cd70-4d98-b119-0a040819460d"
+              },
+              {
+                "name" : "isLegacySQLView",
+                "value" : "false"
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-04-16T09:34:47.261Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "a1a_resultsduedate"
+            },
+            "name" : "a1a_resultsduedate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_enddate"
+            },
+            "name" : "a1a_enddate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_lastdaytowithdraw"
+            },
+            "name" : "a1a_lastdaytowithdraw",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_startdate"
+            },
+            "name" : "a1a_startdate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_modifiedonbehalfby_value"
+            },
+            "name" : "_modifiedonbehalfby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_createdonbehalfby_value"
+            },
+            "name" : "_createdonbehalfby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_14dayspriortostart"
+            },
+            "name" : "a1a_14dayspriortostart",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "timezoneruleversionnumber"
+            },
+            "name" : "timezoneruleversionnumber",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "modifiedon"
+            },
+            "name" : "modifiedon",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_owningbusinessunit_value"
+            },
+            "name" : "_owningbusinessunit_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_academicwithdrawaldate"
+            },
+            "name" : "a1a_academicwithdrawaldate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "overriddencreatedon"
+            },
+            "name" : "overriddencreatedon",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_name"
+            },
+            "name" : "a1a_name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_resultreleasedate"
+            },
+            "name" : "a1a_resultreleasedate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "statecode"
+            },
+            "name" : "statecode",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_a1a_coursetermid_value"
+            },
+            "name" : "_a1a_coursetermid_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "importsequencenumber"
+            },
+            "name" : "importsequencenumber",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_censusdate"
+            },
+            "name" : "a1a_censusdate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_owninguser_value"
+            },
+            "name" : "_owninguser_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_termid"
+            },
+            "name" : "a1a_termid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "createdon"
+            },
+            "name" : "createdon",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "_owningteam_value"
+            },
+            "name" : "_owningteam_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "versionnumber"
+            },
+            "name" : "versionnumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_modifiedby_value"
+            },
+            "name" : "_modifiedby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "utcconversiontimezonecode"
+            },
+            "name" : "utcconversiontimezonecode",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "statuscode"
+            },
+            "name" : "statuscode",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_odsuniqueid"
+            },
+            "name" : "a1a_odsuniqueid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_createdby_value"
+            },
+            "name" : "_createdby_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "a1a_termcode"
+            },
+            "name" : "a1a_termcode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "_ownerid_value"
+            },
+            "name" : "_ownerid_value",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Source_Data_Extract_Date"
+            },
+            "name" : "Source_Data_Extract_Date",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Row_Insert_Date"
+            },
+            "name" : "Row_Insert_Date",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "UUID"
+            },
+            "name" : "UUID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@28Tc3nb55yVeMReS6Kgns4",
+          "connectionName" : "GBQ_V2_RT_Working",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "gcsdataset/a1a_term_target",
+            "label" : "gcsdataset/a1a_term_target",
+            "path" : "gcsdataset/a1a_term_target",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "a1a_resultsduedate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_resultsduedate",
+                "nativeName" : "a1a_resultsduedate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_enddate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_enddate",
+                "nativeName" : "a1a_enddate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_lastdaytowithdraw",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_lastdaytowithdraw",
+                "nativeName" : "a1a_lastdaytowithdraw",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_startdate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_startdate",
+                "nativeName" : "a1a_startdate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_modifiedonbehalfby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_modifiedonbehalfby_value",
+                "nativeName" : "_modifiedonbehalfby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_createdonbehalfby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_createdonbehalfby_value",
+                "nativeName" : "_createdonbehalfby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_14dayspriortostart",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_14dayspriortostart",
+                "nativeName" : "a1a_14dayspriortostart",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "timezoneruleversionnumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "timezoneruleversionnumber",
+                "nativeName" : "timezoneruleversionnumber",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "modifiedon",
+                "fieldType" : "CONNECTOR",
+                "label" : "modifiedon",
+                "nativeName" : "modifiedon",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_owningbusinessunit_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_owningbusinessunit_value",
+                "nativeName" : "_owningbusinessunit_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_academicwithdrawaldate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_academicwithdrawaldate",
+                "nativeName" : "a1a_academicwithdrawaldate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "overriddencreatedon",
+                "fieldType" : "CONNECTOR",
+                "label" : "overriddencreatedon",
+                "nativeName" : "overriddencreatedon",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_name",
+                "nativeName" : "a1a_name",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_resultreleasedate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_resultreleasedate",
+                "nativeName" : "a1a_resultreleasedate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "statecode",
+                "fieldType" : "CONNECTOR",
+                "label" : "statecode",
+                "nativeName" : "statecode",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_a1a_coursetermid_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_a1a_coursetermid_value",
+                "nativeName" : "_a1a_coursetermid_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "importsequencenumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "importsequencenumber",
+                "nativeName" : "importsequencenumber",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_censusdate",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_censusdate",
+                "nativeName" : "a1a_censusdate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_owninguser_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_owninguser_value",
+                "nativeName" : "_owninguser_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_termid",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_termid",
+                "nativeName" : "a1a_termid",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "createdon",
+                "fieldType" : "CONNECTOR",
+                "label" : "createdon",
+                "nativeName" : "createdon",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_owningteam_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_owningteam_value",
+                "nativeName" : "_owningteam_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "versionnumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "versionnumber",
+                "nativeName" : "versionnumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_modifiedby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_modifiedby_value",
+                "nativeName" : "_modifiedby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "utcconversiontimezonecode",
+                "fieldType" : "CONNECTOR",
+                "label" : "utcconversiontimezonecode",
+                "nativeName" : "utcconversiontimezonecode",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "statuscode",
+                "fieldType" : "CONNECTOR",
+                "label" : "statuscode",
+                "nativeName" : "statuscode",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_odsuniqueid",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_odsuniqueid",
+                "nativeName" : "a1a_odsuniqueid",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_createdby_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_createdby_value",
+                "nativeName" : "_createdby_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "a1a_termcode",
+                "fieldType" : "CONNECTOR",
+                "label" : "a1a_termcode",
+                "nativeName" : "a1a_termcode",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "_ownerid_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "_ownerid_value",
+                "nativeName" : "_ownerid_value",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "Source_Data_Extract_Date",
+                "fieldType" : "CONNECTOR",
+                "label" : "Source_Data_Extract_Date",
+                "nativeName" : "Source_Data_Extract_Date",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "Row_Insert_Date",
+                "fieldType" : "CONNECTOR",
+                "label" : "Row_Insert_Date",
+                "nativeName" : "Row_Insert_Date",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              },
+              {
+                "name" : "UUID",
+                "fieldType" : "CONNECTOR",
+                "label" : "UUID",
+                "nativeName" : "UUID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "a1a_term_target"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "parent",
+                "value" : "gcsdataset"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false",
+            "tgtObjectAttributes" : [
+              {
+                "name" : "parent",
+                "value" : "gcsdataset"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:05 PDT"
+}

@@ -1,0 +1,1061 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "Congnizant_AzureSynapseUpdate_mapping",
+    "links" : [
+      {
+        "link" : "Source_FF -> add_flag"
+      },
+      {
+        "link" : "add_flag -> Router",
+        "groupLink" : "DefaultGroup -> INPUT"
+      },
+      {
+        "link" : "Router -> update",
+        "groupLink" : "UPDATE -> DefaultGroup"
+      },
+      {
+        "link" : "Router -> insert",
+        "groupLink" : "INSERT -> DefaultGroup"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-09-09T06:19:43.461Z",
+        "name" : "Source_FF",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Assct_ssrgt_ky"
+            },
+            "name" : "Assct_ssrgt_ky",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Assc_id"
+            },
+            "name" : "Assc_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FN"
+            },
+            "name" : "FN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MN"
+            },
+            "name" : "MN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LN"
+            },
+            "name" : "LN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "insrt_dtt"
+            },
+            "name" : "insrt_dtt",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "updt_dt"
+            },
+            "name" : "updt_dt",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@eSHSWsoIe8OerqjiP3liO3",
+          "connectionName" : "FlatFile_Vijay",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "azureUpdate.csv",
+            "label" : "azureUpdate.csv",
+            "objectName" : "azureUpdate.csv",
+            "path" : "azureUpdate.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Assct_ssrgt_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "Assct_ssrgt_ky",
+                "nativeName" : "Assct_ssrgt_ky",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "azureUpdate.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Assc_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Assc_id",
+                "nativeName" : "Assc_id",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "azureUpdate.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FN",
+                "fieldType" : "CONNECTOR",
+                "label" : "FN",
+                "nativeName" : "FN",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "azureUpdate.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MN",
+                "fieldType" : "CONNECTOR",
+                "label" : "MN",
+                "nativeName" : "MN",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "azureUpdate.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "LN",
+                "fieldType" : "CONNECTOR",
+                "label" : "LN",
+                "nativeName" : "LN",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "azureUpdate.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "insrt_dtt",
+                "fieldType" : "CONNECTOR",
+                "label" : "insrt_dtt",
+                "nativeName" : "insrt_dtt",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "azureUpdate.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "updt_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "updt_dt",
+                "nativeName" : "updt_dt",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "azureUpdate.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-09-09T06:19:43.461Z",
+        "name" : "update",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : [
+          "Assc_id"
+        ],
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "update_condition"
+            },
+            "name" : "update_condition",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Assct_ssrgt_ky"
+            },
+            "name" : "Assct_ssrgt_ky",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Assc_id"
+            },
+            "name" : "Assc_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FN"
+            },
+            "name" : "FN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MN"
+            },
+            "name" : "MN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LN"
+            },
+            "name" : "LN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "insrt_dtt"
+            },
+            "name" : "insrt_dtt",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "updt_dt"
+            },
+            "name" : "updt_dt",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@4oNlz1ydFKbiuJtENHNZQ7",
+          "connectionName" : "Azure synapse sql_vj",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "updateExampleCheck",
+            "label" : "updateExampleCheck",
+            "objectName" : "updateExampleCheck",
+            "path" : "updateExampleCheck",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "update_condition",
+                "fieldType" : "CONNECTOR",
+                "label" : "update_condition",
+                "nativeName" : "update_condition",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "Assct_ssrgt_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "Assct_ssrgt_ky",
+                "nativeName" : "Assct_ssrgt_ky",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "Assc_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Assc_id",
+                "nativeName" : "Assc_id",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "FN",
+                "fieldType" : "CONNECTOR",
+                "label" : "FN",
+                "nativeName" : "FN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "MN",
+                "fieldType" : "CONNECTOR",
+                "label" : "MN",
+                "nativeName" : "MN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "LN",
+                "fieldType" : "CONNECTOR",
+                "label" : "LN",
+                "nativeName" : "LN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "insrt_dtt",
+                "fieldType" : "CONNECTOR",
+                "label" : "insrt_dtt",
+                "nativeName" : "insrt_dtt",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "updt_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "updt_dt",
+                "nativeName" : "updt_dt",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Rowbased"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-09-15T15:35:39.145Z",
+        "name" : "add_flag",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "o_flag",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(ISNULL(Assct_ssrgt_ky),'INSERT','UPDATE')"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-09-15T15:36:09.194Z",
+        "name" : "Router",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "INPUT",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "DEFAULT1",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "INSERT",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "UPDATE",
+            "output" : "true"
+          }
+        ],
+        "groupFilterConditions" : [
+          {
+            "name" : "INSERT",
+            "simpleFilterConditions" : [
+              {
+                "fieldName" : "o_flag",
+                "filterValue" : "'INSERT'",
+                "operator" : "="
+              }
+            ]
+          },
+          {
+            "name" : "UPDATE",
+            "simpleFilterConditions" : [
+              {
+                "fieldName" : "o_flag",
+                "filterValue" : "'UPDATE'",
+                "operator" : "="
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-09-09T06:19:43.461Z",
+        "name" : "insert",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "update_condition"
+            },
+            "name" : "update_condition",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Assct_ssrgt_ky"
+            },
+            "name" : "Assct_ssrgt_ky",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Assc_id"
+            },
+            "name" : "Assc_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FN"
+            },
+            "name" : "FN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MN"
+            },
+            "name" : "MN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LN"
+            },
+            "name" : "LN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "insrt_dtt"
+            },
+            "name" : "insrt_dtt",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "updt_dt"
+            },
+            "name" : "updt_dt",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@4oNlz1ydFKbiuJtENHNZQ7",
+          "connectionName" : "Azure synapse sql_vj",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "updateExampleCheck",
+            "label" : "updateExampleCheck",
+            "objectName" : "updateExampleCheck",
+            "path" : "updateExampleCheck",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "update_condition",
+                "fieldType" : "CONNECTOR",
+                "label" : "update_condition",
+                "nativeName" : "update_condition",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "Assct_ssrgt_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "Assct_ssrgt_ky",
+                "nativeName" : "Assct_ssrgt_ky",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "Assc_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Assc_id",
+                "nativeName" : "Assc_id",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "FN",
+                "fieldType" : "CONNECTOR",
+                "label" : "FN",
+                "nativeName" : "FN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "MN",
+                "fieldType" : "CONNECTOR",
+                "label" : "MN",
+                "nativeName" : "MN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "LN",
+                "fieldType" : "CONNECTOR",
+                "label" : "LN",
+                "nativeName" : "LN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "insrt_dtt",
+                "fieldType" : "CONNECTOR",
+                "label" : "insrt_dtt",
+                "nativeName" : "insrt_dtt",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              },
+              {
+                "name" : "updt_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "updt_dt",
+                "nativeName" : "updt_dt",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "identityCol",
+                    "value" : "NVARCHAR"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "updateExampleCheck"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:02 PDT"
+}

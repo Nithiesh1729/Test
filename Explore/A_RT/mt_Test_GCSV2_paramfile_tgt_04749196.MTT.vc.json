@@ -1,0 +1,141 @@
+{
+  "name" : "mt_Test_GCSV2_paramfile_tgt_04749196",
+  "runtimeEnvironmentId" : "@7rGUkpqxviilEt1HC44BQ0",
+  "runtimeEnvironmentName" : "A_RT",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$src_FF$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "src_FF",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "src_FF"
+      },
+      "sourceConnectionId" : "@8lBeeRGOfGodNsItQ5BZoe",
+      "connectionName" : "Flatfile_A_RT",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "\"",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : true,
+        "firstDataRowAsHeader" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "tgt_employee.csv",
+          "label" : "tgt_employee.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "tgt_employee.csv",
+            "label" : "tgt_employee.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$tgt_GCSV2$",
+      "type" : "TARGET",
+      "label" : "tgt_GCSV2",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "objlabel" : "GCSV2TGT",
+        "objectParameterized" : "true",
+        "objectParamName" : "GCSV2TGT",
+        "objectParamType-mapping" : "DataObject",
+        "noCreateTarget" : "true",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "tgt_GCSV2"
+      },
+      "targetConnectionId" : "@68z2zWOini8lFNhy2owZ2p",
+      "connectionName" : "GCS_V2_NEW_RT",
+      "targetObject" : "gcs_storage/test_parquet",
+      "targetObjectLabel" : "test_parquet",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "gcs_storage/test_parquet",
+      "objectLabel" : "test_parquet",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "dataFormat" : {
+        "formatId" : "Parquet"
+      },
+      "runtimeParameterData" : {
+        "objectParameterName" : "GCSV2TGT",
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@0eHpE7ydJYbbyimat9mqW8",
+  "mappingTemplateName" : "m_Test_GCSV2_paramfile_tgt_04749196",
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : true,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "paramFileType" : "PARAM_FILE_LOCAL",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-04-23 04:07:07 PDT"
+}

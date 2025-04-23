@@ -1,0 +1,213 @@
+{
+  "name" : "MT_Cathay_04682842",
+  "runtimeEnvironmentId" : "@7rGUkpqxviilEt1HC44BQ0",
+  "runtimeEnvironmentName" : "A_RT",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$Source$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "Source",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "Source"
+      },
+      "sourceConnectionId" : "@7TkHADskeU4hJ10NZnQCMG",
+      "connectionName" : "Redshift_cathay_RT",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "spg123/src_dim_cus_partner",
+          "label" : "src_dim_cus_partner",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "spg123/src_dim_cus_partner",
+            "label" : "src_dim_cus_partner",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "fileList" : false,
+      "restmodernSource" : true
+    },
+    {
+      "name" : "$Target$",
+      "type" : "TARGET",
+      "label" : "Target",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "true",
+        "originalPath" : "Target"
+      },
+      "targetConnectionId" : "@8lBeeRGOfGodNsItQ5BZoe",
+      "connectionName" : "Flatfile_A_RT",
+      "targetObject" : "Cathay1.csv",
+      "targetObjectLabel" : "Cathay1.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "newObjectName" : "Cathay1.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "\"",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : true
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "Cathay1.csv",
+      "objectLabel" : "Cathay1.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "targetSchemaMode" : "DONT_APPLY_CHANGES",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "targetSchemaProviderType" : "SELECTED_OBJECT",
+      "fileList" : false,
+      "restmodernSource" : true
+    },
+    {
+      "name" : "$Lookup$",
+      "type" : "LOOKUP",
+      "label" : "Lookup",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "isCachedLookup" : "true",
+        "multipleMatchPolicy" : "Use Any Value",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "Lookup"
+      },
+      "lookupConnectionId" : "@7TkHADskeU4hJ10NZnQCMG",
+      "connectionName" : "Redshift_cathay_RT",
+      "lookupObject" : "DUMMY_Lookup",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Lookup Index Cache Size" : "AUTO",
+        "Optional" : "true",
+        "Lookup cache persistent" : "false",
+        "Lookup source is static" : "false",
+        "Update Dynamic Cache Condition" : "TRUE",
+        "Case Sensitive String Comparison" : "false",
+        "Re-cache from lookup source" : "false",
+        "Insert Else Update" : "false",
+        "Lookup caching enabled" : "true",
+        "Lookup Data Cache Size" : "AUTO",
+        "Tracing Level" : "Normal",
+        "Sorted Input" : "false",
+        "Lookup cache directory name" : "$PMCacheDir",
+        "Output Old Value On Update" : "false",
+        "Dynamic Lookup Cache" : "false",
+        "Pre-build lookup cache" : "AUTO"
+      },
+      "customQuery" : "SELECT spg123.dim_cus_partner.dim_cus_partner_sk as dim_cus_partner_sk,spg123.dim_cus_partner.partner_code as partner_code, \nspg123.dim_cus_partner.partner_establish_code as partner_establish_code,\nspg123.dim_cus_partner.partner_code||'_'||spg123.dim_cus_partner.partner_establish_code as po_number FROM spg123.dim_cus_partner",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_Lookup",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "fileList" : false,
+      "restmodernSource" : true
+    }
+  ],
+  "verbose" : false,
+  "lastRunTime" : 1731918073000,
+  "mappingId" : "@gxTL4R3444ObWEdqpFSP8g",
+  "mappingTemplateName" : "M_Cathay_04682842",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Pushdown Optimization Context",
+      "value" : "None"
+    },
+    {
+      "name" : "Pushdown Optimization Fallback Option",
+      "value" : "Partial PDO"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : true,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "paramFileType" : "PARAM_FILE_LOCAL",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-04-23 04:07:03 PDT"
+}

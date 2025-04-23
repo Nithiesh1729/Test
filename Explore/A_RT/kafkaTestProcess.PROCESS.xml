@@ -1,0 +1,90 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>lmkUgbcggaaaaa-gt-3309736-2025-04-08T12:00:00.179Z::pd.xml</types1:EntryId>
+      <types1:Name>kafkaTestProcess-1</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:invvijay02</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>VijayS</types1:CreatedBy>
+      <types1:CreationDate>2025-04-08T12:00:00Z</types1:CreationDate>
+      <types1:ModifiedBy>VijayS</types1:ModifiedBy>
+      <types1:ModificationDate>2025-04-09T06:34:27Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>VijayS</types1:PublishedBy>
+      <types1:PublicationDate>2025-04-09T06:34:32Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.kafkaTestProcess-1/kafkaTestProcess-1.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="jTW90qZk5s3jVQb0KdRDQy"
+                  displayName="kafkaTestProcess"
+                  name="kafkaTestProcess-1"
+                  overrideAPIName="false"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.agent:invvijay02</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="test" required="false" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">kafka-appConnection-vj:KafkaMessage</option>
+                     <option name="isCopy">true</option>
+                     <option name="required">false</option>
+                     <option name="guid">asibma71vWMiQ1Sja2deiF</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="output_temp" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="input_temp" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">testData</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>invvijay02</targetLocation>
+               <rest>
+                  <allowAnonymousAccess/>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+            </extData>
+            <flow id="n27053dca-29f4-4182-bbb2-9301513fbd26">
+               <start id="e4a3b803b-158e-49e1-9371-509656d5a56f">
+                  <link id="g2d3ed42b-e341-4c4c-baa1-30c40107d32c"
+                        targetId="a1jTW90qZk5s3jVQb0KdRDQy-end-pdf527b01-2db8-4ede-8dc0-4fd49afd361f"/>
+               </start>
+               <end id="a1jTW90qZk5s3jVQb0KdRDQy-end-pdf527b01-2db8-4ede-8dc0-4fd49afd361f">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>jTW90qZk5s3jVQb0KdRDQy</types1:GUID>
+      <types1:DisplayName>kafkaTestProcess</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:00.893Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,2671 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "name" : "m_STG_Markdown_GM3_ERP",
+    "links" : [
+      {
+        "link" : "src_header -> Expression"
+      },
+      {
+        "link" : "src_data -> Expression1"
+      },
+      {
+        "link" : "Expression -> Target_Header"
+      },
+      {
+        "link" : "Expression1 -> Target_Data"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "parINF_BATCHID",
+        "defaultValue" : {
+          "valueLiteral" : "30"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "parINF_SESS_NAME",
+        "defaultValue" : {
+          "valueLiteral" : "'GM3_MARKDOWN_MASTER'"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "parLAST_UPDATEBY",
+        "defaultValue" : {
+          "valueLiteral" : "'Sorawit'"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "parCREATE_BY",
+        "defaultValue" : {
+          "valueLiteral" : "'Sorawit'"
+        }
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2019-11-04T08:31:58.806Z",
+        "name" : "src_header",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "true",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "FIELD1"
+            },
+            "name" : "FIELD1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FIELD2"
+            },
+            "name" : "FIELD2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FIELD3"
+            },
+            "name" : "FIELD3",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FIELD4"
+            },
+            "name" : "FIELD4",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FIELD5"
+            },
+            "name" : "FIELD5",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FIELD6"
+            },
+            "name" : "FIELD6",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CurrentlyProcessedFileName"
+            },
+            "name" : "CurrentlyProcessedFileName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@bg1GC19Mm6NiZHFifvvysb",
+          "connectionName" : "CG_FENIX_INT030_Markdown_CON",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "HeaderMarkdown.csv",
+            "label" : "HeaderMarkdown.csv",
+            "path" : "HeaderMarkdown.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "FIELD1",
+                "fieldType" : "UNDEFINED",
+                "label" : "FIELD1",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "HeaderMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FIELD2",
+                "fieldType" : "UNDEFINED",
+                "label" : "FIELD2",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "HeaderMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FIELD3",
+                "fieldType" : "UNDEFINED",
+                "label" : "FIELD3",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "HeaderMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FIELD4",
+                "fieldType" : "UNDEFINED",
+                "label" : "FIELD4",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "HeaderMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FIELD5",
+                "fieldType" : "UNDEFINED",
+                "label" : "FIELD5",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "HeaderMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FIELD6",
+                "fieldType" : "UNDEFINED",
+                "label" : "FIELD6",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "HeaderMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "CurrentlyProcessedFileName",
+                "fieldType" : "UNDEFINED",
+                "label" : "CurrentlyProcessedFileName",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ";",
+              "firstDataRow" : 1,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 2147483647,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "none"
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2019-11-07T04:13:12.555Z",
+        "name" : "src_data",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "REC_TYPE"
+            },
+            "name" : "REC_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MARKDOWN_CD"
+            },
+            "name" : "MARKDOWN_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ORA_VENDOR_HEADER_CODE"
+            },
+            "name" : "ORA_VENDOR_HEADER_CODE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ORA_VENDOR_SITE"
+            },
+            "name" : "ORA_VENDOR_SITE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AREA_CD"
+            },
+            "name" : "AREA_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BRAND_CD"
+            },
+            "name" : "BRAND_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "STORE_ID"
+            },
+            "name" : "STORE_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "REF_CD"
+            },
+            "name" : "REF_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "REF_CD_DES"
+            },
+            "name" : "REF_CD_DES",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_CD"
+            },
+            "name" : "PROMOTION_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_CD_DESC"
+            },
+            "name" : "PROMOTION_CD_DESC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_START_DATE"
+            },
+            "name" : "PROMOTION_START_DATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_END_DATE"
+            },
+            "name" : "PROMOTION_END_DATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_PERCENTAGE"
+            },
+            "name" : "PROMOTION_PERCENTAGE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "QTY"
+            },
+            "name" : "QTY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PRICE_PER_UNIT"
+            },
+            "name" : "PRICE_PER_UNIT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DISCOUNT_AMT_PER_UNT"
+            },
+            "name" : "DISCOUNT_AMT_PER_UNT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PRICE_AFTER_DISCOUNT_PER_UNIT"
+            },
+            "name" : "PRICE_AFTER_DISCOUNT_PER_UNIT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TOTAL_DISCOUNT_AMT"
+            },
+            "name" : "TOTAL_DISCOUNT_AMT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INVOICE_DESC"
+            },
+            "name" : "INVOICE_DESC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TYPE_OF_PROMOTION_DISCOUNT"
+            },
+            "name" : "TYPE_OF_PROMOTION_DISCOUNT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@bg1GC19Mm6NiZHFifvvysb",
+          "connectionName" : "CG_FENIX_INT030_Markdown_CON",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "DataMarkdown.csv",
+            "label" : "DataMarkdown.csv",
+            "path" : "DataMarkdown.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "REC_TYPE",
+                "fieldType" : "UNDEFINED",
+                "label" : "REC_TYPE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MARKDOWN_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "MARKDOWN_CD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "ORA_VENDOR_HEADER_CODE",
+                "fieldType" : "UNDEFINED",
+                "label" : "ORA_VENDOR_HEADER_CODE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "ORA_VENDOR_SITE",
+                "fieldType" : "UNDEFINED",
+                "label" : "ORA_VENDOR_SITE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "AREA_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "AREA_CD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BRAND_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "BRAND_CD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "STORE_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "STORE_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "REF_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "REF_CD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "REF_CD_DES",
+                "fieldType" : "UNDEFINED",
+                "label" : "REF_CD_DES",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_CD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_CD_DESC",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_CD_DESC",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_START_DATE",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_START_DATE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_END_DATE",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_END_DATE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_PERCENTAGE",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_PERCENTAGE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "QTY",
+                "fieldType" : "UNDEFINED",
+                "label" : "QTY",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PRICE_PER_UNIT",
+                "fieldType" : "UNDEFINED",
+                "label" : "PRICE_PER_UNIT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "DISCOUNT_AMT_PER_UNT",
+                "fieldType" : "UNDEFINED",
+                "label" : "DISCOUNT_AMT_PER_UNT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PRICE_AFTER_DISCOUNT_PER_UNIT",
+                "fieldType" : "UNDEFINED",
+                "label" : "PRICE_AFTER_DISCOUNT_PER_UNIT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "TOTAL_DISCOUNT_AMT",
+                "fieldType" : "UNDEFINED",
+                "label" : "TOTAL_DISCOUNT_AMT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "INVOICE_DESC",
+                "fieldType" : "UNDEFINED",
+                "label" : "INVOICE_DESC",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "TYPE_OF_PROMOTION_DISCOUNT",
+                "fieldType" : "UNDEFINED",
+                "label" : "TYPE_OF_PROMOTION_DISCOUNT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "DataMarkdown.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ";",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "none"
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2019-11-07T04:15:33.021Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "INF_BATCH_ID",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 30,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parINF_BATCHID$"
+          },
+          {
+            "name" : "INF_SESS_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parINF_SESS_NAME$"
+          },
+          {
+            "name" : "LAST_UPDATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parLAST_UPDATEBY$"
+          },
+          {
+            "name" : "LAST_UPDATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "Systimestamp()"
+          },
+          {
+            "name" : "CREATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parCREATE_BY$"
+          },
+          {
+            "name" : "CREATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "Systimestamp()"
+          },
+          {
+            "name" : "DATE_PARKEY",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "trunc( Systimestamp() )"
+          },
+          {
+            "name" : "TimestampOut",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "Systimestamp()"
+          },
+          {
+            "name" : "OutFileName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "SUBSTR(CurrentlyProcessedFileName,INSTR(CurrentlyProcessedFileName,'\\')+1)"
+          }
+        ]
+      },
+      {
+        "createTime" : "2019-11-07T04:15:33.021Z",
+        "name" : "Expression1",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "fnINF_BATCH_ID",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 30,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parINF_BATCHID$"
+          },
+          {
+            "name" : "fnINF_SESS_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parINF_SESS_NAME$"
+          },
+          {
+            "name" : "fnLAST_UPDATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parLAST_UPDATEBY$"
+          },
+          {
+            "name" : "fnLAST_UPDATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "Systimestamp()"
+          },
+          {
+            "name" : "fnCREATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "$parCREATE_BY$"
+          },
+          {
+            "name" : "fnCREATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "Systimestamp()"
+          },
+          {
+            "name" : "fnDATE_PARKEY",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "trunc( Systimestamp() )"
+          },
+          {
+            "name" : "E_PROMOTION_END_DATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(MARKDOWN_CD='802',PROMOTION_END_DATE)"
+          },
+          {
+            "name" : "E_PROMOTION_PERCENTAGE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(MARKDOWN_CD='802',PROMOTION_PERCENTAGE)"
+          },
+          {
+            "name" : "E_QTY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 11,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(MARKDOWN_CD='802',QTY)"
+          },
+          {
+            "name" : "E_PRICE_PER_UNIT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 16,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(MARKDOWN_CD='802',PRICE_PER_UNIT)"
+          },
+          {
+            "name" : "E_DISCOUNT_AMT_PER_UNT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 16,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(MARKDOWN_CD='802',DISCOUNT_AMT_PER_UNT)"
+          },
+          {
+            "name" : "E_PRICE_ATER_DISCOUNT_PER_UNIT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 16,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(MARKDOWN_CD='802',PRICE_AFTER_DISCOUNT_PER_UNIT)"
+          }
+        ]
+      },
+      {
+        "createTime" : "2019-11-07T07:59:24.940Z",
+        "name" : "Target_Header",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "REC_TYPE"
+            },
+            "name" : "REC_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 2,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FILE_NAME"
+            },
+            "name" : "FILE_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FILE_DATE"
+            },
+            "name" : "FILE_DATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 28,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INV_DATE"
+            },
+            "name" : "INV_DATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 20,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CNT_REC"
+            },
+            "name" : "CNT_REC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 20,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INF_BATCH_ID"
+            },
+            "name" : "INF_BATCH_ID",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 38,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INF_SESS_NAME"
+            },
+            "name" : "INF_SESS_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CREATE_BY"
+            },
+            "name" : "CREATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CREATE_TS"
+            },
+            "name" : "CREATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "LAST_UPDATE_BY"
+            },
+            "name" : "LAST_UPDATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LAST_UPDATE_TS"
+            },
+            "name" : "LAST_UPDATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "DATE_PARKEY"
+            },
+            "name" : "DATE_PARKEY",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@dMG15AQZfAIjscJCSWuNGy",
+          "connectionName" : "MDW_UATFENIX_CON",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "Oracle",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "STG_MKD_GM3_ERP_CONTROL",
+            "label" : "STG_MKD_GM3_ERP_CONTROL",
+            "path" : "STG_MKD_GM3_ERP_CONTROL",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "REC_TYPE",
+                "fieldType" : "UNDEFINED",
+                "label" : "REC_TYPE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 2,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "FILE_NAME",
+                "fieldType" : "UNDEFINED",
+                "label" : "FILE_NAME",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 200,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "FILE_DATE",
+                "fieldType" : "UNDEFINED",
+                "label" : "FILE_DATE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 28,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "INV_DATE",
+                "fieldType" : "UNDEFINED",
+                "label" : "INV_DATE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 20,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "CNT_REC",
+                "fieldType" : "UNDEFINED",
+                "label" : "CNT_REC",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 20,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "INF_BATCH_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "INF_BATCH_ID",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 38,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "INF_SESS_NAME",
+                "fieldType" : "UNDEFINED",
+                "label" : "INF_SESS_NAME",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 200,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "CREATE_BY",
+                "fieldType" : "UNDEFINED",
+                "label" : "CREATE_BY",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "CREATE_TS",
+                "fieldType" : "UNDEFINED",
+                "label" : "CREATE_TS",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "LAST_UPDATE_BY",
+                "fieldType" : "UNDEFINED",
+                "label" : "LAST_UPDATE_BY",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "LAST_UPDATE_TS",
+                "fieldType" : "UNDEFINED",
+                "label" : "LAST_UPDATE_TS",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              },
+              {
+                "name" : "DATE_PARKEY",
+                "fieldType" : "UNDEFINED",
+                "label" : "DATE_PARKEY",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_CONTROL"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "FIELD1",
+              "toField" : {
+                "name" : "REC_TYPE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "FIELD2",
+              "toField" : {
+                "name" : "FILE_NAME"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "FIELD3",
+              "toField" : {
+                "name" : "FILE_DATE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "FIELD4",
+              "toField" : {
+                "name" : "INV_DATE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "FIELD5",
+              "toField" : {
+                "name" : "CNT_REC"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "INF_BATCH_ID",
+              "toField" : {
+                "name" : "INF_BATCH_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "INF_SESS_NAME",
+              "toField" : {
+                "name" : "INF_SESS_NAME"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "LAST_UPDATE_BY",
+              "toField" : {
+                "name" : "LAST_UPDATE_BY"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "LAST_UPDATE_TS",
+              "toField" : {
+                "name" : "LAST_UPDATE_TS"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "CREATE_BY",
+              "toField" : {
+                "name" : "CREATE_BY"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "CREATE_TS",
+              "toField" : {
+                "name" : "CREATE_TS"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "DATE_PARKEY",
+              "toField" : {
+                "name" : "DATE_PARKEY"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2019-11-07T08:11:57.061Z",
+        "name" : "Target_Data",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "REC_TYPE"
+            },
+            "name" : "REC_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 2,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MARKDOWN_CD"
+            },
+            "name" : "MARKDOWN_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 6,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ORA_VENDOR_HEADER_CODE"
+            },
+            "name" : "ORA_VENDOR_HEADER_CODE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 14,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ORA_VENDOR_SITE"
+            },
+            "name" : "ORA_VENDOR_SITE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 30,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AREA_CD"
+            },
+            "name" : "AREA_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 6,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BRAND_CD"
+            },
+            "name" : "BRAND_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 6,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "STORE_ID"
+            },
+            "name" : "STORE_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 8,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "REF_CD"
+            },
+            "name" : "REF_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 20,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "REF_CD_DES"
+            },
+            "name" : "REF_CD_DES",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 120,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_CD"
+            },
+            "name" : "PROMOTION_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 16,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_CD_DESC"
+            },
+            "name" : "PROMOTION_CD_DESC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 120,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_START_DATE"
+            },
+            "name" : "PROMOTION_START_DATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 20,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_END_DATE"
+            },
+            "name" : "PROMOTION_END_DATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 20,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PROMOTION_PERCENTAGE"
+            },
+            "name" : "PROMOTION_PERCENTAGE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 12,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "QTY"
+            },
+            "name" : "QTY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 26,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PRICE_PER_UNIT"
+            },
+            "name" : "PRICE_PER_UNIT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 34,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DISCOUNT_AMT_PER_UNT"
+            },
+            "name" : "DISCOUNT_AMT_PER_UNT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 34,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PRICE_AFTER_DISCOUNT_PER_UNIT"
+            },
+            "name" : "PRICE_AFTER_DISCOUNT_PER_UNIT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 34,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TOTAL_DISCOUNT_AMT"
+            },
+            "name" : "TOTAL_DISCOUNT_AMT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 34,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INVOICE_DESC"
+            },
+            "name" : "INVOICE_DESC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TYPE_OF_PROMOTION_DISCOUNT"
+            },
+            "name" : "TYPE_OF_PROMOTION_DISCOUNT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 2,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INF_BATCH_ID"
+            },
+            "name" : "INF_BATCH_ID",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 11,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INF_SESS_NAME"
+            },
+            "name" : "INF_SESS_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CREATE_BY"
+            },
+            "name" : "CREATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CREATE_TS"
+            },
+            "name" : "CREATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "LAST_UPDATE_BY"
+            },
+            "name" : "LAST_UPDATE_BY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LAST_UPDATE_TS"
+            },
+            "name" : "LAST_UPDATE_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "DATE_PARKEY"
+            },
+            "name" : "DATE_PARKEY",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@dMG15AQZfAIjscJCSWuNGy",
+          "connectionName" : "MDW_UATFENIX_CON",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "Oracle",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "STG_MKD_GM3_ERP_DETAIL",
+            "label" : "STG_MKD_GM3_ERP_DETAIL",
+            "path" : "STG_MKD_GM3_ERP_DETAIL",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "REC_TYPE",
+                "fieldType" : "UNDEFINED",
+                "label" : "REC_TYPE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 2,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "MARKDOWN_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "MARKDOWN_CD",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 6,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "ORA_VENDOR_HEADER_CODE",
+                "fieldType" : "UNDEFINED",
+                "label" : "ORA_VENDOR_HEADER_CODE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 14,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "ORA_VENDOR_SITE",
+                "fieldType" : "UNDEFINED",
+                "label" : "ORA_VENDOR_SITE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 30,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "AREA_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "AREA_CD",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 6,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "BRAND_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "BRAND_CD",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 6,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "STORE_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "STORE_ID",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 8,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "REF_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "REF_CD",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 20,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "REF_CD_DES",
+                "fieldType" : "UNDEFINED",
+                "label" : "REF_CD_DES",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 120,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_CD",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_CD",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_CD_DESC",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_CD_DESC",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 120,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_START_DATE",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_START_DATE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 20,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_END_DATE",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_END_DATE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 20,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "PROMOTION_PERCENTAGE",
+                "fieldType" : "UNDEFINED",
+                "label" : "PROMOTION_PERCENTAGE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "QTY",
+                "fieldType" : "UNDEFINED",
+                "label" : "QTY",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 26,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "PRICE_PER_UNIT",
+                "fieldType" : "UNDEFINED",
+                "label" : "PRICE_PER_UNIT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 34,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "DISCOUNT_AMT_PER_UNT",
+                "fieldType" : "UNDEFINED",
+                "label" : "DISCOUNT_AMT_PER_UNT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 34,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "PRICE_AFTER_DISCOUNT_PER_UNIT",
+                "fieldType" : "UNDEFINED",
+                "label" : "PRICE_AFTER_DISCOUNT_PER_UNIT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 34,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "TOTAL_DISCOUNT_AMT",
+                "fieldType" : "UNDEFINED",
+                "label" : "TOTAL_DISCOUNT_AMT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 34,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "INVOICE_DESC",
+                "fieldType" : "UNDEFINED",
+                "label" : "INVOICE_DESC",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 200,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "TYPE_OF_PROMOTION_DISCOUNT",
+                "fieldType" : "UNDEFINED",
+                "label" : "TYPE_OF_PROMOTION_DISCOUNT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 2,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "INF_BATCH_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "INF_BATCH_ID",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 11,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "INF_SESS_NAME",
+                "fieldType" : "UNDEFINED",
+                "label" : "INF_SESS_NAME",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 200,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "CREATE_BY",
+                "fieldType" : "UNDEFINED",
+                "label" : "CREATE_BY",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "CREATE_TS",
+                "fieldType" : "UNDEFINED",
+                "label" : "CREATE_TS",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "LAST_UPDATE_BY",
+                "fieldType" : "UNDEFINED",
+                "label" : "LAST_UPDATE_BY",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "LAST_UPDATE_TS",
+                "fieldType" : "UNDEFINED",
+                "label" : "LAST_UPDATE_TS",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              },
+              {
+                "name" : "DATE_PARKEY",
+                "fieldType" : "UNDEFINED",
+                "label" : "DATE_PARKEY",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "STG_MKD_GM3_ERP_DETAIL"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "REC_TYPE",
+              "toField" : {
+                "name" : "REC_TYPE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "MARKDOWN_CD",
+              "toField" : {
+                "name" : "MARKDOWN_CD"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "ORA_VENDOR_HEADER_CODE",
+              "toField" : {
+                "name" : "ORA_VENDOR_HEADER_CODE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "ORA_VENDOR_SITE",
+              "toField" : {
+                "name" : "ORA_VENDOR_SITE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "AREA_CD",
+              "toField" : {
+                "name" : "AREA_CD"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BRAND_CD",
+              "toField" : {
+                "name" : "BRAND_CD"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "STORE_ID",
+              "toField" : {
+                "name" : "STORE_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "REF_CD",
+              "toField" : {
+                "name" : "REF_CD"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "REF_CD_DES",
+              "toField" : {
+                "name" : "REF_CD_DES"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "PROMOTION_CD",
+              "toField" : {
+                "name" : "PROMOTION_CD"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "PROMOTION_CD_DESC",
+              "toField" : {
+                "name" : "PROMOTION_CD_DESC"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "PROMOTION_START_DATE",
+              "toField" : {
+                "name" : "PROMOTION_START_DATE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "PROMOTION_END_DATE",
+              "toField" : {
+                "name" : "PROMOTION_END_DATE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "PROMOTION_PERCENTAGE",
+              "toField" : {
+                "name" : "PROMOTION_PERCENTAGE"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "QTY",
+              "toField" : {
+                "name" : "QTY"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "PRICE_PER_UNIT",
+              "toField" : {
+                "name" : "PRICE_PER_UNIT"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "DISCOUNT_AMT_PER_UNT",
+              "toField" : {
+                "name" : "DISCOUNT_AMT_PER_UNT"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "PRICE_AFTER_DISCOUNT_PER_UNIT",
+              "toField" : {
+                "name" : "PRICE_AFTER_DISCOUNT_PER_UNIT"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "TOTAL_DISCOUNT_AMT",
+              "toField" : {
+                "name" : "TOTAL_DISCOUNT_AMT"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "INVOICE_DESC",
+              "toField" : {
+                "name" : "INVOICE_DESC"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "TYPE_OF_PROMOTION_DISCOUNT",
+              "toField" : {
+                "name" : "TYPE_OF_PROMOTION_DISCOUNT"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "fnINF_BATCH_ID",
+              "toField" : {
+                "name" : "INF_BATCH_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "fnINF_SESS_NAME",
+              "toField" : {
+                "name" : "INF_SESS_NAME"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "fnCREATE_BY",
+              "toField" : {
+                "name" : "CREATE_BY"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "fnCREATE_TS",
+              "toField" : {
+                "name" : "CREATE_TS"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "fnLAST_UPDATE_BY",
+              "toField" : {
+                "name" : "LAST_UPDATE_BY"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "fnLAST_UPDATE_TS",
+              "toField" : {
+                "name" : "LAST_UPDATE_TS"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "fnDATE_PARKEY",
+              "toField" : {
+                "name" : "DATE_PARKEY"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:05 PDT"
+}

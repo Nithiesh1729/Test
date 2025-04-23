@@ -1,0 +1,88 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>6xtjqbdpIO3M4Ww-gt-281665-2024-04-17T04:42:45.929Z::pd.xml</types1:EntryId>
+      <types1:Name>prc_Sample_IntegrationOps</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>Resh_APSE_Suborg</types1:CreatedBy>
+      <types1:CreationDate>2024-04-17T04:42:46Z</types1:CreationDate>
+      <types1:ModifiedBy>Resh_APSE_Suborg</types1:ModifiedBy>
+      <types1:ModificationDate>2024-04-19T12:34:15Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>Resh_APSE_Suborg</types1:PublishedBy>
+      <types1:PublicationDate>2024-04-19T12:34:19Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.prc_Sample_IntegrationOps/prc_Sample_IntegrationOps.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="prc_Sample_IntegrationOps"
+                  name="prc_Sample_IntegrationOps"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="testOUT" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">A</option>
+                  </options>
+               </field>
+               <field description="" name="testOUT1" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">B</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="Temp" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lv3bsyt4" targetId="lv3bsyt3"/>
+               </start>
+               <assignment id="lv3bsyt3">
+                  <title>Assignment to Temp</title>
+                  <operation source="constant" to="temp.Temp">{$output.testOUT}</operation>
+                  <link id="lv3bsyt5" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>f22258dc-f3ea-42ca-abe7-81d808f0cddd</ns1:Id>
+               <ns1:Name>test</ns1:Name>
+               <ns1:CreatedBy>Resh_APSE_Suborg</ns1:CreatedBy>
+               <ns1:CreationDate>2024-04-17T05:24:58Z</ns1:CreationDate>
+               <ns1:ModifiedBy>Resh_APSE_Suborg</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-04-17T05:24:58Z</ns1:ModificationDate>
+               <ns1:Data format="json">{}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>9ovQznMBT7Nkav031kny4c</types1:GUID>
+      <types1:DisplayName>prc_Sample_IntegrationOps</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:04.806Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,446 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_WDP_Appriss_POS_Trans_Get_StartDate",
+    "links" : [
+      {
+        "link" : "Expression -> tgt_Dummy"
+      },
+      {
+        "link" : "Source -> Expression"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-05-10T00:30:17.102Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Col1"
+            },
+            "name" : "Col1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Col2"
+            },
+            "name" : "Col2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Dummy2.txt",
+            "label" : "Dummy2.txt",
+            "objectName" : "Dummy2.txt",
+            "path" : "Dummy2.txt",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Col1",
+                "fieldType" : "CONNECTOR",
+                "label" : "Col1",
+                "nativeName" : "Col1",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Dummy2.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "Col2",
+                "fieldType" : "CONNECTOR",
+                "label" : "Col2",
+                "nativeName" : "Col2",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Dummy2.txt"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-05-10T00:30:17.102Z",
+        "name" : "tgt_Dummy",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "Dummy.txt",
+            "label" : "Dummy.txt",
+            "path" : "Dummy.txt",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-05-10T00:34:58.399Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "v_Date_Suffix",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "to_char(SESSSTARTTIME,'YYYYMMDD_HH24MI')"
+          },
+          {
+            "name" : "v_POS_Filename",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "$$POS_File_Prefix||v_Date_Suffix||'.csv'"
+          },
+          {
+            "name" : "o_POS_Filaname",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "v_POS_Filename"
+          },
+          {
+            "name" : "o_POS_Filename_Setvariable",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "SetVariable($$POS_FileName, v_POS_Filename)"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      }
+    ],
+    "variables" : [
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "io_StartDate",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "in_StartDate",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "io_Date_1",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 15,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "io_Date_2",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 15,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "io_Date_3",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 15,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "io_conn_FlatFileTarget_POS",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "conn_FlatFileTarget_POS",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "encr_key",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "records_to_Split",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "Filespath",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "POS_File_Prefix",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "POS_FileName",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "Filename_Test",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:01 PDT"
+}

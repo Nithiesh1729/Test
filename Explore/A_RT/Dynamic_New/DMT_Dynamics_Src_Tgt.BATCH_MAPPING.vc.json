@@ -1,0 +1,92 @@
+{
+  "name" : "DMT_Dynamics_Src_Tgt",
+  "state" : "VALID",
+  "mappingId" : "012CRY1700000000001Z",
+  "mappingTemplateName" : "MT_Dynamic_Src_Tgt",
+  "mappingDocType" : "MAPPING",
+  "runtimeEnvironmentId" : "012CRY25000000000003",
+  "runtimeEnvironmentName" : "A_RT",
+  "params" : [
+    {
+      "uniqueName" : "src_table:p_source",
+      "name" : "p_source",
+      "txName" : "src_table",
+      "type" : "SOURCE_OBJECT",
+      "scope" : "LOCAL"
+    },
+    {
+      "uniqueName" : "Target:p_target_table",
+      "name" : "p_target_table",
+      "txName" : "Target",
+      "type" : "TARGET_OBJECT",
+      "scope" : "LOCAL"
+    },
+    {
+      "uniqueName" : "p_change_col_name",
+      "name" : "p_change_col_name",
+      "type" : "STRING",
+      "scope" : "LOCAL",
+      "label" : "p_change_col_name"
+    },
+    {
+      "uniqueName" : "p_last_run_date",
+      "name" : "p_last_run_date",
+      "type" : "INOUT_STRING",
+      "scope" : "LOCAL"
+    }
+  ],
+  "groups" : [
+    {
+      "groupName" : "Group_1",
+      "enabled" : true
+    }
+  ],
+  "jobs" : [
+    {
+      "jobName" : "Job_1",
+      "jobType" : "USER",
+      "enabled" : true,
+      "stopOnError" : false,
+      "stopOnWarning" : false,
+      "jobParamBindings" : [
+        {
+          "type" : "Source",
+          "paramDefn" : "src_table:p_source",
+          "handleSpecialChars" : false,
+          "sourceObject" : {
+            "name" : "gcsdataset/a1a_term",
+            "label" : "a1a_term",
+            "metadataUpdated" : false
+          },
+          "isFileList" : false,
+          "currentlyProcessedFileName" : false
+        },
+        {
+          "type" : "Target",
+          "paramDefn" : "Target:p_target_table",
+          "handleSpecialChars" : false,
+          "objectName" : "tgt_GBQ_DMT.csv",
+          "objectLabel" : "tgt_GBQ_DMT.csv",
+          "truncateTarget" : false,
+          "bulkApiDBTarget" : false,
+          "dynamicFileName" : false,
+          "targetSchemaMode" : "DONT_APPLY_CHANGES"
+        },
+        {
+          "type" : "String",
+          "paramDefn" : "p_change_col_name",
+          "text" : "modifiedon"
+        },
+        {
+          "type" : "INOUT",
+          "paramDefn" : "p_last_run_date",
+          "retentionPolicy" : "ON_SUCCESS",
+          "aggregationType" : "MAX",
+          "currentValue" : "2024-03-04 05:00:00.000"
+        }
+      ],
+      "group" : "Group_1"
+    }
+  ],
+  "vcsExportTime" : "2025-04-23 04:07:08 PDT"
+}

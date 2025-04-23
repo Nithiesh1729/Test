@@ -1,0 +1,257 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>IzoSxCS7FdpOfTR-gt-22250119-2024-07-22T06:53:27.551Z::tf.xml</types1:EntryId>
+      <types1:Name>Taskflow3</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>Resh_APSE_Suborg</types1:CreatedBy>
+      <types1:CreationDate>2024-07-22T06:53:28Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="Taskflow3"
+                   name="Taskflow3"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="Data Task 1" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:fetch-env-variable-MTT-lOb8kMCSUwYd7rONfry2Ak</option>
+                  </options>
+               </field>
+               <field description="" name="error table" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:ErrorLOG-delimiter-MTT-2T1BKziDo7jfBVR9ESrEeC</option>
+                  </options>
+               </field>
+               <field description="" name="Sucess table" type="string"/>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lywml7rr" targetId="lywml7se"/>
+               </start>
+               <eventContainer id="lywml7se">
+                  <service id="lywml7rq">
+                     <title>Data Task 1</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">fetch_env_variable_MTT</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">lOb8kMCSUwYd7rONfry2Ak</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="fetch-env-variable-MTT-lOb8kMCSUwYd7rONfry2Ak">temp.Data Task 1</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.Data Task 1/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Task_Id">Task Id</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Task_Status">Task Status</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.Data Task 1/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Error_Message">Error Message</operation>
+                        <operation source="field" to="temp.Data Task 1/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field" to="temp.Data Task 1/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <flow id="lywml7tm">
+                     <eventContainer id="lywml7ug">
+                        <service id="lywml7ub">
+                           <title>Sucess table</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput/>
+                           <serviceOutput/>
+                        </service>
+                        <events>
+                           <catch faultField="temp.Sucess table/fault"
+                                  id="lywml7ue"
+                                  interrupting="true"
+                                  name="error">
+                              <suspend/>
+                           </catch>
+                           <catch faultField="temp.Sucess table/fault"
+                                  id="lywml7uf"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="lywml7tn" targetId="lywml7se" type="containerLink"/>
+                  </flow>
+                  <flow id="lywml7tp">
+                     <eventContainer id="lywml7uk">
+                        <service id="lywml7u0">
+                           <title>error table</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">ErrorLOG_delimiter_MTT</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">2T1BKziDo7jfBVR9ESrEeC</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="ErrorLOG-delimiter-MTT-2T1BKziDo7jfBVR9ESrEeC">temp.error table</operation>
+                                 <operation source="formula"
+                                            to="ErrorLOG-delimiter-MTT-2T1BKziDo7jfBVR9ESrEeC/inout[1]/ERRORMSG">
+                                    <expression language="XQuery">$temp.DataTask1[1]/output[1]/Error_Message </expression>
+                                 </operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.error table/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.error table/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.error table/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.error table/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.error table/output/Task_Status">Task Status</operation>
+                              <operation source="field" to="temp.error table/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field" to="temp.error table/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field" to="temp.error table/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field" to="temp.error table/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.error table/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.error table/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.error table/output/Error_Message">Error Message</operation>
+                              <operation source="field" to="temp.error table/output/TotalTransErrors">Total Transformation Errors</operation>
+                              <operation source="field" to="temp.error table/output/FirstErrorCode">First Error Code</operation>
+                              <operation source="field" to="temp.error table/inout/emp_lastname_param">emp_lastname_param</operation>
+                              <operation source="field" to="temp.error table/inout/ERRORMSG">ERRORMSG</operation>
+                           </serviceOutput>
+                        </service>
+                        <link id="lywml7u7" targetId="lywml7u6"/>
+                        <events>
+                           <catch faultField="temp.error table/fault"
+                                  id="lywml7ui"
+                                  interrupting="true"
+                                  name="error">
+                              <suspend/>
+                           </catch>
+                           <catch faultField="temp.error table/fault"
+                                  id="lywml7uj"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <end id="lywml7u6">
+                        <title>End 1</title>
+                     </end>
+                  </flow>
+                  <link id="lywml7tl" targetId="lywml7tm" type="containerLink"/>
+                  <link id="lywml7tt" targetId="c"/>
+                  <events>
+                     <catch faultField="temp.Data Task 1/fault"
+                            id="lywml7sc"
+                            interrupting="true"
+                            name="error">
+                        <link id="lywml7to" targetId="lywml7tp" type="containerLink"/>
+                     </catch>
+                     <catch faultField="temp.Data Task 1/fault"
+                            id="lywml7sd"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="fetch-env-variable-MTT-lOb8kMCSUwYd7rONfry2Ak"
+                              isByCopy="true"
+                              name="fetch-env-variable-MTT-lOb8kMCSUwYd7rONfry2Ak">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="ErrorLOG-delimiter-MTT-2T1BKziDo7jfBVR9ESrEeC"
+                              isByCopy="true"
+                              name="ErrorLOG-delimiter-MTT-2T1BKziDo7jfBVR9ESrEeC">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>f6Z4lky5PyIihBnZeAFIEY</types1:GUID>
+      <types1:DisplayName>Taskflow3</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:00.853Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

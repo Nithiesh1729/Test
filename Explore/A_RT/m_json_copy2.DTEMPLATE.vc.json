@@ -1,0 +1,378 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_json_copy2",
+    "links" : [
+      {
+        "link" : "Source -> Target"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "test_parameter"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-10-22T11:17:11.430Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "EMPLOYEEID"
+            },
+            "name" : "EMPLOYEEID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FIRSTNAME"
+            },
+            "name" : "FIRSTNAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LASTNAME"
+            },
+            "name" : "LASTNAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DEPARTMENT"
+            },
+            "name" : "DEPARTMENT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SALARY"
+            },
+            "name" : "SALARY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "tgt_employee.csv",
+            "label" : "tgt_employee.csv",
+            "objectName" : "tgt_employee.csv",
+            "path" : "tgt_employee.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "EMPLOYEEID",
+                "fieldType" : "CONNECTOR",
+                "label" : "EMPLOYEEID",
+                "nativeName" : "EMPLOYEEID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "tgt_employee.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FIRSTNAME",
+                "fieldType" : "CONNECTOR",
+                "label" : "FIRSTNAME",
+                "nativeName" : "FIRSTNAME",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "tgt_employee.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "LASTNAME",
+                "fieldType" : "CONNECTOR",
+                "label" : "LASTNAME",
+                "nativeName" : "LASTNAME",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "tgt_employee.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "DEPARTMENT",
+                "fieldType" : "CONNECTOR",
+                "label" : "DEPARTMENT",
+                "nativeName" : "DEPARTMENT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "tgt_employee.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "SALARY",
+                "fieldType" : "CONNECTOR",
+                "label" : "SALARY",
+                "nativeName" : "SALARY",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "tgt_employee.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-10-22T11:17:11.433Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@68z2zWOini8lFNhy2owZ2p",
+          "connectionName" : "GCS_V2_NEW_RT",
+          "excludeDynamicFileNameField" : "false",
+          "object$" : {
+            "name" : "test_parameter"
+          },
+          "objectType" : "PARAMETERIZED",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "dataFormat" : {
+            "formatId" : "Flat",
+            "validateHSchema" : "false",
+            "attributes" : [
+              {
+                "name" : "delimiter",
+                "value" : ","
+              },
+              {
+                "name" : "escapeChar",
+                "value" : "\\"
+              },
+              {
+                "name" : "qualifier",
+                "value" : "\""
+              },
+              {
+                "name" : "qualifierMode",
+                "value" : "MINIMAL"
+              },
+              {
+                "name" : "disableEscapeChar",
+                "value" : "true"
+              },
+              {
+                "name" : "codePage",
+                "value" : "UTF-8"
+              },
+              {
+                "name" : "headerLineNumber",
+                "value" : "1"
+              },
+              {
+                "name" : "firstDataRow",
+                "value" : "2"
+              },
+              {
+                "name" : "targetHeader",
+                "value" : "With Header"
+              },
+              {
+                "name" : "importColumnFromFirstLine",
+                "value" : "true"
+              },
+              {
+                "name" : "generateHeader",
+                "value" : "true"
+              },
+              {
+                "name" : "fixedWidthMode",
+                "value" : "false"
+              },
+              {
+                "name" : "maxRowsToPreview",
+                "value" : "0"
+              }
+            ]
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "Encryption Type",
+                "value" : "None"
+              },
+              {
+                "name" : "Compression Format",
+                "value" : "None"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false",
+            "tgtObjectAttributes" : [
+              {
+                "name" : "parent",
+                "value" : "roshn_raw_layer"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:03 PDT"
+}

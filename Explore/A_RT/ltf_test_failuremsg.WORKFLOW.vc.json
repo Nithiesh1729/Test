@@ -1,0 +1,27 @@
+{
+  "name" : "ltf_test_failuremsg",
+  "tasks" : [
+    {
+      "taskId" : "@4wJRB0UgeSBeWYe6I5WCAY",
+      "type" : "MTT",
+      "name" : "mt_Logging_AzureEventHub_offset",
+      "stopOnError" : false,
+      "stopOnWarning" : false
+    },
+    {
+      "taskId" : "@9DCN772Nv2XbpFzXQiV84L",
+      "type" : "MTT",
+      "name" : "mt_GCSV2_Optimize_Object_Metadata_Import",
+      "stopOnError" : false,
+      "stopOnWarning" : false
+    },
+    {
+      "taskId" : "@07qbcQJTLoBie5dF3xZLS5",
+      "type" : "MTT",
+      "name" : "Repro_SQL_GBQ_Decimal_mappingTask",
+      "stopOnError" : false,
+      "stopOnWarning" : false
+    }
+  ],
+  "vcsExportTime" : "2025-04-23 04:07:12 PDT"
+}

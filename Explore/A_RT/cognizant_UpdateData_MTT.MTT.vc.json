@@ -1,0 +1,185 @@
+{
+  "name" : "cognizant_UpdateData_MTT",
+  "runtimeEnvironmentId" : "@7rGUkpqxviilEt1HC44BQ0",
+  "runtimeEnvironmentName" : "A_RT",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$Source_FF$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "Source_FF",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "Source_FF"
+      },
+      "sourceConnectionId" : "@eSHSWsoIe8OerqjiP3liO3",
+      "connectionName" : "FlatFile_Vijay",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "\"",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : true,
+        "firstDataRowAsHeader" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "azureUpdate.csv",
+          "label" : "azureUpdate.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "azureUpdate.csv",
+            "label" : "azureUpdate.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$insert$",
+      "type" : "TARGET",
+      "label" : "insert",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "true",
+        "originalPath" : "insert"
+      },
+      "targetConnectionId" : "@4oNlz1ydFKbiuJtENHNZQ7",
+      "connectionName" : "Azure synapse sql_vj",
+      "targetObject" : "updateExampleCheck",
+      "targetObjectLabel" : "updateExampleCheck",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "updateExampleCheck",
+      "objectLabel" : "updateExampleCheck",
+      "useExactSrcNames" : false,
+      "userUpdated" : false,
+      "unspecified" : true,
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$update$",
+      "type" : "TARGET",
+      "label" : "update",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "defaultTargetUpdateColumns" : "Assc_id",
+        "supportApplyDDLChanges" : "true",
+        "originalPath" : "update"
+      },
+      "targetConnectionId" : "@4oNlz1ydFKbiuJtENHNZQ7",
+      "connectionName" : "Azure synapse sql_vj",
+      "targetObject" : "updateExampleCheck",
+      "targetObjectLabel" : "updateExampleCheck",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "Assc_id"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "updateExampleCheck",
+      "objectLabel" : "updateExampleCheck",
+      "useExactSrcNames" : false,
+      "userUpdated" : false,
+      "unspecified" : true,
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    }
+  ],
+  "verbose" : true,
+  "lastRunTime" : 1726418195000,
+  "mappingId" : "@e7zRLtSiQwXfW6W7bd98kS",
+  "mappingTemplateName" : "Congnizant_AzureSynapseUpdate_mapping",
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : true,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "paramFileType" : "PARAM_FILE_LOCAL",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-04-23 04:07:06 PDT"
+}

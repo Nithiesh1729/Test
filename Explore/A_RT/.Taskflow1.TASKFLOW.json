@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "bbvA6E9qQI5kDZn7Sfk9El",
+    "name" : "Taskflow1",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "6uZ5Hhwq9bdsreK-gt-14982261-2024-03-18T08:58:54.934Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-04-23T11:07:13.013Z",
+  "objectRefs" : [ {
+    "id" : "0vnH82mZR64eRZWrauUwOY",
+    "name" : "prc_app_conn_from_swagger_file",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "sm8lnCmp6oIuQaa-gt-3739456-2024-02-29T08:35:39.303Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/A_RT_CAI"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

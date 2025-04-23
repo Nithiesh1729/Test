@@ -1,0 +1,1312 @@
+{
+  "content" : {
+    "description" : "Data source from HR SAP",
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_ea_emp",
+    "links" : [
+      {
+        "link" : "Source -> Expression"
+      },
+      {
+        "link" : "Router -> TargetValid",
+        "groupLink" : "Valid -> DefaultGroup"
+      },
+      {
+        "link" : "Router -> TargetInvalid",
+        "groupLink" : "Invalid -> DefaultGroup"
+      },
+      {
+        "link" : "InvalidFlag -> Router",
+        "groupLink" : "DefaultGroup -> INPUT"
+      },
+      {
+        "link" : "Expression -> InvalidFlag"
+      },
+      {
+        "link" : "AssignParameter -> TargetDummy"
+      },
+      {
+        "link" : "Aggregator -> AssignParameter"
+      },
+      {
+        "link" : "Router -> Aggregator",
+        "groupLink" : "All -> DefaultGroup"
+      }
+    ],
+    "transformations" : [
+      {
+        "description" : "Data source from HR SAP",
+        "createTime" : "2024-04-05T08:31:57.832Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "employee_no"
+            },
+            "name" : "employee_no",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "surname"
+            },
+            "name" : "surname",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "given_name"
+            },
+            "name" : "given_name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "alias_name"
+            },
+            "name" : "alias_name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "preferred_name"
+            },
+            "name" : "preferred_name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "store_no"
+            },
+            "name" : "store_no",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 8,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "dept_code"
+            },
+            "name" : "dept_code",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "job_code"
+            },
+            "name" : "job_code",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "employee_group"
+            },
+            "name" : "employee_group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "job_grade"
+            },
+            "name" : "job_grade",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "job_title"
+            },
+            "name" : "job_title",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "email_business"
+            },
+            "name" : "email_business",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "email_personal"
+            },
+            "name" : "email_personal",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "phone_mobile_country_code"
+            },
+            "name" : "phone_mobile_country_code",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "phone_mobile"
+            },
+            "name" : "phone_mobile",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "termination_date"
+            },
+            "name" : "termination_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 30,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "company_join_date"
+            },
+            "name" : "company_join_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 30,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "date_of_birth"
+            },
+            "name" : "date_of_birth",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "emp_uq"
+            },
+            "name" : "emp_uq",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "bemail_uq"
+            },
+            "name" : "bemail_uq",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "pemail_uq"
+            },
+            "name" : "pemail_uq",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "mobile_uq"
+            },
+            "name" : "mobile_uq",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@0QBz4VFXOwUeUMezuXY6wA",
+          "connectionName" : "SQL_Server_vj",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "SqlServer",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "customQuery" : "with core as (\nselect userid,\n    ID_Last_Name,\n    ID_First_Name,\n    alias,\n    preferred_name,\n    store,\n    -- (case \n    --   when department = '9517' then '9501' \n    --   when department = '9519' then '9504' \n    -- else department\n    -- end) \n    -- as \n    department,\n    job_level as job_code,\n    employee_group,\n    job_level as job_grade,\n    job_title,\n    (case \n      when employee_group = 'Office' and emailaddress like '%hk.mcd.com' then emailaddress\n      when department not in ('9517') and emailaddress like '%hk.mcd.com' then emailaddress \n      when department = '9517' and job_level = 'GE-MKT' and employee_group = 'SMT' then emailaddress \n      when department = '9517' and job_level = 'MC-MKT' and employee_group = 'SMT' then emailaddress \n      end) as email_business,\n    '' as email_personal,\n    phone_country_region_code,\n    phonenumber,\n    last_employment_date as termination_date,\n    original_start_date as company_join_date,\n    date_of_birth_mmdd\nFROM M_HR_Personal\nWHERE snapshotdate = '$$p_date'\nand EndDate >= '$$p_date'\nand (last_employment_date >= '$$p_date' or last_employment_date is null)\nand department is not null\n\nUNION ALL\n\nselect *\nfrom M_McClub_RegionalStaff\n)\n,emp_uq as (\n  select userid,\n    count(1) as cn\n  from core\n  group by userid\n  having count(1) > 1\n)\n,bemail_uq as (\n  select email_business,\n    count(1) as cn\n  from core\n  where email_business is not null and trim(email_business) <> ''\n  group by email_business\n  having count(1) > 1\n)\n,pemail_uq as (\n  select email_personal,\n    count(1) as cn\n  from core\n  where email_personal is not null and trim(email_personal) <> ''\n  group by email_personal\n  having count(1) > 1\n)\n,mobile_uq as (\n  select phonenumber,\n    count(1) as cn\n  from core\n  where phonenumber is not null\n    and trim(phonenumber) <> ''\n  group by phonenumber\n  having count(1) > 1\n)\nselect \n    a.userid AS employee_no,\n    ID_Last_Name AS surname,\n    ID_First_Name as given_name,\n    Alias AS alias_name,\n    preferred_name,\n    RIGHT('000000' + Store, 4) as store_no,\n    Department AS dept_code,\n    job_code,\n    employee_group,\n    job_grade,\n    job_title,\n    (case when a.email_business like     '%@hk.mcd.com' then lower(a.email_business) else null end) as email_business,\n    a.email_personal,\n    phone_country_region_code as phone_mobile_country_code,\n    a.phonenumber as phone_mobile,\n    CONVERT(varchar, termination_date, 120) AS termination_date,\n    CONVERT(varchar, company_join_date, 120) AS company_join_date,\n    date_of_birth_mmdd as date_of_birth\n    , (case\n      when b.userid is not null then 0\n      else 1\n    end) as emp_uq\n    , (case\n      when c.email_business is not null then 0\n      else 1\n    end) as bemail_uq\n    , (case\n      when d.email_personal is not null then 0\n      else 1\n    end) as pemail_uq\n    , (case\n      when e.phonenumber is not null then 0\n      else 1\n    end) as mobile_uq\nfrom core a\n  left join emp_uq b on a.userid = b.userid\n  left join bemail_uq c on a.email_business = c.email_business\n  left join pemail_uq d on a.email_personal = d.email_personal\n  left join mobile_uq e on a.phonenumber = e.phonenumber",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "employee_no",
+                "fieldType" : "CONNECTOR",
+                "label" : "employee_no",
+                "nativeName" : "employee_no",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "surname",
+                "fieldType" : "CONNECTOR",
+                "label" : "surname",
+                "nativeName" : "surname",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "given_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "given_name",
+                "nativeName" : "given_name",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "alias_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "alias_name",
+                "nativeName" : "alias_name",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "preferred_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "preferred_name",
+                "nativeName" : "preferred_name",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "store_no",
+                "fieldType" : "CONNECTOR",
+                "label" : "store_no",
+                "nativeName" : "store_no",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 8,
+                "scale" : 0
+              },
+              {
+                "name" : "dept_code",
+                "fieldType" : "CONNECTOR",
+                "label" : "dept_code",
+                "nativeName" : "dept_code",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "job_code",
+                "fieldType" : "CONNECTOR",
+                "label" : "job_code",
+                "nativeName" : "job_code",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "employee_group",
+                "fieldType" : "CONNECTOR",
+                "label" : "employee_group",
+                "nativeName" : "employee_group",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "job_grade",
+                "fieldType" : "CONNECTOR",
+                "label" : "job_grade",
+                "nativeName" : "job_grade",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "job_title",
+                "fieldType" : "CONNECTOR",
+                "label" : "job_title",
+                "nativeName" : "job_title",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0
+              },
+              {
+                "name" : "email_business",
+                "fieldType" : "CONNECTOR",
+                "label" : "email_business",
+                "nativeName" : "email_business",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 200,
+                "scale" : 0
+              },
+              {
+                "name" : "email_personal",
+                "fieldType" : "CONNECTOR",
+                "label" : "email_personal",
+                "nativeName" : "email_personal",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "phone_mobile_country_code",
+                "fieldType" : "CONNECTOR",
+                "label" : "phone_mobile_country_code",
+                "nativeName" : "phone_mobile_country_code",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "phone_mobile",
+                "fieldType" : "CONNECTOR",
+                "label" : "phone_mobile",
+                "nativeName" : "phone_mobile",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "termination_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "termination_date",
+                "nativeName" : "termination_date",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 30,
+                "scale" : 0
+              },
+              {
+                "name" : "company_join_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "company_join_date",
+                "nativeName" : "company_join_date",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 30,
+                "scale" : 0
+              },
+              {
+                "name" : "date_of_birth",
+                "fieldType" : "CONNECTOR",
+                "label" : "date_of_birth",
+                "nativeName" : "date_of_birth",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "emp_uq",
+                "fieldType" : "CONNECTOR",
+                "label" : "emp_uq",
+                "nativeName" : "emp_uq",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "bemail_uq",
+                "fieldType" : "CONNECTOR",
+                "label" : "bemail_uq",
+                "nativeName" : "bemail_uq",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "pemail_uq",
+                "fieldType" : "CONNECTOR",
+                "label" : "pemail_uq",
+                "nativeName" : "pemail_uq",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "mobile_uq",
+                "fieldType" : "CONNECTOR",
+                "label" : "mobile_uq",
+                "nativeName" : "mobile_uq",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-04-05T08:31:57.832Z",
+        "name" : "TargetValid",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true",
+                "names" : [
+                  {
+                    "inputName" : "alias_name"
+                  },
+                  {
+                    "inputName" : "company_join_date"
+                  },
+                  {
+                    "inputName" : "date_of_birth"
+                  },
+                  {
+                    "inputName" : "dept_code"
+                  },
+                  {
+                    "inputName" : "email_business"
+                  },
+                  {
+                    "inputName" : "email_personal"
+                  },
+                  {
+                    "inputName" : "employee_group"
+                  },
+                  {
+                    "inputName" : "employee_no"
+                  },
+                  {
+                    "inputName" : "given_name"
+                  },
+                  {
+                    "inputName" : "job_code"
+                  },
+                  {
+                    "inputName" : "job_grade"
+                  },
+                  {
+                    "inputName" : "job_title"
+                  },
+                  {
+                    "inputName" : "phone_mobile"
+                  },
+                  {
+                    "inputName" : "phone_mobile_country_code"
+                  },
+                  {
+                    "inputName" : "preferred_name"
+                  },
+                  {
+                    "inputName" : "store_no"
+                  },
+                  {
+                    "inputName" : "surname"
+                  },
+                  {
+                    "inputName" : "termination_date"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@eSHSWsoIe8OerqjiP3liO3",
+          "connectionName" : "FlatFile_Vijay",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "true",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "'HR\\EmployeeApp\\Employee\\employeeList.psv'",
+            "label" : "'HR\\EmployeeApp\\Employee\\employeeList.psv'",
+            "path" : "'HR\\EmployeeApp\\Employee\\employeeList.psv'",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : "|",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "none"
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-10T06:25:15.388Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "StoreNo_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(store_no) or RTrim(LTrim(store_no))='',1, Reg_Match(store_no, '^\\d{4}$'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "DeptCode_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(dept_code) or RTrim(LTrim(dept_code))='',1, Reg_Match(dept_code, '^\\d{4}$'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "BEmail_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(email_business) or RTrim(LTrim(email_business))='',1, Reg_Match(email_business, '^[\\w\\-\\.]+@hk\\.mcd\\.com$'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "PEmail_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(email_personal) or RTrim(LTrim(email_personal))='',1, Reg_Match(email_personal, '^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[\\w-]{2,4}$'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "CountryCode_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(phone_mobile_country_code) or RTrim(LTrim(phone_mobile_country_code))='',1, Reg_Match(phone_mobile_country_code, '^(852|86)$'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "HMobile_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(phone_mobile_country_code='852' and LTrim(phone_mobile)<>'',\nReg_Match(phone_mobile, '^([4-9])\\d{7}$'),1\n)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Termination_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(termination_date) or RTrim(LTrim(termination_date))='',1, Reg_Match(termination_date, '^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "DOB_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(date_of_birth) or RTrim(LTrim(date_of_birth))='',1, Reg_Match(date_of_birth, '^(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])$'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "CMobile_chk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(phone_mobile_country_code='86' and LTrim(phone_mobile)<>'',\nReg_Match(phone_mobile, '^1\\d{10}$'),1\n)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "DOB_nullchk",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF( IsNull(date_of_birth) or RTrim(LTrim(date_of_birth))='',0, 1)"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-07-10T07:05:37.884Z",
+        "name" : "Router",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "INPUT",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "DEFAULT1",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Valid",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Invalid",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "All",
+            "output" : "true"
+          }
+        ],
+        "groupFilterConditions" : [
+          {
+            "advancedFilterCondition" : "InvalidFlag=0",
+            "name" : "Valid"
+          },
+          {
+            "advancedFilterCondition" : "InvalidFlag=1",
+            "name" : "Invalid"
+          },
+          {
+            "advancedFilterCondition" : "1=1",
+            "name" : "All"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-07-10T07:11:36.539Z",
+        "name" : "TargetInvalid",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true",
+                "names" : [
+                  {
+                    "inputName" : "alias_name"
+                  },
+                  {
+                    "inputName" : "company_join_date"
+                  },
+                  {
+                    "inputName" : "date_of_birth"
+                  },
+                  {
+                    "inputName" : "dept_code"
+                  },
+                  {
+                    "inputName" : "email_business"
+                  },
+                  {
+                    "inputName" : "email_personal"
+                  },
+                  {
+                    "inputName" : "employee_group"
+                  },
+                  {
+                    "inputName" : "employee_no"
+                  },
+                  {
+                    "inputName" : "given_name"
+                  },
+                  {
+                    "inputName" : "job_code"
+                  },
+                  {
+                    "inputName" : "job_grade"
+                  },
+                  {
+                    "inputName" : "job_title"
+                  },
+                  {
+                    "inputName" : "phone_mobile"
+                  },
+                  {
+                    "inputName" : "phone_mobile_country_code"
+                  },
+                  {
+                    "inputName" : "preferred_name"
+                  },
+                  {
+                    "inputName" : "store_no"
+                  },
+                  {
+                    "inputName" : "surname"
+                  },
+                  {
+                    "inputName" : "termination_date"
+                  },
+                  {
+                    "inputName" : "FailReason"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@eSHSWsoIe8OerqjiP3liO3",
+          "connectionName" : "FlatFile_Vijay",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "true",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "'HR\\EmployeeApp\\Employee\\erroremployeeList.csv'",
+            "label" : "'HR\\EmployeeApp\\Employee\\erroremployeeList.csv'",
+            "path" : "'HR\\EmployeeApp\\Employee\\erroremployeeList.csv'",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "none"
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-11T03:35:40.291Z",
+        "name" : "TargetDummy",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true",
+                "names" : [
+                  {
+                    "inputName" : "ErrorCount"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@eSHSWsoIe8OerqjiP3liO3",
+          "connectionName" : "FlatFile_Vijay",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "true",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "'Logs\\HR\\EmployeeApp\\EmployListErrorFlag_v2.log'",
+            "label" : "'Logs\\HR\\EmployeeApp\\EmployListErrorFlag_v2.log'",
+            "path" : "'Logs\\HR\\EmployeeApp\\EmployListErrorFlag_v2.log'",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : "|",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "none"
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-11T03:40:55.109Z",
+        "name" : "Aggregator",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "fields" : [
+          {
+            "name" : "ErrorFlag",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "sum(InvalidFlag)"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-07-11T03:43:40.690Z",
+        "name" : "InvalidFlag",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "InvalidFlag",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF((StoreNo_chk=0 or  DeptCode_chk =0 or  BEmail_chk =0 or PEmail_chk = 0 or CountryCode_chk = 0 or  HMobile_chk = 0 or CMobile_chk = 0 or  Termination_chk = 0 or  DOB_chk = 0 or emp_uq = 0 or  bemail_uq = 0 or  pemail_uq = 0 or  mobile_uq = 0 or DOB_nullchk=0),1,0)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "FailReason",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1000,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "LTRIM(\nconcat(concat(concat(concat(concat(concat(concat(concat(concat(concat(concat(concat(concat(\nIIF(StoreNo_chk=0,'[ER0202] Invalid store number format',''),\nIIF(DeptCode_chk=0,',[ER0301] Invalid dept. code format','')),\nIIF(BEmail_chk=0,',[ER0402] Invalid business email format','')),\nIIF(PEmail_chk=0,',[ER0502] Invalid personal email format','')),\nIIF(CountryCode_chk=0,',Incorrect DepartmentCode format','')),\nIIF(HMobile_chk=0,',[ER0702] Invalid Hong Kong mobile phone number format','')),\nIIF(CMobile_chk=0,',[ER0703] Invalid China mobile phone number format','')),\nIIF(Termination_chk=0,',[ER0801] Invalid termination date format','')),\nIIF(DOB_chk=0,',[ER0901] Invalid date of birth format','')),\nIIF(DOB_nullchk=0, ',[ER0902] Date of birth is required','')),\nIIF(bemail_uq=0,',[ER0101] Duplicate employee number','')),\nIIF(bemail_uq=0,',[ER0401] Duplicate business email address','')),\nIIF(pemail_uq=0,',[ER0501] Duplicate personal email address','')),\nIIF(mobile_uq=0,',[ER0701] Duplicate mobile phone number','')),',')"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-07-11T03:46:26.568Z",
+        "name" : "AssignParameter",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "ErrorCount",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "SetVariable($$ErrorCount, ErrorFlag)"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      }
+    ],
+    "variables" : [
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "ErrorCount",
+        "platformType" : {
+          "name" : "integer"
+        },
+        "precision" : 10,
+        "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "p_date",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 10,
+        "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+        "scale" : 0,
+        "defaultValue" : "20241202"
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:06 PDT"
+}

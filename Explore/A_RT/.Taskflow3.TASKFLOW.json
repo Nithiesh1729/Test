@@ -1,0 +1,67 @@
+{
+  "objectInfo" : {
+    "id" : "f6Z4lky5PyIihBnZeAFIEY",
+    "name" : "Taskflow3",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "IzoSxCS7FdpOfTR-gt-22250119-2024-07-22T06:53:27.551Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "INVALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-04-23T11:07:13.005Z",
+  "objectRefs" : [ {
+    "id" : "2T1BKziDo7jfBVR9ESrEeC",
+    "name" : "ErrorLOG_delimiter_MTT",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CRY0Z00000000003S"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Vijay_vj"
+  }, {
+    "id" : "lOb8kMCSUwYd7rONfry2Ak",
+    "name" : "fetch_env_variable_MTT",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CRY0Z00000000001N"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Vijay_vj"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

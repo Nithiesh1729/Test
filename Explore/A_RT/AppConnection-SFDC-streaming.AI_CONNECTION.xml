@@ -1,0 +1,58 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>3VQU8lpDqotxGom-gt-216684-2025-03-07T11:25:19.876Z::conn.xml</types1:EntryId>
+      <types1:Name>AppConnection-SFDC-streaming</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>VijayS</types1:CreatedBy>
+      <types1:CreationDate>2025-03-07T11:25:20Z</types1:CreationDate>
+      <types1:ModifiedBy>VijayS</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-12T05:59:50Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="AppConnection-SFDC-streaming"
+                     label="AppConnection-SFDC-streaming"
+                     name="AppConnection-SFDC-streaming">
+            <description/>
+            <tags/>
+            <agent/>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="false"
+                           cloudOnly="true"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           supportsPublishSkipMetadataRefresh="false"
+                           type="salesforcestreaming"
+                           uuid="1b1db754-672c-4b14-b300-a570b2f4cf33">
+               <description>Listen to Salesforce platform events, PushTopic queries and change events.</description>
+            </javaConnector>
+            <authentication type="$infa_basicform">
+               <attributes>
+                  <attribute encrypted="false"
+                             name="username"
+                             value="sharath.kaarthick13@gmail.com"/>
+                  <attribute encrypted="true" name="password" value=""/>
+                  <attribute encrypted="true" name="token" value=""/>
+                  <attribute encrypted="false"
+                             name="serviceUrl"
+                             value="https://login.salesforce.com/services/Soap/c/56.0"/>
+                  <attribute encrypted="true" name="clientId" value=""/>
+                  <attribute encrypted="true" name="clientSecret" value=""/>
+               </attributes>
+            </authentication>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>aeDVUXU9ZThixu8USdryG8</types1:GUID>
+      <types1:DisplayName>AppConnection-SFDC-streaming</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:00.907Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

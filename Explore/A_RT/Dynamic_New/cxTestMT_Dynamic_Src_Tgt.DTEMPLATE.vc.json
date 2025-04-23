@@ -1,0 +1,312 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "cxTestMT_Dynamic_Src_Tgt",
+    "links" : [
+      {
+        "link" : "Expression -> Target"
+      },
+      {
+        "link" : "src_table -> Expression"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "p_source",
+        "defaultValue" : {
+          "valueLiteral" : "a1a_term"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "p_target_table",
+        "defaultValue" : {
+          "valueLiteral" : "banner_test/a1a_term"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "p_src_connection"
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "p_change_col_name",
+        "defaultValue" : {
+          "valueLiteral" : "modifiedon"
+        }
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-04-01T23:44:59.426Z",
+        "name" : "src_table",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@28Tc3nb55yVeMReS6Kgns4",
+          "connectionName" : "GBQ_V2_RT_Working",
+          "excludeDynamicFileNameField" : "false",
+          "object$" : {
+            "name" : "p_source"
+          },
+          "objectType" : "PARAMETERIZED",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false",
+            "advancedFilterCondition" : "modifiedon>$$p_last_run_date"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-04-02T23:10:25.305Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              },
+              {
+                "bulkRename" : "false",
+                "include" : "false",
+                "names" : [
+                  {
+                    "inputName" : "Last_Run_Date"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "object$" : {
+            "name" : "p_target_table"
+          },
+          "objectType" : "PARAMETERIZED",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "UpdateMode",
+                "value" : "Update As Update"
+              },
+              {
+                "name" : "Enable Data Driven",
+                "value" : "NO"
+              },
+              {
+                "name" : "Enable Merge",
+                "value" : "NO"
+              },
+              {
+                "name" : "Create Disposition",
+                "value" : "Create never"
+              },
+              {
+                "name" : "Write Disposition",
+                "value" : "Write append"
+              },
+              {
+                "name" : "Write Mode",
+                "value" : "Bulk"
+              },
+              {
+                "name" : "Rows per Streaming Request",
+                "value" : "500"
+              },
+              {
+                "name" : "Data format of the staging file",
+                "value" : "JSON (Newline Delimited)"
+              },
+              {
+                "name" : "Persist Staging File After Loading",
+                "value" : "NO"
+              },
+              {
+                "name" : "Enable Staging File Compression",
+                "value" : "NO"
+              },
+              {
+                "name" : "Job Poll Interval In Seconds",
+                "value" : "10"
+              },
+              {
+                "name" : "Number of Threads for Uploading Staging File",
+                "value" : "150"
+              },
+              {
+                "name" : "Allow Quoted Newlines",
+                "value" : "NO"
+              },
+              {
+                "name" : "Field Delimiter",
+                "value" : ","
+              },
+              {
+                "name" : "Allow Jagged Rows",
+                "value" : "NO"
+              },
+              {
+                "name" : "Use Default Column Values",
+                "value" : "NO"
+              },
+              {
+                "name" : "Suppress post SQL on Error",
+                "value" : "NO"
+              },
+              {
+                "name" : "Quote Char",
+                "value" : "\""
+              },
+              {
+                "name" : "Truncate target table",
+                "value" : "NO"
+              },
+              {
+                "name" : "Allow Duplicate Inserts",
+                "value" : "NO"
+              },
+              {
+                "name" : "Disable Duplicate Update Rows",
+                "value" : "NO"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-04-04T04:54:15.988Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "Last_Run_Date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "SetMaxVariable($$p_last_run_date, $p_change_col_name$)"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      }
+    ],
+    "variables" : [
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "p_last_run_date",
+        "platformType" : {
+          "name" : "date/time"
+        },
+        "precision" : 29,
+        "retentionPolicy" : "ON_SUCCESS",
+        "scale" : 9,
+        "defaultValue" : "2024-12-12 00:00:00.000"
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:05 PDT"
+}

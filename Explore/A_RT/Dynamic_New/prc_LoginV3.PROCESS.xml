@@ -1,0 +1,79 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>4i5rdsMkdypKwKB-gt-276437-2024-04-17T04:20:33.895Z::pd.xml</types1:EntryId>
+      <types1:Name>prc_LoginV3</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>Resh_APSE_Suborg</types1:CreatedBy>
+      <types1:CreationDate>2024-04-17T04:20:34Z</types1:CreationDate>
+      <types1:ModifiedBy>Resh_APSE_Suborg</types1:ModifiedBy>
+      <types1:ModificationDate>2024-04-17T04:46:29Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>Resh_APSE_Suborg</types1:PublishedBy>
+      <types1:PublicationDate>2024-04-17T04:46:32Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.prc_LoginV3/prc_LoginV3.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="prc_LoginV3"
+                  name="prc_LoginV3"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="sessid" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lv3axp77" targetId="lv3axp76"/>
+               </start>
+               <service id="lv3axp76">
+                  <title>loginv3</title>
+                  <serviceName>ac-LoginV3:loginv3</serviceName>
+                  <serviceGUID>1nkgd8ZRRoBjthdNgbnjgH</serviceGUID>
+                  <serviceInput/>
+                  <link id="lv3axp7h" targetId="lv3axp7g"/>
+               </service>
+               <assignment id="lv3axp7g">
+                  <title>Assignment to sessid</title>
+                  <operation source="constant" to="output.sessid">{$output.sessionid}</operation>
+                  <link id="lv3axp7i" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>cc1469ce-ffaf-4caa-ba6f-87e0ea482efa</ns1:Id>
+               <ns1:Name>test</ns1:Name>
+               <ns1:CreatedBy>Resh_APSE_Suborg</ns1:CreatedBy>
+               <ns1:CreationDate>2024-04-17T04:53:20Z</ns1:CreationDate>
+               <ns1:ModifiedBy>Resh_APSE_Suborg</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-04-17T04:53:20Z</ns1:ModificationDate>
+               <ns1:Data format="json">{}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>7MnxOC1wItzizpBgK9RXIq</types1:GUID>
+      <types1:DisplayName>prc_LoginV3</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:04.775Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

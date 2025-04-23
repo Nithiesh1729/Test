@@ -1,0 +1,89 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>8PPP8KnBQ9WYzr3-gt-2184475-2024-08-30T15:22:54.952Z::pd.xml</types1:EntryId>
+      <types1:Name>Process1-1</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:A_RT,.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>Resh_APSE_Suborg</types1:CreatedBy>
+      <types1:CreationDate>2024-08-30T15:22:55Z</types1:CreationDate>
+      <types1:ModifiedBy>Resh_APSE_Suborg</types1:ModifiedBy>
+      <types1:ModificationDate>2024-09-03T10:34:25Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>Resh_APSE_Suborg</types1:PublishedBy>
+      <types1:PublicationDate>2024-09-03T10:34:39Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.Process1-1/Process1-1.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="Process1"
+                  name="Process1-1"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.agent:A_RT,.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="out_json" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="content" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>A_RT</targetLocation>
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+            </extData>
+            <flow id="a">
+               <start id="b">
+                  <link id="m0gubdm8" targetId="m0gubdm7"/>
+               </start>
+               <assignment id="m0gubdm7">
+                  <title>Assignment to out_json, content</title>
+                  <operation source="formula" to="output.out_json">
+                     <expression language="XQuery">fn:unparsed-text('file:///home/admin/A_RT/out_json_payload.json')</expression>
+                  </operation>
+                  <operation source="formula" to="output.content">
+                     <expression language="XQuery">'A'</expression>
+                  </operation>
+                  <link id="m0gubdm9" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>1d229f3b-ac2f-4a5f-b75c-6a014dc8c769</ns1:Id>
+               <ns1:Name>test</ns1:Name>
+               <ns1:CreatedBy>Resh_APSE_Suborg</ns1:CreatedBy>
+               <ns1:CreationDate>2024-09-03T10:34:55Z</ns1:CreationDate>
+               <ns1:ModifiedBy>Resh_APSE_Suborg</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-09-03T10:34:55Z</ns1:ModificationDate>
+               <ns1:Data format="json">{}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>5hABl7pJOKgbJ0ZxXId8Yf</types1:GUID>
+      <types1:DisplayName>Process1</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:00.864Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

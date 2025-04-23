@@ -1,0 +1,169 @@
+{
+  "name" : "mt_GCS_log_check",
+  "runtimeEnvironmentId" : "@7rGUkpqxviilEt1HC44BQ0",
+  "runtimeEnvironmentName" : "A_RT",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$Source$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "Source",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "Source"
+      },
+      "sourceConnectionId" : "@aKH21NURpOdg8056JVJZaS",
+      "connectionName" : "GCS_V2_RT_New",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "infa_gcs/products_csv",
+          "label" : "products_csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "infa_gcs/products_csv",
+            "label" : "products_csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "oprRuntimeAttrs" : {
+        "enableIncrementalLoad" : "NO"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "dataFormat" : {
+        "formatId" : "Flat",
+        "dataFormatAttributes" : {
+          "escapeChar" : "\\",
+          "importColumnFromFirstLine" : "true",
+          "headerLineNumber" : "1",
+          "maxRowsToPreview" : "0",
+          "qualifierMode" : "MINIMAL",
+          "firstDataRow" : "2",
+          "generateHeader" : "true",
+          "delimiter" : ",",
+          "qualifier" : "\"",
+          "targetHeader" : "With Header",
+          "disableEscapeChar" : "true",
+          "codePage" : "UTF-8",
+          "fixedWidthMode" : "false"
+        }
+      },
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$Target$",
+      "type" : "TARGET",
+      "label" : "Target",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "true",
+        "originalPath" : "Target"
+      },
+      "targetConnectionId" : "@aKH21NURpOdg8056JVJZaS",
+      "connectionName" : "GCS_V2_RT_New",
+      "targetObject" : "infa_gcs/testgcslog.txt",
+      "targetObjectLabel" : "infa_gcs/testgcslog.txt",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "newObjectName" : "infa_gcs/testgcslog.txt",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "infa_gcs/testgcslog.txt",
+      "objectLabel" : "infa_gcs/testgcslog.txt",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "targetSchemaMode" : "DONT_APPLY_CHANGES",
+      "dataFormat" : {
+        "formatId" : "Flat",
+        "dataFormatAttributes" : {
+          "escapeChar" : "\\",
+          "importColumnFromFirstLine" : "true",
+          "headerLineNumber" : "1",
+          "maxRowsToPreview" : "0",
+          "qualifierMode" : "MINIMAL",
+          "firstDataRow" : "2",
+          "generateHeader" : "true",
+          "delimiter" : ",",
+          "qualifier" : "\"",
+          "targetHeader" : "With Header",
+          "disableEscapeChar" : "true",
+          "codePage" : "UTF-8",
+          "fixedWidthMode" : "false"
+        }
+      },
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "targetSchemaProviderType" : "SELECTED_OBJECT",
+      "restmodernSource" : true,
+      "fileList" : false
+    }
+  ],
+  "verbose" : true,
+  "lastRunTime" : 1724814623000,
+  "mappingId" : "@6jf16ETLF1tkBzljPLHFE4",
+  "mappingTemplateName" : "m_GCS_log_check",
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : true,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "paramFileType" : "PARAM_FILE_LOCAL",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-04-23 04:07:08 PDT"
+}

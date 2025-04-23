@@ -1,0 +1,91 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>H4YpJ7XhFtybdua-gt-6800749-2025-02-25T12:08:07.546Z::pd.xml</types1:EntryId>
+      <types1:Name>Process1-2</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:IICS-Azure</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>VijayS</types1:CreatedBy>
+      <types1:CreationDate>2025-02-25T12:08:08Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="g9NAYszOvMOfTkCS5kCvsP"
+                  displayName="Process1"
+                  name="Process1-2"
+                  overrideAPIName="false"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.agent:IICS-Azure</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>IICS-Azure</targetLocation>
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="n14b06c97-5fb1-46e0-9a09-2fa6404a802c">
+               <start id="efe02359d-3686-4d0a-b2a9-dcb13f34f368">
+                  <link id="obfd5f858-a499-4237-b87d-49af908f3f54"
+                        targetId="Service74227c47-1092-4ac9-a0ee-d27ff786d82f"/>
+               </start>
+               <service id="Service74227c47-1092-4ac9-a0ee-d27ff786d82f">
+                  <title>execMultiSQL</title>
+                  <serviceName>execMultiSQL</serviceName>
+                  <serviceGUID/>
+                  <serviceInput>
+                     <parameter name="multiDataAccessRequest" source="formula">
+                        <expression language="XQuery">&lt;tMultiDataAccessRequest&gt;
+&lt;sqlStatement&gt;
+&lt;statementId&gt;get_rows_id&lt;/statementId&gt;
+&lt;hasResultSet&gt;true&lt;/hasResultSet&gt;
+&lt;statement&gt;
+EXEC EDS_STG_PROV.usp_CHire_RequisitionJobDescription_Merge_Final '2025-02-24T17:04:16.770Z'
+&lt;/statement&gt;
+&lt;/sqlStatement&gt;
+&lt;dataSource&gt;DS1&lt;/dataSource&gt;
+&lt;/tMultiDataAccessRequest&gt;</expression>
+                     </parameter>
+                  </serviceInput>
+                  <link id="xbc4aa927-6249-4415-905e-11ddd7f8fae0"
+                        targetId="end-f2b2feac3-e4f1-4f43-b04e-7fc09d03763f"/>
+               </service>
+               <end id="end-f2b2feac3-e4f1-4f43-b04e-7fc09d03763f">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>c7289514-cc9a-4c1a-98e8-4d7d10356031</ns1:Id>
+               <ns1:Name>input</ns1:Name>
+               <ns1:CreatedBy>VijayS</ns1:CreatedBy>
+               <ns1:CreationDate>2025-02-25T12:08:08Z</ns1:CreationDate>
+               <ns1:ModifiedBy>VijayS</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-02-25T12:08:08Z</ns1:ModificationDate>
+               <ns1:Data format="json">{}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>g9NAYszOvMOfTkCS5kCvsP</types1:GUID>
+      <types1:DisplayName>Process1</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:04.791Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,513 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_GCS_log_check",
+    "links" : [
+      {
+        "link" : "Source -> Target"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-08-28T02:42:04.378Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Product_ID"
+            },
+            "name" : "Product_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Name"
+            },
+            "name" : "Product_Name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "UnitPrice"
+            },
+            "name" : "UnitPrice",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Category"
+            },
+            "name" : "Category",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@aKH21NURpOdg8056JVJZaS",
+          "connectionName" : "GCS_V2_RT_New",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "dataFormat" : {
+            "formatId" : "Flat",
+            "validateHSchema" : "false",
+            "attributes" : [
+              {
+                "name" : "delimiter",
+                "value" : ","
+              },
+              {
+                "name" : "escapeChar",
+                "value" : "\\"
+              },
+              {
+                "name" : "qualifier",
+                "value" : "\""
+              },
+              {
+                "name" : "qualifierMode",
+                "value" : "MINIMAL"
+              },
+              {
+                "name" : "disableEscapeChar",
+                "value" : "true"
+              },
+              {
+                "name" : "codePage",
+                "value" : "UTF-8"
+              },
+              {
+                "name" : "headerLineNumber",
+                "value" : "1"
+              },
+              {
+                "name" : "firstDataRow",
+                "value" : "2"
+              },
+              {
+                "name" : "targetHeader",
+                "value" : "With Header"
+              },
+              {
+                "name" : "importColumnFromFirstLine",
+                "value" : "true"
+              },
+              {
+                "name" : "generateHeader",
+                "value" : "true"
+              },
+              {
+                "name" : "fixedWidthMode",
+                "value" : "false"
+              },
+              {
+                "name" : "maxRowsToPreview",
+                "value" : "0"
+              }
+            ]
+          },
+          "object" : {
+            "name" : "infa_gcs/products_csv",
+            "label" : "products_csv",
+            "objectName" : "products_csv",
+            "objectType" : "googleStorage",
+            "path" : "infa_gcs/products_csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Product_ID",
+                "fieldType" : "PARSER",
+                "label" : "Product_ID",
+                "nativeName" : "Product_ID",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "products_csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Product_Name",
+                "fieldType" : "PARSER",
+                "label" : "Product_Name",
+                "nativeName" : "Product_Name",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "products_csv"
+                  }
+                ]
+              },
+              {
+                "name" : "UnitPrice",
+                "fieldType" : "PARSER",
+                "label" : "UnitPrice",
+                "nativeName" : "UnitPrice",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "products_csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Category",
+                "fieldType" : "PARSER",
+                "label" : "Category",
+                "nativeName" : "Category",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "products_csv"
+                  }
+                ]
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "Google Cloud Storage Path",
+                "value" : "gs://infa_gcs"
+              },
+              {
+                "name" : "Is Directory",
+                "value" : "NO"
+              },
+              {
+                "name" : "Allow Wildcard Characters",
+                "value" : "NO"
+              },
+              {
+                "name" : "Incremental File Load",
+                "value" : "NO"
+              },
+              {
+                "name" : "Encryption Type",
+                "value" : "None"
+              },
+              {
+                "name" : "Compression Format",
+                "value" : "None"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "createTime" : "2024-08-28T02:42:04.382Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Product_ID"
+            },
+            "name" : "Product_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Name"
+            },
+            "name" : "Product_Name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "UnitPrice"
+            },
+            "name" : "UnitPrice",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Category"
+            },
+            "name" : "Category",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 256,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@aKH21NURpOdg8056JVJZaS",
+          "connectionName" : "GCS_V2_RT_New",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "dataFormat" : {
+            "formatId" : "Flat",
+            "validateHSchema" : "false",
+            "attributes" : [
+              {
+                "name" : "delimiter",
+                "value" : ","
+              },
+              {
+                "name" : "escapeChar",
+                "value" : "\\"
+              },
+              {
+                "name" : "qualifier",
+                "value" : "\""
+              },
+              {
+                "name" : "qualifierMode",
+                "value" : "MINIMAL"
+              },
+              {
+                "name" : "disableEscapeChar",
+                "value" : "true"
+              },
+              {
+                "name" : "codePage",
+                "value" : "UTF-8"
+              },
+              {
+                "name" : "headerLineNumber",
+                "value" : "1"
+              },
+              {
+                "name" : "firstDataRow",
+                "value" : "2"
+              },
+              {
+                "name" : "targetHeader",
+                "value" : "With Header"
+              },
+              {
+                "name" : "importColumnFromFirstLine",
+                "value" : "true"
+              },
+              {
+                "name" : "generateHeader",
+                "value" : "true"
+              },
+              {
+                "name" : "fixedWidthMode",
+                "value" : "false"
+              },
+              {
+                "name" : "maxRowsToPreview",
+                "value" : "0"
+              }
+            ]
+          },
+          "object" : {
+            "name" : "infa_gcs/testgcslog.txt",
+            "label" : "infa_gcs/testgcslog.txt",
+            "path" : "infa_gcs/testgcslog.txt",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Product_ID",
+                "fieldType" : "PARSER",
+                "label" : "Product_ID",
+                "nativeName" : "Product_ID",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "partitionOrder",
+                    "value" : "0"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "testgcslog.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "Product_Name",
+                "fieldType" : "PARSER",
+                "label" : "Product_Name",
+                "nativeName" : "Product_Name",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "partitionOrder",
+                    "value" : "0"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "testgcslog.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "UnitPrice",
+                "fieldType" : "PARSER",
+                "label" : "UnitPrice",
+                "nativeName" : "UnitPrice",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "partitionOrder",
+                    "value" : "0"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "testgcslog.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "Category",
+                "fieldType" : "PARSER",
+                "label" : "Category",
+                "nativeName" : "Category",
+                "nativeType" : "flat_string",
+                "original" : "false",
+                "precision" : 256,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "partitionOrder",
+                    "value" : "0"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "testgcslog.txt"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:02 PDT"
+}

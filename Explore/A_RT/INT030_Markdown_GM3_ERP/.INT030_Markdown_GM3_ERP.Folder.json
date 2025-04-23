@@ -1,0 +1,25 @@
+{
+  "objectInfo" : {
+    "id" : "6Zkr4h4e6yBljJZXpq8wUa",
+    "name" : "INT030_Markdown_GM3_ERP",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Mapping_Spec_Interface_CG_FENIX_INT030_Markdown_GM3_ERP_Version 0.1",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "updateTime" : "2025-04-23T11:07:12.991Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

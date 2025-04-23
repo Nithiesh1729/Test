@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "jTW90qZk5s3jVQb0KdRDQy",
+    "name" : "kafkaTestProcess",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "lmkUgbcggaaaaa-gt-3309736-2025-04-08T12:00:00.179Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-04-23T11:07:12.982Z",
+  "objectRefs" : [ {
+    "id" : "asibma71vWMiQ1Sja2deiF",
+    "name" : "kafka-appConnection-vj",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "fT7xvk0qZF3a-gt-5390111-2024-11-13T02:02:50.853Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/CAI_Vijay_vj"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

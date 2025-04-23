@@ -1,0 +1,67 @@
+{
+  "objectInfo" : {
+    "id" : "4RZJ2W0Q5tdboie9LMQUMw",
+    "name" : "Taskflow_Success_Target_Rows_Failure_Test",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Dyvs7xvk0qZF3a-gt-10816603-2024-08-12T11:29:31.473Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-04-23T11:07:13.003Z",
+  "objectRefs" : [ {
+    "id" : "apfNC0T4HWMiuRh56qMgOK",
+    "name" : "MappingTask_oneMillian_records",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CRY0Z00000000004K"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Vijay_vj"
+  }, {
+    "id" : "9xl377OEIYugumnkrbbRKQ",
+    "name" : "RecordCountFF_mappingTask",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CRY0Z00000000004L"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Vijay_vj"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

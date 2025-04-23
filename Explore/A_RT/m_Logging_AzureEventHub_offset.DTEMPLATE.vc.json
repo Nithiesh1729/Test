@@ -1,0 +1,3709 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_Logging_AzureEventHub_offset",
+    "links" : [
+      {
+        "link" : "src_dummy -> login_v3",
+        "groupLink" : "DefaultGroup -> DefaultGroup"
+      },
+      {
+        "link" : "login_v3 -> Expression",
+        "groupLink" : "root -> DefaultGroup"
+      },
+      {
+        "link" : "Expression -> getTFdetails",
+        "groupLink" : "DefaultGroup -> DefaultGroup"
+      },
+      {
+        "link" : "getTFdetails -> childtaskdetails",
+        "groupLink" : "Response_200 -> DefaultGroup"
+      },
+      {
+        "link" : "getTFdetails -> parenttaskdetails",
+        "groupLink" : "Response_200 -> DefaultGroup"
+      },
+      {
+        "link" : "parenttaskdetails -> Aggregator"
+      },
+      {
+        "link" : "Aggregator -> Target"
+      },
+      {
+        "link" : "join_parent_taskdetails -> Filter_NoResponseData",
+        "groupLink" : "OutputGroup -> DefaultGroup"
+      },
+      {
+        "link" : "Filter_NoResponseData -> Expression1"
+      },
+      {
+        "link" : "Expression1 -> Expression2"
+      },
+      {
+        "link" : "Expression1 -> passthroughSessionId"
+      },
+      {
+        "link" : "Expression1 -> Expression4"
+      },
+      {
+        "link" : "Filter2 -> Expression5"
+      },
+      {
+        "link" : "Passthrough_previousdata -> tgt_sessionlognamedetails"
+      },
+      {
+        "link" : "passthroughSessionId -> getrestapi_activitylog",
+        "groupLink" : "DefaultGroup -> DefaultGroup"
+      },
+      {
+        "link" : "getrestapi_activitylog -> Filter2",
+        "groupLink" : "Response_200 -> DefaultGroup"
+      },
+      {
+        "link" : "Expression2 -> Target2"
+      },
+      {
+        "link" : "getrestapi_activitylog -> Expression7",
+        "groupLink" : "entries -> DefaultGroup"
+      },
+      {
+        "link" : "Sorter -> join_parent_taskdetails",
+        "groupLink" : "DefaultGroup -> Master"
+      },
+      {
+        "link" : "childtaskdetails -> Sorter"
+      },
+      {
+        "link" : "Sorter1 -> join_parent_taskdetails",
+        "groupLink" : "DefaultGroup -> Detail"
+      },
+      {
+        "link" : "parenttaskdetails -> Sorter1"
+      },
+      {
+        "link" : "Expression7 -> Sorter2"
+      },
+      {
+        "link" : "Expression5 -> Sorter3"
+      },
+      {
+        "link" : "Sorter2 -> Target3"
+      },
+      {
+        "link" : "Sorter3 -> Passthrough_previousdata"
+      },
+      {
+        "link" : "Expression4 -> getrestapi_activitylog1",
+        "groupLink" : "DefaultGroup -> DefaultGroup"
+      },
+      {
+        "link" : "getrestapi_activitylog1 -> tgt_FF",
+        "groupLink" : "Response_200 -> DefaultGroup"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-03-22T03:30:26.307Z",
+        "name" : "src_dummy",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "user"
+            },
+            "name" : "user",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "pwd"
+            },
+            "name" : "pwd",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "dummy.txt",
+            "label" : "dummy.txt",
+            "objectName" : "dummy.txt",
+            "path" : "dummy.txt",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "user",
+                "fieldType" : "CONNECTOR",
+                "label" : "user",
+                "nativeName" : "user",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "dummy.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "pwd",
+                "fieldType" : "CONNECTOR",
+                "label" : "pwd",
+                "nativeName" : "pwd",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "dummy.txt"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-03-22T03:30:26.307Z",
+        "name" : "tgt_FF",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "tgt_restv2_repro.csv",
+            "label" : "tgt_restv2_repro.csv",
+            "path" : "tgt_restv2_repro.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-03-22T03:40:13.171Z",
+        "name" : "login_v3",
+        "advancedProperties" : [
+          {
+            "name" : "requestXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "inputFlush",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "FaultGroup",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "root",
+            "output" : "true"
+          }
+        ],
+        "operation" : "@3ubQ7S9PbGBdmWxyZk8qq8@loginv3",
+        "serviceDefinitionId" : "@3ubQ7S9PbGBdmWxyZk8qq8",
+        "serviceDefinitionName" : "bs_Login_V3_RT",
+        "fieldMap" : {
+          "mappings" : [
+            {
+              "groupName" : "src_dummy",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "user",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:body/json:username"
+                },
+                {
+                  "name" : "pwd",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:body/json:password"
+                }
+              ]
+            }
+          ]
+        },
+        "outputFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "FaultGroup",
+              "isRoot" : "false",
+              "xPath" : "/INFA:loginv3_FAULT/loginv3",
+              "xfields" : [
+                {
+                  "name" : "RequestXML",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:loginv3_FAULT/loginv3/RequestXML"
+                },
+                {
+                  "name" : "ErrorCode",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:loginv3_FAULT/loginv3/ErrorCode"
+                },
+                {
+                  "name" : "ErrorMessage",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:loginv3_FAULT/loginv3/ErrorMessage"
+                }
+              ]
+            },
+            {
+              "groupName" : "root",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "sessionId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200/json:userInfo/json:sessionId"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2024-03-22T03:46:38.711Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Starttime",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 29,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'2021-10-12 02:33:07'"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Endtime",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 29,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'2024-10-12 02:33:07'"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Rowlimit",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "10000"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Offset",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "10000"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-22T03:59:33.904Z",
+        "name" : "getTFdetails",
+        "advancedProperties" : [
+          {
+            "name" : "requestXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "inputFlush",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "conflictResolutions" : [
+              {
+                "precedingGroupName" : "DefaultGroup",
+                "precedingTxName" : "Expression",
+                "rule" : {
+                  "bulkRename" : "true",
+                  "include" : "true",
+                  "bulkRenameOption" : {
+                    "literal" : "o_",
+                    "suffix" : "false"
+                  }
+                }
+              }
+            ],
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "FaultGroup",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Response_200",
+            "output" : "true"
+          }
+        ],
+        "operation" : "@3h3wr4mLrR1kefH1bqRfiH@getTFdetails",
+        "serviceDefinitionId" : "@3h3wr4mLrR1kefH1bqRfiH",
+        "serviceDefinitionName" : "bs_getTFDetails",
+        "fieldMap" : {
+          "mappings" : [
+            {
+              "groupName" : "Expression",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "o_sessionId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:INFA-SESSION-ID"
+                }
+              ]
+            }
+          ]
+        },
+        "outputFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "FaultGroup",
+              "isRoot" : "false",
+              "xPath" : "/INFA:getTFdetails_FAULT/getTFdetails",
+              "xfields" : [
+                {
+                  "name" : "RequestXML",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:getTFdetails_FAULT/getTFdetails/RequestXML"
+                },
+                {
+                  "name" : "ErrorCode",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:getTFdetails_FAULT/getTFdetails/ErrorCode"
+                },
+                {
+                  "name" : "ErrorMessage",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:getTFdetails_FAULT/getTFdetails/ErrorMessage"
+                }
+              ]
+            },
+            {
+              "groupName" : "Response_200",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200",
+              "xfields" : [
+                {
+                  "name" : "assetName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:assetName"
+                },
+                {
+                  "name" : "assetType",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:assetType"
+                },
+                {
+                  "name" : "duration",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:duration"
+                },
+                {
+                  "name" : "endTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:endTime"
+                },
+                {
+                  "name" : "errorMessage1",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:errorMessage"
+                },
+                {
+                  "name" : "location",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:location"
+                },
+                {
+                  "name" : "runId",
+                  "platformType" : {
+                    "name" : "double"
+                  },
+                  "precision" : 15,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:runId"
+                },
+                {
+                  "name" : "runtimeEnv",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:runtimeEnv"
+                },
+                {
+                  "name" : "runtimeEnvName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:runtimeEnvName"
+                },
+                {
+                  "name" : "startedBy",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startedBy"
+                },
+                {
+                  "name" : "startTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startTime"
+                },
+                {
+                  "name" : "status",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:status"
+                },
+                {
+                  "name" : "subtasks",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:subtasks"
+                },
+                {
+                  "name" : "updateTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:updateTime"
+                },
+                {
+                  "name" : "tasks",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:subtaskDetails/json:details/json:tasks"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2024-03-27T14:09:36.655Z",
+        "name" : "childtaskdetails",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "FK_Response_200",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'1'"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T14:09:40.318Z",
+        "name" : "parenttaskdetails",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "PK_Response_200",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'1'"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T14:33:31.981Z",
+        "name" : "Aggregator",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "fields" : [
+          {
+            "name" : "o_count",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "count(assetName)"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-03-27T14:36:24.099Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "tgt_count_asset.csv",
+            "label" : "tgt_count_asset.csv",
+            "path" : "tgt_count_asset.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-03-27T14:39:49.016Z",
+        "name" : "join_parent_taskdetails",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Cache Directory",
+            "value" : "$PMCacheDir"
+          },
+          {
+            "name" : "Null ordering in master",
+            "value" : "Null is Highest Value"
+          },
+          {
+            "name" : "Null ordering in detail",
+            "value" : "Null is Higest Value"
+          },
+          {
+            "name" : "Joiner Data Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Joiner Index Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Sorted Input",
+            "value" : "true"
+          },
+          {
+            "name" : "Master Sort Order",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Transformation Scope",
+            "value" : "All Input"
+          },
+          {
+            "name" : "Optional",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "Master",
+            "output" : "false",
+            "conflictResolutions" : [
+              {
+                "precedingGroupName" : "DefaultGroup",
+                "precedingTxName" : "Sorter",
+                "rule" : {
+                  "bulkRename" : "true",
+                  "include" : "true",
+                  "bulkRenameOption" : {
+                    "literal" : "srt1_",
+                    "suffix" : "false"
+                  }
+                }
+              }
+            ],
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "true",
+            "name" : "Detail",
+            "output" : "false",
+            "conflictResolutions" : [
+              {
+                "precedingGroupName" : "DefaultGroup",
+                "precedingTxName" : "Sorter1",
+                "rule" : {
+                  "bulkRename" : "true",
+                  "include" : "true",
+                  "bulkRenameOption" : {
+                    "literal" : "srt2_",
+                    "suffix" : "false"
+                  }
+                }
+              }
+            ],
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "OutputGroup",
+            "output" : "true"
+          }
+        ],
+        "joinType" : "Detail Outer Join",
+        "joinConditions" : [
+          {
+            "leftOperand" : "srt1_FK_Response_200",
+            "operator" : "=",
+            "rightOperand" : "srt2_PK_Response_200"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-03-27T14:46:40.321Z",
+        "name" : "Filter_NoResponseData",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "advancedFilterCondition" : "1=1"
+      },
+      {
+        "createTime" : "2024-03-27T14:51:19.977Z",
+        "name" : "Expression1",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T14:52:00.600Z",
+        "name" : "Expression2",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T14:52:00.600Z",
+        "name" : "passthroughSessionId",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T14:53:20.405Z",
+        "name" : "Expression4",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "v_asset_name_child",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1000,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "ReplaceChr(FALSE,srt2_location, '\\','/') || '/' || srt2_assetName"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "o_AssetName_FullPath",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1000,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "upper(v_asset_name_child)"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T15:45:37.059Z",
+        "name" : "tgt_sessionlognamedetails",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "tgt_activitylog.csv",
+            "label" : "tgt_activitylog.csv",
+            "path" : "tgt_activitylog.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-03-27T15:46:42.626Z",
+        "name" : "Filter2",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-03-27T15:47:07.734Z",
+        "name" : "Expression5",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T15:47:21.099Z",
+        "name" : "Passthrough_previousdata",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-27T15:48:46.823Z",
+        "name" : "getrestapi_activitylog",
+        "advancedProperties" : [
+          {
+            "name" : "requestXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "inputFlush",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "FaultGroup",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Response_200",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "entries",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "transformationEntries",
+            "output" : "true"
+          }
+        ],
+        "operation" : "@7DAH3ma7tixjut3DWTsZav@activityLog",
+        "serviceDefinitionId" : "@7DAH3ma7tixjut3DWTsZav",
+        "serviceDefinitionName" : "bs_activity_log",
+        "fieldMap" : {
+          "mappings" : [
+            {
+              "groupName" : "passthroughSessionId",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "srt1_o_Rowlimit",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:rowLimit"
+                },
+                {
+                  "name" : "srt1_o_sessionId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:icSessionId"
+                }
+              ]
+            }
+          ]
+        },
+        "outputFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "FaultGroup",
+              "isRoot" : "false",
+              "xPath" : "/INFA:activityLog_FAULT/activityLog",
+              "xfields" : [
+                {
+                  "name" : "RequestXML",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/RequestXML"
+                },
+                {
+                  "name" : "ErrorCode",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/ErrorCode"
+                },
+                {
+                  "name" : "ErrorMessage",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/ErrorMessage"
+                }
+              ]
+            },
+            {
+              "groupName" : "Response_200",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200",
+              "xfields" : [
+                {
+                  "name" : "PK_Response_200",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "true"
+                },
+                {
+                  "name" : "_type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:_type"
+                },
+                {
+                  "name" : "id",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:id"
+                },
+                {
+                  "name" : "type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:type"
+                },
+                {
+                  "name" : "objectId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:objectId"
+                },
+                {
+                  "name" : "objectName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:objectName"
+                },
+                {
+                  "name" : "runId",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:runId"
+                },
+                {
+                  "name" : "startTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startTime"
+                },
+                {
+                  "name" : "endTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:endTime"
+                },
+                {
+                  "name" : "startTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startTimeUtc"
+                },
+                {
+                  "name" : "endTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:endTimeUtc"
+                },
+                {
+                  "name" : "state",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:state"
+                },
+                {
+                  "name" : "UIState",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:UIState"
+                },
+                {
+                  "name" : "failedSourceRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:failedSourceRows"
+                },
+                {
+                  "name" : "successSourceRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:successSourceRows"
+                },
+                {
+                  "name" : "failedTargetRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:failedTargetRows"
+                },
+                {
+                  "name" : "successTargetRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:successTargetRows"
+                },
+                {
+                  "name" : "startedBy",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startedBy"
+                },
+                {
+                  "name" : "runContextType",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:runContextType"
+                },
+                {
+                  "name" : "totalSuccessRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:totalSuccessRows"
+                },
+                {
+                  "name" : "totalFailedRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:totalFailedRows"
+                },
+                {
+                  "name" : "stopOnError",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:stopOnError"
+                },
+                {
+                  "name" : "hasStopOnErrorRecord",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:hasStopOnErrorRecord"
+                },
+                {
+                  "name" : "isStopped",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:isStopped"
+                }
+              ]
+            },
+            {
+              "groupName" : "entries",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries",
+              "xfields" : [
+                {
+                  "name" : "PK_entries",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "true"
+                },
+                {
+                  "name" : "FK_Response_200",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "true",
+                  "primaryKey" : "false"
+                },
+                {
+                  "name" : "_type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:_type"
+                },
+                {
+                  "name" : "id",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:id"
+                },
+                {
+                  "name" : "type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:type"
+                },
+                {
+                  "name" : "objectName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:objectName"
+                },
+                {
+                  "name" : "runId",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:runId"
+                },
+                {
+                  "name" : "agentId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:agentId"
+                },
+                {
+                  "name" : "runtimeEnvironmentId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:runtimeEnvironmentId"
+                },
+                {
+                  "name" : "startTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:startTime"
+                },
+                {
+                  "name" : "endTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:endTime"
+                },
+                {
+                  "name" : "startTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:startTimeUtc"
+                },
+                {
+                  "name" : "endTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:endTimeUtc"
+                },
+                {
+                  "name" : "state",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:state"
+                },
+                {
+                  "name" : "UIState",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:UIState"
+                },
+                {
+                  "name" : "failedSourceRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:failedSourceRows"
+                },
+                {
+                  "name" : "successSourceRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:successSourceRows"
+                },
+                {
+                  "name" : "failedTargetRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:failedTargetRows"
+                },
+                {
+                  "name" : "successTargetRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:successTargetRows"
+                },
+                {
+                  "name" : "errorMsg",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:errorMsg"
+                },
+                {
+                  "name" : "startedBy",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:startedBy"
+                },
+                {
+                  "name" : "runContextType",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:runContextType"
+                },
+                {
+                  "name" : "entries",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:entries"
+                },
+                {
+                  "name" : "subTaskEntries",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:subTaskEntries"
+                },
+                {
+                  "name" : "CONSUMED_COMPUTE_UNITS",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:CONSUMED_COMPUTE_UNITS"
+                },
+                {
+                  "name" : "ERROR_CODE",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:ERROR_CODE"
+                },
+                {
+                  "name" : "IS_SERVER_LESS",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:IS_SERVER_LESS"
+                },
+                {
+                  "name" : "OBJ_LOCATION",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:OBJ_LOCATION"
+                },
+                {
+                  "name" : "REQUESTED_COMPUTE_UNITS",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:REQUESTED_COMPUTE_UNITS"
+                },
+                {
+                  "name" : "SERVICE_TYPE",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:SERVICE_TYPE"
+                },
+                {
+                  "name" : "Session_Log_File_Name",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:Session_Log_File_Name"
+                },
+                {
+                  "name" : "actualExecutionTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:actualExecutionTime"
+                },
+                {
+                  "name" : "actualTaskExecutionTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:actualTaskExecutionTime"
+                },
+                {
+                  "name" : "releaseVersion",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:releaseVersion"
+                },
+                {
+                  "name" : "sessionVariables",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:sessionVariables"
+                },
+                {
+                  "name" : "totalSuccessRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:totalSuccessRows"
+                },
+                {
+                  "name" : "totalFailedRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:totalFailedRows"
+                },
+                {
+                  "name" : "stopOnError",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:stopOnError"
+                },
+                {
+                  "name" : "hasStopOnErrorRecord",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:hasStopOnErrorRecord"
+                },
+                {
+                  "name" : "contextExternalId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:contextExternalId"
+                },
+                {
+                  "name" : "isStopped",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:isStopped"
+                }
+              ]
+            },
+            {
+              "groupName" : "transformationEntries",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries",
+              "xfields" : [
+                {
+                  "name" : "FK_entries",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "true",
+                  "primaryKey" : "false"
+                },
+                {
+                  "name" : "_type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:_type"
+                },
+                {
+                  "name" : "id",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:id"
+                },
+                {
+                  "name" : "txName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:txName"
+                },
+                {
+                  "name" : "txType",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:txType"
+                },
+                {
+                  "name" : "successRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:successRows"
+                },
+                {
+                  "name" : "failedRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:failedRows"
+                },
+                {
+                  "name" : "txInstanceName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:txInstanceName"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2024-03-29T10:05:33.737Z",
+        "name" : "Target2",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "tgt_activitylog_2.csv",
+            "label" : "tgt_activitylog_2.csv",
+            "path" : "tgt_activitylog_2.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-03-29T10:08:06.710Z",
+        "name" : "Expression7",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-03-29T11:13:01.891Z",
+        "name" : "Sorter",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sorterMode" : "SIMPLE",
+        "sortEntries" : [
+          {
+            "ascending" : "true",
+            "fieldName" : "FK_Response_200"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-03-29T11:13:14.094Z",
+        "name" : "Sorter1",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sorterMode" : "SIMPLE",
+        "sortEntries" : [
+          {
+            "ascending" : "true",
+            "fieldName" : "PK_Response_200"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-03-29T11:20:39.801Z",
+        "name" : "Sorter2",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sorterMode" : "SIMPLE",
+        "sortEntries" : [
+          {
+            "ascending" : "true",
+            "fieldName" : "srt1_FK_Response_200"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-03-29T11:21:05.511Z",
+        "name" : "Sorter3",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sorterMode" : "SIMPLE",
+        "sortEntries" : [
+          {
+            "ascending" : "true",
+            "fieldName" : "srt1_FK_Response_200"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-03-29T11:29:49.289Z",
+        "name" : "Target3",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "tgt_activitylog3.csv",
+            "label" : "tgt_activitylog3.csv",
+            "path" : "tgt_activitylog3.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-03-27T15:48:46.823Z",
+        "name" : "getrestapi_activitylog1",
+        "advancedProperties" : [
+          {
+            "name" : "requestXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "inputFlush",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "FaultGroup",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Response_200",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "entries",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "transformationEntries",
+            "output" : "true"
+          }
+        ],
+        "operation" : "@7DAH3ma7tixjut3DWTsZav@activityLog",
+        "serviceDefinitionId" : "@7DAH3ma7tixjut3DWTsZav",
+        "serviceDefinitionName" : "bs_activity_log",
+        "fieldMap" : {
+          "mappings" : [
+            {
+              "groupName" : "Expression4",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "srt1_o_Rowlimit",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:rowLimit"
+                },
+                {
+                  "name" : "srt1_o_sessionId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:icSessionId"
+                }
+              ]
+            }
+          ]
+        },
+        "outputFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "FaultGroup",
+              "isRoot" : "false",
+              "xPath" : "/INFA:activityLog_FAULT/activityLog",
+              "xfields" : [
+                {
+                  "name" : "RequestXML",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/RequestXML"
+                },
+                {
+                  "name" : "ErrorCode",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/ErrorCode"
+                },
+                {
+                  "name" : "ErrorMessage",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/ErrorMessage"
+                }
+              ]
+            },
+            {
+              "groupName" : "Response_200",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200",
+              "xfields" : [
+                {
+                  "name" : "PK_Response_200",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "true"
+                },
+                {
+                  "name" : "_type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:_type"
+                },
+                {
+                  "name" : "id",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:id"
+                },
+                {
+                  "name" : "type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:type"
+                },
+                {
+                  "name" : "objectId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:objectId"
+                },
+                {
+                  "name" : "objectName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:objectName"
+                },
+                {
+                  "name" : "runId",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:runId"
+                },
+                {
+                  "name" : "startTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startTime"
+                },
+                {
+                  "name" : "endTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:endTime"
+                },
+                {
+                  "name" : "startTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startTimeUtc"
+                },
+                {
+                  "name" : "endTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:endTimeUtc"
+                },
+                {
+                  "name" : "state",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:state"
+                },
+                {
+                  "name" : "UIState",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:UIState"
+                },
+                {
+                  "name" : "failedSourceRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:failedSourceRows"
+                },
+                {
+                  "name" : "successSourceRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:successSourceRows"
+                },
+                {
+                  "name" : "failedTargetRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:failedTargetRows"
+                },
+                {
+                  "name" : "successTargetRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:successTargetRows"
+                },
+                {
+                  "name" : "startedBy",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:startedBy"
+                },
+                {
+                  "name" : "runContextType",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:runContextType"
+                },
+                {
+                  "name" : "totalSuccessRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:totalSuccessRows"
+                },
+                {
+                  "name" : "totalFailedRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:totalFailedRows"
+                },
+                {
+                  "name" : "stopOnError",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:stopOnError"
+                },
+                {
+                  "name" : "hasStopOnErrorRecord",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:hasStopOnErrorRecord"
+                },
+                {
+                  "name" : "isStopped",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:isStopped"
+                }
+              ]
+            },
+            {
+              "groupName" : "entries",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries",
+              "xfields" : [
+                {
+                  "name" : "PK_entries",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "true"
+                },
+                {
+                  "name" : "FK_Response_200",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "true",
+                  "primaryKey" : "false"
+                },
+                {
+                  "name" : "_type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:_type"
+                },
+                {
+                  "name" : "id",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:id"
+                },
+                {
+                  "name" : "type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:type"
+                },
+                {
+                  "name" : "objectName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:objectName"
+                },
+                {
+                  "name" : "runId",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:runId"
+                },
+                {
+                  "name" : "agentId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:agentId"
+                },
+                {
+                  "name" : "runtimeEnvironmentId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:runtimeEnvironmentId"
+                },
+                {
+                  "name" : "startTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:startTime"
+                },
+                {
+                  "name" : "endTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:endTime"
+                },
+                {
+                  "name" : "startTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:startTimeUtc"
+                },
+                {
+                  "name" : "endTimeUtc",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:endTimeUtc"
+                },
+                {
+                  "name" : "state",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:state"
+                },
+                {
+                  "name" : "UIState",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:UIState"
+                },
+                {
+                  "name" : "failedSourceRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:failedSourceRows"
+                },
+                {
+                  "name" : "successSourceRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:successSourceRows"
+                },
+                {
+                  "name" : "failedTargetRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:failedTargetRows"
+                },
+                {
+                  "name" : "successTargetRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:successTargetRows"
+                },
+                {
+                  "name" : "errorMsg",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:errorMsg"
+                },
+                {
+                  "name" : "startedBy",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:startedBy"
+                },
+                {
+                  "name" : "runContextType",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:runContextType"
+                },
+                {
+                  "name" : "entries",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:entries"
+                },
+                {
+                  "name" : "subTaskEntries",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:subTaskEntries"
+                },
+                {
+                  "name" : "CONSUMED_COMPUTE_UNITS",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:CONSUMED_COMPUTE_UNITS"
+                },
+                {
+                  "name" : "ERROR_CODE",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:ERROR_CODE"
+                },
+                {
+                  "name" : "IS_SERVER_LESS",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:IS_SERVER_LESS"
+                },
+                {
+                  "name" : "OBJ_LOCATION",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:OBJ_LOCATION"
+                },
+                {
+                  "name" : "REQUESTED_COMPUTE_UNITS",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:REQUESTED_COMPUTE_UNITS"
+                },
+                {
+                  "name" : "SERVICE_TYPE",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:SERVICE_TYPE"
+                },
+                {
+                  "name" : "Session_Log_File_Name",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:Session_Log_File_Name"
+                },
+                {
+                  "name" : "actualExecutionTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:actualExecutionTime"
+                },
+                {
+                  "name" : "actualTaskExecutionTime",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:actualTaskExecutionTime"
+                },
+                {
+                  "name" : "releaseVersion",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:logEntryItemAttrs/json:releaseVersion"
+                },
+                {
+                  "name" : "sessionVariables",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:sessionVariables"
+                },
+                {
+                  "name" : "totalSuccessRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:totalSuccessRows"
+                },
+                {
+                  "name" : "totalFailedRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:totalFailedRows"
+                },
+                {
+                  "name" : "stopOnError",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:stopOnError"
+                },
+                {
+                  "name" : "hasStopOnErrorRecord",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:hasStopOnErrorRecord"
+                },
+                {
+                  "name" : "contextExternalId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:contextExternalId"
+                },
+                {
+                  "name" : "isStopped",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:isStopped"
+                }
+              ]
+            },
+            {
+              "groupName" : "transformationEntries",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries",
+              "xfields" : [
+                {
+                  "name" : "FK_entries",
+                  "platformType" : {
+                    "name" : "bigint"
+                  },
+                  "precision" : 19,
+                  "scale" : 0,
+                  "foreignKey" : "true",
+                  "primaryKey" : "false"
+                },
+                {
+                  "name" : "_type",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:_type"
+                },
+                {
+                  "name" : "id",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:id"
+                },
+                {
+                  "name" : "txName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:txName"
+                },
+                {
+                  "name" : "txType",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:txType"
+                },
+                {
+                  "name" : "successRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:successRows"
+                },
+                {
+                  "name" : "failedRows",
+                  "platformType" : {
+                    "name" : "decimal"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:failedRows"
+                },
+                {
+                  "name" : "txInstanceName",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:entriesArray/json:entries/json:transformationEntriesArray/json:transformationEntries/json:txInstanceName"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "variables" : [
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "NewParameter",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 10,
+        "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+        "scale" : 0
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:06 PDT"
+}

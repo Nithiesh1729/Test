@@ -1,0 +1,399 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_Load_Activitylog_to_snowflake",
+    "links" : [
+      {
+        "link" : "restv2_login -> Restv2_activity_log",
+        "groupLink" : "root -> DefaultGroup"
+      },
+      {
+        "link" : "Restv2_activity_log -> tgt_snowflake",
+        "groupLink" : "Response_200 -> DefaultGroup"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-07-02T08:12:49.218Z",
+        "name" : "restv2_login",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "1024"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "root",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@jcKOnMZ98gHbIzv8AlnRuF",
+          "connectionName" : "Restv2_Login_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "OPERATION",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "loginv3",
+            "label" : "loginv3",
+            "objectName" : "loginv3",
+            "path" : "loginv3",
+            "retainMetadata" : "false"
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false",
+            "requestXml" : "{\n  \"body\" : {\n    \"username\" : \"\",\n    \"password\" : \"\"\n  }\n}"
+          }
+        },
+        "xFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "root",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "sessionId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200/json:userInfo/json:sessionId"
+                }
+              ]
+            }
+          ],
+          "packed" : {
+            "packedFields" : null
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-02T08:12:49.250Z",
+        "name" : "tgt_snowflake",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "failedSourceRows"
+            },
+            "name" : "failedSourceRows",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "successSourceRows"
+            },
+            "name" : "successSourceRows",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "sessionId"
+            },
+            "name" : "sessionId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@3l83spUFfUcbCXlOXkMh8n",
+          "connectionName" : "Snowflake_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "GCS/GCS_SCHEMA/activitylogapi",
+            "label" : "GCS/GCS_SCHEMA/activitylogapi",
+            "path" : "GCS/GCS_SCHEMA/activitylogapi",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "failedSourceRows",
+                "fieldType" : "CONNECTOR",
+                "label" : "failedSourceRows",
+                "nativeName" : "failedSourceRows",
+                "nativeType" : "number",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "activitylogapi"
+                  }
+                ]
+              },
+              {
+                "name" : "successSourceRows",
+                "fieldType" : "CONNECTOR",
+                "label" : "successSourceRows",
+                "nativeName" : "successSourceRows",
+                "nativeType" : "number",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "activitylogapi"
+                  }
+                ]
+              },
+              {
+                "name" : "sessionId",
+                "fieldType" : "CONNECTOR",
+                "label" : "sessionId",
+                "nativeName" : "sessionId",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "activitylogapi"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-02T08:14:14.322Z",
+        "name" : "Restv2_activity_log",
+        "advancedProperties" : [
+          {
+            "name" : "requestXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "inputFlush",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "FaultGroup",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Response_200",
+            "output" : "true"
+          }
+        ],
+        "operation" : "@7DAH3ma7tixjut3DWTsZav@activityLog",
+        "serviceDefinitionId" : "@7DAH3ma7tixjut3DWTsZav",
+        "serviceDefinitionName" : "bs_activity_log",
+        "fieldMap" : {
+          "mappings" : [
+            {
+              "groupName" : "Source",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "sessionId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:icSessionId"
+                }
+              ]
+            }
+          ]
+        },
+        "outputFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "FaultGroup",
+              "isRoot" : "false",
+              "xPath" : "/INFA:activityLog_FAULT/activityLog",
+              "xfields" : [
+                {
+                  "name" : "RequestXML",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/RequestXML"
+                },
+                {
+                  "name" : "ErrorCode",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/ErrorCode"
+                },
+                {
+                  "name" : "ErrorMessage",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:activityLog_FAULT/activityLog/ErrorMessage"
+                }
+              ]
+            },
+            {
+              "groupName" : "Response_200",
+              "isRoot" : "false",
+              "xPath" : "/json:root/json:Response_200Array/json:Response_200",
+              "xfields" : [
+                {
+                  "name" : "failedSourceRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:failedSourceRows"
+                },
+                {
+                  "name" : "successSourceRows",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200Array/json:Response_200/json:successSourceRows"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:08 PDT"
+}

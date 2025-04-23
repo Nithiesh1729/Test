@@ -1,0 +1,451 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_Test_Nonsimplenode_Error",
+    "links" : [
+      {
+        "link" : "src_FF -> WebServices",
+        "groupLink" : "DefaultGroup -> DefaultGroup"
+      },
+      {
+        "link" : "WebServices -> Target",
+        "groupLink" : "nonsimplenodeerror_OUTPUT -> DefaultGroup"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-11-08T08:09:20.160Z",
+        "name" : "src_FF",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "apikey"
+            },
+            "name" : "apikey",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "authorization"
+            },
+            "name" : "authorization",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "data"
+            },
+            "name" : "data",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "XMLsrc.txt",
+            "label" : "XMLsrc.txt",
+            "objectName" : "XMLsrc.txt",
+            "path" : "XMLsrc.txt",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "data",
+                "fieldType" : "CONNECTOR",
+                "label" : "data",
+                "nativeName" : "data",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "XMLsrc.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "apikey",
+                "fieldType" : "CONNECTOR",
+                "label" : "apikey",
+                "nativeName" : "apikey",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "XMLsrc.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "authorization",
+                "fieldType" : "CONNECTOR",
+                "label" : "authorization",
+                "nativeName" : "authorization",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "XMLsrc.txt"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-11-08T08:09:20.161Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true",
+                "names" : [
+                  {
+                    "inputName" : "logId"
+                  },
+                  {
+                    "inputName" : "status"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "Test_nonsimplenode.txt",
+            "label" : "Test_nonsimplenode.txt",
+            "path" : "Test_nonsimplenode.txt",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-11-08T08:10:16.348Z",
+        "name" : "WebServices",
+        "advancedProperties" : [
+          {
+            "name" : "requestXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "inputFlush",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "FaultGroup",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "nonsimplenodeerror_OUTPUT",
+            "output" : "true"
+          }
+        ],
+        "operation" : "@94IB6wTzWkIgxfw11CUr4Q@nonsimplenodeerror",
+        "serviceDefinitionId" : "@94IB6wTzWkIgxfw11CUr4Q",
+        "serviceDefinitionName" : "bs_nonsimplenode",
+        "fieldMap" : {
+          "mappings" : [
+            {
+              "groupName" : "src_FF",
+              "isRoot" : "false",
+              "xPath" : "/INFA:nonsimplenodeerror_INPUT",
+              "xfields" : [
+                {
+                  "name" : "data",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_INPUT/nonsimplenodeerror/body"
+                },
+                {
+                  "name" : "authorization",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_INPUT/nonsimplenodeerror/Authorization"
+                },
+                {
+                  "name" : "apikey",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_INPUT/nonsimplenodeerror/Apikey"
+                }
+              ]
+            }
+          ]
+        },
+        "outputFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "FaultGroup",
+              "isRoot" : "false",
+              "xPath" : "/INFA:nonsimplenodeerror_FAULT/nonsimplenodeerror",
+              "xfields" : [
+                {
+                  "name" : "RequestXML",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_FAULT/nonsimplenodeerror/RequestXML"
+                },
+                {
+                  "name" : "ErrorCode",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_FAULT/nonsimplenodeerror/ErrorCode"
+                },
+                {
+                  "name" : "ErrorMessage",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_FAULT/nonsimplenodeerror/ErrorMessage"
+                }
+              ]
+            },
+            {
+              "groupName" : "nonsimplenodeerror_OUTPUT",
+              "isRoot" : "false",
+              "xPath" : "/INFA:nonsimplenodeerror_OUTPUT",
+              "xfields" : [
+                {
+                  "name" : "status",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_OUTPUT/nonsimplenodeerror/Response_200/nonsimplenodeerror/status"
+                },
+                {
+                  "name" : "logId",
+                  "platformType" : {
+                    "name" : "integer"
+                  },
+                  "precision" : 10,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:nonsimplenodeerror_OUTPUT/nonsimplenodeerror/Response_200/nonsimplenodeerror/logId"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:07 PDT"
+}

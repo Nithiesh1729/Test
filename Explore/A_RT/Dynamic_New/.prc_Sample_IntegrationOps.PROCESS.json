@@ -1,0 +1,27 @@
+{
+  "objectInfo" : {
+    "id" : "9ovQznMBT7Nkav031kny4c",
+    "name" : "prc_Sample_IntegrationOps",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "6xtjqbdpIO3M4Ww-gt-281665-2024-04-17T04:42:45.929Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-04-23T11:07:12.999Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,0 +1,55 @@
+{
+  "name" : "DynamicMT_Dynamic_Src_Tgt",
+  "state" : "VALID",
+  "mappingId" : "012CRY17000000000026",
+  "mappingTemplateName" : "MT_Dynamic_Src_Tgt",
+  "mappingDocType" : "MAPPING",
+  "runtimeEnvironmentId" : "012CRY25000000000003",
+  "runtimeEnvironmentName" : "A_RT",
+  "params" : [
+    {
+      "uniqueName" : "p_change_col_name",
+      "name" : "p_change_col_name",
+      "type" : "STRING",
+      "scope" : "LOCAL",
+      "label" : "p_change_col_name"
+    },
+    {
+      "uniqueName" : "p_value",
+      "name" : "p_value",
+      "type" : "INOUT_STRING",
+      "scope" : "LOCAL"
+    }
+  ],
+  "groups" : [
+    {
+      "groupName" : "Group_1",
+      "enabled" : true
+    }
+  ],
+  "jobs" : [
+    {
+      "jobName" : "Job_1",
+      "jobType" : "USER",
+      "enabled" : true,
+      "stopOnError" : false,
+      "stopOnWarning" : false,
+      "jobParamBindings" : [
+        {
+          "type" : "INOUT",
+          "paramDefn" : "p_value",
+          "retentionPolicy" : "ON_SUCCESS",
+          "aggregationType" : "MAX",
+          "currentValue" : "300"
+        },
+        {
+          "type" : "String",
+          "paramDefn" : "p_change_col_name",
+          "text" : "statecode"
+        }
+      ],
+      "group" : "Group_1"
+    }
+  ],
+  "vcsExportTime" : "2025-04-23 04:07:04 PDT"
+}

@@ -1,0 +1,5246 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_healthsa_rpt_ysa_acct_bal_prcs_fact_ot",
+    "flowOrderEntries" : [
+      {
+        "sourceTypes" : [
+          "Source"
+        ],
+        "sources" : [
+          "SRC_REDSHIFT_ACCT_TRNSPRCS_FACT_CustomQry"
+        ],
+        "targetTypes" : [
+          "Target"
+        ],
+        "targets" : [
+          "TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Ins"
+        ]
+      },
+      {
+        "sourceTypes" : [
+          "Source"
+        ],
+        "sources" : [
+          "SRC_REDSHIFT_ACCT_BAL_PRCS_FACT_CustomQry"
+        ],
+        "targetTypes" : [
+          "Target"
+        ],
+        "targets" : [
+          "TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Upd"
+        ]
+      }
+    ],
+    "links" : [
+      {
+        "link" : "SRC_REDSHIFT_ACCT_BAL_PRCS_FACT_CustomQry -> TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Upd"
+      },
+      {
+        "link" : "EXP_TRANS -> EXP_TRANS1"
+      },
+      {
+        "link" : "EXP_TRANS1 -> SRT_Key"
+      },
+      {
+        "link" : "SRT_Key -> EXP_TRANS2"
+      },
+      {
+        "link" : "EXP_TRANS2 -> TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Ins"
+      },
+      {
+        "link" : "Sorter -> EXP_TRANS"
+      },
+      {
+        "link" : "SRC_REDSHIFT_ACCT_TRNSPRCS_FACT_CustomQry -> Sorter"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "true",
+        "expressionVariable" : "false",
+        "name" : "Src_RS_Conn",
+        "defaultValue" : {
+          "valueLiteral" : "Redshift_healthsa_rsproducer"
+        },
+        "anonymousType" : {
+          "subType" : "TOOLKIT_CCI",
+          "typeSystem" : "TOOLKIT",
+          "connectionType" : "Amazon Redshift v2"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "true",
+        "expressionVariable" : "false",
+        "name" : "Tgt_RS_Conn",
+        "defaultValue" : {
+          "valueLiteral" : "Redshift_healthsa_rsproducer"
+        },
+        "anonymousType" : {
+          "subType" : "TOOLKIT_CCI",
+          "typeSystem" : "TOOLKIT",
+          "connectionType" : "Amazon Redshift v2"
+        }
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2022-11-22T15:57:02.483Z",
+        "name" : "SRC_REDSHIFT_ACCT_BAL_PRCS_FACT_CustomQry",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "prsn_intn_id"
+            },
+            "name" : "prsn_intn_id",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_ky"
+            },
+            "name" : "plan_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "rep_beg_dt"
+            },
+            "name" : "rep_beg_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "rep_end_dt"
+            },
+            "name" : "rep_end_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "act_rep_end_dt"
+            },
+            "name" : "act_rep_end_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId$" : {
+            "name" : "Src_RS_Conn"
+          },
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "customQuery" : "select prsn_intn_id, plan_ky, rep_beg_dt, rep_end_dt, case when rnum=1 then date('2299-12-31') else prev_date  end as act_rep_end_dt from (\nselect prsn_intn_id, clnt_ky, plan_ky, rep_beg_dt, rep_end_dt, dateadd(day,-1,(max(rep_beg_dt) over (partition by clnt_ky, prsn_intn_id, plan_ky order by rep_beg_dt desc rows between 1 preceding and current row))) as prev_date, \nrow_number() over (partition by clnt_ky, prsn_intn_id, plan_ky order by rep_beg_dt desc)  as rnum from healthsa_rpt.acct_bal_prcs_fact where rep_beg_dt> rep_end_dt and 1=0 ) t1",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "prsn_intn_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_intn_id",
+                "nativeName" : "prsn_intn_id",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_ky",
+                "nativeName" : "plan_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "rep_beg_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "rep_beg_dt",
+                "nativeName" : "rep_beg_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "rep_end_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "rep_end_dt",
+                "nativeName" : "rep_end_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "act_rep_end_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "act_rep_end_dt",
+                "nativeName" : "act_rep_end_dt",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 6,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "S3 Bucket Name",
+                "value" : "$$S3_Bucket_Name"
+              },
+              {
+                "name" : "Enable Compression",
+                "value" : "YES"
+              },
+              {
+                "name" : "Staging Directory Location",
+                "value" : "$$Stg_Dir_Loc"
+              },
+              {
+                "name" : "Unload Options",
+                "value" : "$$Unload_Options"
+              },
+              {
+                "name" : "Temporary Credential Duration",
+                "value" : "900"
+              },
+              {
+                "name" : "Treat NULL Value as NULL",
+                "value" : "YES"
+              },
+              {
+                "name" : "Encryption Type",
+                "value" : "SSE-KMS"
+              },
+              {
+                "name" : "Download S3 Files In Multiple Parts",
+                "value" : "NO"
+              },
+              {
+                "name" : "Multipart Download Threshold Size",
+                "value" : "5242880"
+              },
+              {
+                "name" : "Select Distinct",
+                "value" : "NO"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "createTime" : "2022-11-22T15:57:02.492Z",
+        "name" : "TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Upd",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : [
+          "prsn_ky",
+          "plan_ky",
+          "rep_beg_dt"
+        ],
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "prsn_ky"
+            },
+            "name" : "prsn_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_ky"
+            },
+            "name" : "plan_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "rep_beg_dt"
+            },
+            "name" : "rep_beg_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "rep_end_dt"
+            },
+            "name" : "rep_end_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "prsn_intn_id"
+            },
+            "name" : "prsn_intn_id",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "clnt_ky"
+            },
+            "name" : "clnt_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "prsn_addr_ky"
+            },
+            "name" : "prsn_addr_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_ee_ctrb_at"
+            },
+            "name" : "tot_ee_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_er_ctrb_at"
+            },
+            "name" : "tot_er_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_ctrb_at"
+            },
+            "name" : "tot_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_excs_ctrb_at"
+            },
+            "name" : "tot_excs_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "intr_at"
+            },
+            "name" : "intr_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "earn_at"
+            },
+            "name" : "earn_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rlvr_at"
+            },
+            "name" : "rlvr_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rlvr_used_at"
+            },
+            "name" : "rlvr_used_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_paid_at"
+            },
+            "name" : "clm_paid_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "chk_rcvy_at"
+            },
+            "name" : "chk_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "onln_rcvy_at"
+            },
+            "name" : "onln_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_opmt_at"
+            },
+            "name" : "tot_opmt_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_rcvy_at"
+            },
+            "name" : "clm_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "avlb_bal_at"
+            },
+            "name" : "avlb_bal_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rmn_opmt_at"
+            },
+            "name" : "rmn_opmt_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "high_cv_at"
+            },
+            "name" : "high_cv_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "ltst_cv_at"
+            },
+            "name" : "ltst_cv_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_fnd_at"
+            },
+            "name" : "tot_fnd_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "estm_forf_at"
+            },
+            "name" : "estm_forf_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "load_ts"
+            },
+            "name" : "load_ts",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "rqst_at"
+            },
+            "name" : "rqst_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "elig_at"
+            },
+            "name" : "elig_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "aprvd_at"
+            },
+            "name" : "aprvd_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "crvr_at_ct"
+            },
+            "name" : "crvr_at_ct",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId$" : {
+            "name" : "Tgt_RS_Conn"
+          },
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "healthsa_rpt/acct_bal_prcs_fact",
+            "label" : "acct_bal_prcs_fact",
+            "objectName" : "acct_bal_prcs_fact",
+            "objectType" : "amazonredshift",
+            "path" : "healthsa_rpt/acct_bal_prcs_fact",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "prsn_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_ky",
+                "nativeName" : "prsn_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_ky",
+                "nativeName" : "plan_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rep_beg_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "rep_beg_dt",
+                "nativeName" : "rep_beg_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rep_end_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "rep_end_dt",
+                "nativeName" : "rep_end_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "prsn_intn_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_intn_id",
+                "nativeName" : "prsn_intn_id",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "clnt_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "clnt_ky",
+                "nativeName" : "clnt_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "prsn_addr_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_addr_ky",
+                "nativeName" : "prsn_addr_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_ee_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_ee_ctrb_at",
+                "nativeName" : "tot_ee_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_er_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_er_ctrb_at",
+                "nativeName" : "tot_er_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_ctrb_at",
+                "nativeName" : "tot_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_excs_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_excs_ctrb_at",
+                "nativeName" : "tot_excs_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "intr_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "intr_at",
+                "nativeName" : "intr_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "earn_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "earn_at",
+                "nativeName" : "earn_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rlvr_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rlvr_at",
+                "nativeName" : "rlvr_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rlvr_used_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rlvr_used_at",
+                "nativeName" : "rlvr_used_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_paid_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_paid_at",
+                "nativeName" : "clm_paid_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "chk_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "chk_rcvy_at",
+                "nativeName" : "chk_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "onln_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "onln_rcvy_at",
+                "nativeName" : "onln_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_opmt_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_opmt_at",
+                "nativeName" : "tot_opmt_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_rcvy_at",
+                "nativeName" : "clm_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "avlb_bal_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "avlb_bal_at",
+                "nativeName" : "avlb_bal_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rmn_opmt_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rmn_opmt_at",
+                "nativeName" : "rmn_opmt_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "high_cv_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "high_cv_at",
+                "nativeName" : "high_cv_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "ltst_cv_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "ltst_cv_at",
+                "nativeName" : "ltst_cv_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_fnd_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_fnd_at",
+                "nativeName" : "tot_fnd_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "estm_forf_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "estm_forf_at",
+                "nativeName" : "estm_forf_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "load_ts",
+                "fieldType" : "CONNECTOR",
+                "label" : "load_ts",
+                "nativeName" : "load_ts",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 6,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rqst_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rqst_at",
+                "nativeName" : "rqst_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "elig_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "elig_at",
+                "nativeName" : "elig_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "aprvd_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "aprvd_at",
+                "nativeName" : "aprvd_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "crvr_at_ct",
+                "fieldType" : "CONNECTOR",
+                "label" : "crvr_at_ct",
+                "nativeName" : "crvr_at_ct",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "recordType",
+                "value" : "TABLE"
+              }
+            ]
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "S3 Bucket Name",
+                "value" : "$$S3_Bucket_Name"
+              },
+              {
+                "name" : "Enable Compression",
+                "value" : "YES"
+              },
+              {
+                "name" : "Staging Directory Location",
+                "value" : "$$Stg_Dir_Loc"
+              },
+              {
+                "name" : "Batch Size",
+                "value" : "2000000"
+              },
+              {
+                "name" : "Max Errors Per Batch Upload Insert",
+                "value" : "1"
+              },
+              {
+                "name" : "Truncate Target Table Before Data Upload",
+                "value" : "NO"
+              },
+              {
+                "name" : "Require Null Value For Char And Varchar",
+                "value" : "null"
+              },
+              {
+                "name" : "WaitTime In Seconds For S3 File Consistency",
+                "value" : "0"
+              },
+              {
+                "name" : "Copy Options",
+                "value" : "$$Unload_Options"
+              },
+              {
+                "name" : "Temporary Credential Duration",
+                "value" : "900"
+              },
+              {
+                "name" : "S3 Server Side Encryption",
+                "value" : "NO"
+              },
+              {
+                "name" : "S3 Client Side Encryption",
+                "value" : "NO"
+              },
+              {
+                "name" : "Analyze Target Table",
+                "value" : "NO"
+              },
+              {
+                "name" : "Vacuum Target Table",
+                "value" : "None"
+              },
+              {
+                "name" : "Treat Source Rows As",
+                "value" : "INSERT"
+              },
+              {
+                "name" : "Transfer Manager Thread Pool Size",
+                "value" : "10"
+              },
+              {
+                "name" : "Minimum Upload Part Size",
+                "value" : "5242880"
+              },
+              {
+                "name" : "Preserve record order on write",
+                "value" : "NO"
+              },
+              {
+                "name" : "Number of files per batch",
+                "value" : "0"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Rowbased"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "updateStrategyExpression" : "DD_UPDATE",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "plan_ky",
+              "toField" : {
+                "name" : "plan_ky"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "rep_beg_dt",
+              "toField" : {
+                "name" : "rep_beg_dt"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "rep_end_dt",
+              "toField" : {
+                "name" : "rep_end_dt"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "prsn_intn_id",
+              "toField" : {
+                "name" : "prsn_intn_id"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "prsn_intn_id",
+              "toField" : {
+                "name" : "prsn_ky"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2022-11-22T16:05:56.835Z",
+        "name" : "SRC_REDSHIFT_ACCT_TRNSPRCS_FACT_CustomQry",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "ee_ctrb_at"
+            },
+            "name" : "ee_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "er_ctrb_at"
+            },
+            "name" : "er_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "excs_ctrb_at"
+            },
+            "name" : "excs_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_ctrb_at"
+            },
+            "name" : "tot_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "intr_at"
+            },
+            "name" : "intr_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "earn_at"
+            },
+            "name" : "earn_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rlvr_at"
+            },
+            "name" : "rlvr_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rlvr_used_at"
+            },
+            "name" : "rlvr_used_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_pmt_at"
+            },
+            "name" : "clm_pmt_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "chk_rcvy_at"
+            },
+            "name" : "chk_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "onln_rcvy_at"
+            },
+            "name" : "onln_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_paid_at"
+            },
+            "name" : "clm_paid_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "opmt_at"
+            },
+            "name" : "opmt_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_rcvy_at"
+            },
+            "name" : "clm_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_rcvy_at"
+            },
+            "name" : "tot_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "prsn_intn_id"
+            },
+            "name" : "prsn_intn_id",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_ky"
+            },
+            "name" : "plan_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "prsn_addr_ky"
+            },
+            "name" : "prsn_addr_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_paid_at_n_insu"
+            },
+            "name" : "clm_paid_at_n_insu",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rqst_at"
+            },
+            "name" : "rqst_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "elig_at"
+            },
+            "name" : "elig_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "cal_dt"
+            },
+            "name" : "cal_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_yy_stat_cd"
+            },
+            "name" : "plan_yy_stat_cd",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "cv_fl"
+            },
+            "name" : "cv_fl",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ctrb_fl"
+            },
+            "name" : "ctrb_fl",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_max"
+            },
+            "name" : "plan_max",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clnt_ky"
+            },
+            "name" : "clnt_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_typ_cd"
+            },
+            "name" : "plan_typ_cd",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_rcvr_anthr_yy"
+            },
+            "name" : "clm_rcvr_anthr_yy",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 38,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "high_cv_at"
+            },
+            "name" : "high_cv_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "ltst_cv_at"
+            },
+            "name" : "ltst_cv_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "cv_end_dt"
+            },
+            "name" : "cv_end_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "empl_stat_cd"
+            },
+            "name" : "empl_stat_cd",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "intr_fl"
+            },
+            "name" : "intr_fl",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "crvr_at"
+            },
+            "name" : "crvr_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "cv_at"
+            },
+            "name" : "cv_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "cv_at2"
+            },
+            "name" : "cv_at2",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_id"
+            },
+            "name" : "plan_id",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_yy_end_dt"
+            },
+            "name" : "plan_yy_end_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "rlvr_gnrc_prvs_id"
+            },
+            "name" : "rlvr_gnrc_prvs_id",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "brk_in_cv_rlvr_cd"
+            },
+            "name" : "brk_in_cv_rlvr_cd",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "cat_cd"
+            },
+            "name" : "cat_cd",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId$" : {
+            "name" : "Src_RS_Conn"
+          },
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "customQuery" : "select a.EE_CTRB_AT,a.ER_CTRB_AT,a.EXCS_CTRB_AT,a.TOT_CTRB_AT,a.INTR_AT,a.EARN_AT,case when nvl(check_elig.cat_cd,'ELIG') = 'NOT_ELIG' and a.RLVR_GNRC_PRVS_ID>0 then 0 else a.rlvr_at end as rlvr_at ,a.RLVR_USED_AT,a.CLM_PMT_AT,a.CHK_RCVY_AT,a.ONLN_RCVY_AT,a.CLM_PAID_AT,a.OPMT_AT,a.CLM_RCVY_AT,a.TOT_RCVY_AT,a.PRSN_INTN_ID,a.PLAN_KY,a.PRSN_ADDR_KY,a.CLM_PAID_AT_N_INSU,a.RQST_AT,a.ELIG_AT,a.CAL_DT,a.PLAN_YY_STAT_CD,a.CV_FL,a.CTRB_FL,a.PLAN_MAX,a.CLNT_KY,a.PLAN_TYP_CD,a.CLM_RCVR_ANTHR_YY,a.HIGH_CV_AT,a.LTST_CV_AT,a.CV_END_DT,a.EMPL_STAT_CD,a.INTR_FL,a.CRVR_AT,a.CV_AT,a.CV_AT2,a.PLAN_ID,a.PLAN_YY_END_DT,a.RLVR_GNRC_PRVS_ID,a.BRK_IN_CV_RLVR_CD\n,nvl(check_elig.cat_cd,'ELIG')as cat_cd  from\n(\nSELECT distinct ee_ctrb_at, \n       er_ctrb_at, \n       excs_ctrb_at, \n       tot_ctrb_at, \n       intr_at, \n       earn_at, \n       max(case when (f.cv_at=0.00 and aa.rlvr_gnrc_prvs_id>0 and pldim.plan_id<>5710 and not(pldim.plan_id=5720 and aa.clnt_ky = 100736) and not(pldim.plan_id=5720 and aa.clnt_ky = 101040) and not(pldim.plan_id=5720 and aa.clnt_ky = 101165) and not(pldim.plan_id=5720 and aa.clnt_ky = 101576) and not(pldim.plan_id=5720 and aa.clnt_ky = 101881) and not(pldim.plan_id=5720 and aa.clnt_ky = 101995) and not(pldim.plan_id=5720 and aa.clnt_ky = 102273) and not(pldim.plan_id=5720 and aa.clnt_ky = 102525) and not(pldim.plan_id=5720 and aa.clnt_ky = 102789) and not(pldim.plan_id=5720 and aa.clnt_ky = 103078) and not(pldim.plan_id=5720 and aa.clnt_ky = 103687) and not(pldim.plan_id=5720 and aa.clnt_ky = 104508) and not(pldim.plan_id=5720 and aa.clnt_ky = 104665) and not(pldim.plan_id=5720 and aa.clnt_ky = 106223) and not(pldim.plan_id=5720 and aa.clnt_ky = 107471) and not(pldim.plan_id=5720 and aa.clnt_ky = 108666) and not(pldim.plan_id=5720 and aa.clnt_ky = 109086) and not(pldim.plan_id=5720 and aa.clnt_ky = 109571) and not(pldim.plan_id=5720 and aa.clnt_ky = 109866) and not(pldim.plan_id=5720 and aa.clnt_ky = 110197) and not(pldim.plan_id=5720 and aa.clnt_ky = 110542) and not(pldim.plan_id=5720 and aa.clnt_ky = 113546) and not(pldim.plan_id=5720 and aa.clnt_ky = 113863) and not(pldim.plan_id=5720 and aa.clnt_ky = 116144) and not(pldim.plan_id=5720 and aa.clnt_ky = 116521) and not(pldim.plan_id=5720 and aa.clnt_ky = 116593) and not(pldim.plan_id=5720 and aa.clnt_ky = 116695) and not(pldim.plan_id=5720 and aa.clnt_ky = 134153) and not(pldim.plan_id=5720 and aa.clnt_ky = 1941931) and not(pldim.plan_id=5720 and aa.clnt_ky = 1946597) and not(pldim.plan_id=5720 and aa.clnt_ky = 19141697) and not(pldim.plan_id=5720 and aa.clnt_ky = 19191909) and not(pldim.plan_id=5720 and aa.clnt_ky = 19228042) and not(pldim.plan_id=5720 and aa.clnt_ky = 19238101) and not(pldim.plan_id=5720 and aa.clnt_ky = 100892) and not(pldim.plan_id=5720 and aa.clnt_ky = 101283) and not(pldim.plan_id=5720 and aa.clnt_ky = 101656) and not(pldim.plan_id=5720 and aa.clnt_ky = 102197) and not(pldim.plan_id=5720 and aa.clnt_ky = 105728) and not(pldim.plan_id=5720 and aa.clnt_ky = 109950) and not(pldim.plan_id=5720 and aa.clnt_ky = 113002) and not(pldim.plan_id=5720 and aa.clnt_ky = 115596) and not(pldim.plan_id=5720 and aa.clnt_ky = 116498) and not(pldim.plan_id=5720 and aa.clnt_ky = 1972491) and not(pldim.plan_id=5720 and aa.clnt_ky = 100707) and not(pldim.plan_id=5720 and aa.clnt_ky = 101762) and not(pldim.plan_id=5720 and aa.clnt_ky = 103377) and not(pldim.plan_id=5720 and aa.clnt_ky = 103979) and not(pldim.plan_id=5720 and aa.clnt_ky = 1980994) and pldim.plan_id<>9100 and crvr_at<>-9999  AND ((pldim.INTR_FL='N' OR EMPL.EMPL_STAT_CD='N') OR ((pldim.INTR_FL='' OR COALESCE(empl.EMPL_STAT_CD,'')='') and crvr_at<>-9999))) THEN -99999\nelse rlvr_at end  )over(partition by aa.prsn_intn_id, aa.plan_ky, cast(Date_part(year,aa.cal_dt) as char(4)) ) as rlvr_at ,\n       rlvr_used_at, \n       clm_pmt_at, \n       chk_rcvy_at, \n       onln_rcvy_at, \n       clm_paid_at, \n       opmt_at, \n       clm_rcvy_at, \n       tot_rcvy_at, \n       aa.prsn_intn_id  ,\n       aa.plan_ky, \n       aa.prsn_addr_ky, \n       CLM_PAID_AT_N_INSU, \n       rqst_at, \n       elig_at, \n       aa.cal_dt , \n       aa.plan_yy_stat_cd, \n       aa.cv_fl, \n       aa.ctrb_fl, \n       aa.plan_max, \n       aa.clnt_ky, \n       aa.plan_typ_cd, \n       CLM_RCVR_ANTHR_YY, \n       aa.HIGH_CV_AT, \n       coalesce(cv.LTST_CV_AT,cv3.LTST_CV_AT,0.00) as LTST_CV_AT,\n       aa.cv_end_dt ,\nCOALESCE(empl.EMPL_STAT_CD,'') as EMPL_STAT_CD,\npldim.INTR_FL,\n       case when (f.cv_at=0.00 and pldim.plan_id<>5710 and not(pldim.plan_id=5720 and aa.clnt_ky = 100736) and not(pldim.plan_id=5720 and aa.clnt_ky = 101040) and not(pldim.plan_id=5720 and aa.clnt_ky = 101165) and not(pldim.plan_id=5720 and aa.clnt_ky = 101576) and not(pldim.plan_id=5720 and aa.clnt_ky = 101881) and not(pldim.plan_id=5720 and aa.clnt_ky = 101995) and not(pldim.plan_id=5720 and aa.clnt_ky = 102273) and not(pldim.plan_id=5720 and aa.clnt_ky = 102525) and not(pldim.plan_id=5720 and aa.clnt_ky = 102789) and not(pldim.plan_id=5720 and aa.clnt_ky = 103078) and not(pldim.plan_id=5720 and aa.clnt_ky = 103687) and not(pldim.plan_id=5720 and aa.clnt_ky = 104508) and not(pldim.plan_id=5720 and aa.clnt_ky = 104665) and not(pldim.plan_id=5720 and aa.clnt_ky = 106223) and not(pldim.plan_id=5720 and aa.clnt_ky = 107471) and not(pldim.plan_id=5720 and aa.clnt_ky = 108666) and not(pldim.plan_id=5720 and aa.clnt_ky = 109086) and not(pldim.plan_id=5720 and aa.clnt_ky = 109571) and not(pldim.plan_id=5720 and aa.clnt_ky = 109866) and not(pldim.plan_id=5720 and aa.clnt_ky = 110197) and not(pldim.plan_id=5720 and aa.clnt_ky = 110542) and not(pldim.plan_id=5720 and aa.clnt_ky = 113546) and not(pldim.plan_id=5720 and aa.clnt_ky = 113863) and not(pldim.plan_id=5720 and aa.clnt_ky = 116144) and not(pldim.plan_id=5720 and aa.clnt_ky = 116521) and not(pldim.plan_id=5720 and aa.clnt_ky = 116593) and not(pldim.plan_id=5720 and aa.clnt_ky = 116695) and not(pldim.plan_id=5720 and aa.clnt_ky = 134153) and not(pldim.plan_id=5720 and aa.clnt_ky = 1941931) and not(pldim.plan_id=5720 and aa.clnt_ky = 1946597) and not(pldim.plan_id=5720 and aa.clnt_ky = 19141697) and not(pldim.plan_id=5720 and aa.clnt_ky = 19191909) and not(pldim.plan_id=5720 and aa.clnt_ky = 19228042) and not(pldim.plan_id=5720 and aa.clnt_ky = 19238101) and not(pldim.plan_id=5720 and aa.clnt_ky = 100892) and not(pldim.plan_id=5720 and aa.clnt_ky = 101283) and not(pldim.plan_id=5720 and aa.clnt_ky = 101656) and not(pldim.plan_id=5720 and aa.clnt_ky = 102197) and not(pldim.plan_id=5720 and aa.clnt_ky = 105728) and not(pldim.plan_id=5720 and aa.clnt_ky = 109950) and not(pldim.plan_id=5720 and aa.clnt_ky = 113002) and not(pldim.plan_id=5720 and aa.clnt_ky = 115596) and not(pldim.plan_id=5720 and aa.clnt_ky = 116498) and not(pldim.plan_id=5720 and aa.clnt_ky = 1972491) and not(pldim.plan_id=5720 and aa.clnt_ky = 100707) and not(pldim.plan_id=5720 and aa.clnt_ky = 101762) and not(pldim.plan_id=5720 and aa.clnt_ky = 103377) and not(pldim.plan_id=5720 and aa.clnt_ky = 103979) and not(pldim.plan_id=5720 and aa.clnt_ky = 1980994) and pldim.plan_id<>9100   AND ((pldim.INTR_FL='N' OR EMPL.EMPL_STAT_CD='N') OR (pldim.INTR_FL='' OR COALESCE(empl.EMPL_STAT_CD,'')=''))) THEN -99999\nwhen empl1.EMPL_STAT_CD='DEATH' THEN -99999 \nwhen (CASE WHEN RL.prsn_intn_id IS NOT NULL THEN 'Y' ELSE 'N' END) ='Y' AND aa.CRVR_AT=0 THEN -99999 \nelse crvr_at end as CRVR_AT,coalesce(f.cv_at,0.00) as cv_at,coalesce(f1.cv_at,0.00) as cv_at2,pldim.plan_id,c.PLAN_YY_END_DT,aa.rlvr_gnrc_prvs_id,aa.BRK_IN_CV_RLVR_CD\nFROM   (SELECT Max(ee_ctrb_at)         AS ee_ctrb_at, \n       Max(er_ctrb_at)         AS er_ctrb_at, \n       Max(excs_ctrb_at)       AS excs_ctrb_at, \n       Max(tot_ctrb_at)        AS tot_ctrb_at, \n       Max(intr_at)            AS intr_at, \n       Max(earn_at)            AS earn_at, \n       Max(rlvr_at)            AS rlvr_at, \n       Max(rlvr_used_at)       AS rlvr_used_at, \n       Max(clm_pmt_at)         AS clm_pmt_at, \n       Max(chk_rcvy_at)        AS chk_rcvy_at, \n       Max(onln_rcvy_at)       AS onln_rcvy_at, \n       Max(clm_paid_at)        AS clm_paid_at, \n       Max(opmt_at)            AS opmt_at, \n       Max(clm_rcvy_at)        AS clm_rcvy_at, \n       Max(tot_rcvy_at)        AS tot_rcvy_at, \n       FACT.prsn_intn_id  ,\n       plan_ky, \n       Max(prsn_addr_ky)       AS prsn_addr_ky, \n       Max(clm_paid_at_n_insu) AS CLM_PAID_AT_N_INSU, \n       Max(rqst_at)            AS rqst_at, \n       Max(elig_at)            AS elig_at, \n       cal_dt , \n       Max(plan_yy_stat_cd)    AS plan_yy_stat_cd, \n       Max(cv_fl)              AS cv_fl, \n       Max(ctrb_fl)            AS ctrb_fl, \n       Max(plan_max)           AS plan_max, \n       Max(clnt_ky)            AS clnt_ky, \n       Max(plan_typ_cd)        AS plan_typ_cd, \n       Max(clm_rcvr_anthr_yy)  AS CLM_RCVR_ANTHR_YY, \n       Max(high_cv_at)         AS HIGH_CV_AT, \n       MAX(cv_end_dt) AS cv_end_dt ,\n\t   MAX(CRVR_AT) AS CRVR_AT,\n\t   max(rlvr_gnrc_prvs_id) as rlvr_gnrc_prvs_id,\n\t   max(BRK_IN_CV_RLVR_CD) as BRK_IN_CV_RLVR_CD\nFROM   (SELECT A.ee_ctrb_at, \n               A.er_ctrb_at, \n               A.excs_ctrb_at, \n               A.tot_ctrb_at, \n               A.intr_at, \n               A.earn_at, \n               A.rlvr_at, \n               A.rlvr_used_at, \n               A.clm_pmt_at, \n               A.chk_rcvy_at, \n               A.onln_rcvy_at, \n               A.clm_paid_at, \n               A.opmt_at, \n               A.clm_rcvy_at, \n               A.tot_rcvy_at, \n               A.prsn_intn_id, \n               A.plan_ky, \n               A.prsn_addr_ky, \n               A.aprvd_at                         AS CLM_PAID_AT_N_INSU, \n               A.rqst_at, \n               A.elig_at, \n               B.cal_dt, \n               C.plan_yy_stat_cd, \n               C.cv_fl, \n               C.ctrb_fl, \n               C.plan_max, \n               C.clnt_ky, \n               C.plan_typ_cd,\n               c.rlvr_gnrc_prvs_id, \nc.BRK_IN_CV_RLVR_CD,\n               Coalesce(CLM.clm_rcvr_anthr_yy, 0) AS CLM_RCVR_ANTHR_YY, \n               Coalesce(e.high_cv_at, 0)         AS HIGH_CV_AT, \n               coalesce(D.cv_end_dt,'2299-12-31') AS cv_end_dt,\nA.CRVR_AT_CT AS CRVR_AT\n        FROM   healthsa_rpt.acct_trnsprcs_fact A \n               INNER JOIN healthsa_rpt.plan_dimn C \n               ON A.plan_ky = C.plan_ky \n             LEFT JOIN (\nSELECT MAX(cv_end_dt) AS cv_end_dt,prsn_intn_id ,plan_ky FROM healthsa_rpt.CV_FACT\nwhere CV_AT<>0.00    \nGROUP BY PRSN_INTN_ID,PLAN_KY  \n\n)D\n               ON        D.prsn_intn_id = A.prsn_intn_id \n                       AND D.PLAN_KY = C.PLAN_KY \ninner JOIN (SELECT MAX(cv_at) AS high_cv_at,prsn_intn_id AS prsn_intn_id,plan_ky AS plan_ky FROM healthsa_rpt.acct_trnsprcs_fact          \nGROUP BY PRSN_INTN_ID,PLAN_KY  )e\n               ON        e.prsn_intn_id = A.prsn_intn_id \n                       AND e.plan_ky = A.plan_ky\n               INNER JOIN healthsa_rpt.date_dimn B \n                       ON A.trns_dt_ky = B.date_ky \n               LEFT JOIN (SELECT prsn_intn_id, \n                                 plan_ky, \n                                 prcs_dt_ky, \n                                 Sum(clm_rcvy_an_yy_at) AS CLM_RCVR_ANTHR_YY \n                          FROM   healthsa_rpt.clm_pmt_fact \n                          WHERE  clm_rcvy_an_yy_at != 0 \n                          GROUP  BY prsn_intn_id, \n                                    plan_ky, \n                                    prcs_dt_ky)CLM \n                      ON A.prsn_intn_id = CLM.prsn_intn_id \n                         AND A.plan_ky = CLM.plan_ky \n                         AND A.trns_dt_ky = CLM.prcs_dt_ky \n) FACT       \nGROUP  BY FACT.prsn_intn_id, \n          FACT.plan_ky, \n          cal_dt ) aa\n               INNER JOIN healthsa_rpt.PLAN_DIMN C \n                       ON Aa.plan_ky = C.plan_ky \nleft outer join healthsa_ctd.EE_EMPL_CAT_SH empl\non aa.PRSN_INTN_ID = empl.PRSN_INTN_ID\nand EMPL.EMPL_CAT_ID='5740'\nand aa.cal_dt between EMPL.EE_EMPLCAT_EFBEGDT and EMPL.EE_EMPLCAT_EFENDDT\nleft outer join healthsa_ctd.EE_EMPL_CAT_SH empl1\non aa.PRSN_INTN_ID = empl1.PRSN_INTN_ID\nand EMPL1.EMPL_CAT_ID='1'\nand aa.cal_dt between EMPL1.EE_EMPLCAT_EFBEGDT and EMPL1.EE_EMPLCAT_EFENDDT\nINNER JOIN healthsa_rpt.PLAN_DIMN PLDIM\nON aa.plan_ky=pldim.plan_ky \nleft outer join healthsa_ctd.prsn_saa_cv_sh f\non aa.PRSN_INTN_ID=f.PRSN_INTN_ID\nand pldim.plan_id=f.Plan_id\nand aa.cal_dt >= f.EFBEGDT and aa.cal_dt <= f.EFENDDT\n               INNER JOIN healthsa_rpt.date_dimn B \n                       ON Aa.cal_dt = B.cal_dt \nleft outer join healthsa_rpt.cv_fact f1\non aa.PRSN_INTN_ID=f1.PRSN_INTN_ID\nand pldim.PLAN_KY=f1.PLAN_KY\nAND B.cal_dt >= f1.cv_beg_dt AND (B.cal_dt <= f1.cv_end_dt)\n               LEFT outer JOIN healthsa_rpt.cv_fact CV \n                      ON aa.prsn_intn_id = CV.prsn_intn_id \n                         AND aa.plan_ky = CV.plan_ky \n                        AND (B.cal_dt BETWEEN CV.cv_beg_dt AND CV.cv_end_dt) \n               LEFT outer JOIN healthsa_rpt.cv_fact CV3 \n                      ON aa.prsn_intn_id = CV3.prsn_intn_id \n                         AND aa.plan_ky = CV3.plan_ky \n                        AND (c.PLAN_YY_END_DT BETWEEN CV3.cv_beg_dt AND CV3.cv_end_dt) \nLEFT OUTER JOIN (SELECT prsn_intn_id,plan_ky,BB.cal_dt FROM healthsa_rpt.prsn_rlvr_fact RF\n                      INNER JOIN healthsa_rpt.date_dimn BB \n                       ON RF.SRC_DT_KY = BB.DATE_KY)  RL \n                           ON RL.prsn_intn_id=aa.prsn_intn_id\n                          and RL.plan_ky=aa.plan_ky\n                          and RL.cal_dt=aa.cal_dt \n) a\n\nleft outer join\n(\n\nselect eec.prsn_intn_id, eec.ee_emplcat_efbegdt, eec.ee_emplcat_efenddt,spys.plan_yy_efbegdt\n, nvl(cgcs.cat_cd,'NOT_ELIG') as cat_cd from \nhealthsa_ctd.ee_empl_cat_sh eec\ninner join healthsa_ctd.prsn_sh pr\non pr.prsn_intn_id= eec.prsn_intn_id\ninner join (select distinct em_clnt_id,rlvr_gnrc_prvs_id, plan_yy_efbegdt from healthsa_ctd.saa_pln_yy_stat_sh where rlvr_cd='Y') spys\non spys.em_clnt_id= pr.em_clnt_id\nand (eec.ee_emplcat_efbegdt between spys.plan_yy_efbegdt and Dateadd(day,-1,Dateadd(year,1,spys.plan_yy_efbegdt))\nor eec.ee_emplcat_efenddt between spys.plan_yy_efbegdt and Dateadd(day,-1,Dateadd(year,1,spys.plan_yy_efbegdt)))\nleft outer join healthsa_ctd.gnrc_id_gp gig\non gig.gp_id= spys.rlvr_gnrc_prvs_id\nleft outer join healthsa_ctd.saa_rlvr_rule_sh srrs\non srrs.saa_rlvr_rule_id= gig.gnrc_id\nleft outer join healthsa_ctd.cat_gp_sh cg\non cg.gp_id= srrs.rlvr_elig_gp_id\nleft outer join healthsa_ctd.cat_gp_cd_sh cgcs \non cgcs.gp_id= cg.gp_id\nand eec.empl_stat_cd= cgcs.cat_cd\nwhere\neec.empl_cat_id= cg.cat_id\nand cgcs.cat_cd is null\n\n) check_elig\non check_elig.prsn_intn_id=a.prsn_intn_id \nand a.cal_dt between check_elig.EE_EMPLCAT_EFBEGDT and check_elig.EE_EMPLCAT_EFENDDT\n\nwhere  \n(a.prsn_intn_id, \na.plan_ky,a.cal_dt)\nnot in (select prf.prsn_intn_id, prf.plan_ky, dd.cal_dt from healthsa_rpt.prsn_rlvr_fact prf\ninner join healthsa_rpt.plan_dimn pd\non prf.plan_ky= pd.plan_ky\ninner join healthsa_rpt.date_dimn dd\non dd.cal_dt= pd.plan_yy_end_dt\nwhere (pd.plan_id = 5710 or (pd.plan_id = 5720 and pd.clnt_ky = 109086))\nand (dd.date_ky)= prf.src_dt_ky\nand (prf.prsn_intn_id, prf.plan_ky, prf.rlvr_at) in ( select tab1.prsn_intn_id, tab1.plan_ky, tab1.rlvr_at from (\nselect distinct p1.*, count(prsn_intn_id) over(partition by prsn_intn_id, plan_ky, rlvr_at) as cnt from healthsa_rpt.prsn_rlvr_fact p1) tab1\nwhere tab1.cnt>1) )\nORDER  BY a.prsn_intn_id, \na.plan_ky,\n         a.PLAN_YY_END_DT,\n          a.cal_dt asc",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "ee_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "ee_ctrb_at",
+                "nativeName" : "ee_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "er_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "er_ctrb_at",
+                "nativeName" : "er_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "excs_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "excs_ctrb_at",
+                "nativeName" : "excs_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_ctrb_at",
+                "nativeName" : "tot_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "intr_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "intr_at",
+                "nativeName" : "intr_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "earn_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "earn_at",
+                "nativeName" : "earn_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "rlvr_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rlvr_at",
+                "nativeName" : "rlvr_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "rlvr_used_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rlvr_used_at",
+                "nativeName" : "rlvr_used_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_pmt_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_pmt_at",
+                "nativeName" : "clm_pmt_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "chk_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "chk_rcvy_at",
+                "nativeName" : "chk_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "onln_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "onln_rcvy_at",
+                "nativeName" : "onln_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_paid_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_paid_at",
+                "nativeName" : "clm_paid_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "opmt_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "opmt_at",
+                "nativeName" : "opmt_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_rcvy_at",
+                "nativeName" : "clm_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_rcvy_at",
+                "nativeName" : "tot_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "prsn_intn_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_intn_id",
+                "nativeName" : "prsn_intn_id",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_ky",
+                "nativeName" : "plan_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "prsn_addr_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_addr_ky",
+                "nativeName" : "prsn_addr_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_paid_at_n_insu",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_paid_at_n_insu",
+                "nativeName" : "clm_paid_at_n_insu",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "rqst_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rqst_at",
+                "nativeName" : "rqst_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "elig_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "elig_at",
+                "nativeName" : "elig_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "cal_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "cal_dt",
+                "nativeName" : "cal_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_yy_stat_cd",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_yy_stat_cd",
+                "nativeName" : "plan_yy_stat_cd",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "cv_fl",
+                "fieldType" : "CONNECTOR",
+                "label" : "cv_fl",
+                "nativeName" : "cv_fl",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 1,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "ctrb_fl",
+                "fieldType" : "CONNECTOR",
+                "label" : "ctrb_fl",
+                "nativeName" : "ctrb_fl",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 1,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_max",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_max",
+                "nativeName" : "plan_max",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "clnt_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "clnt_ky",
+                "nativeName" : "clnt_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_typ_cd",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_typ_cd",
+                "nativeName" : "plan_typ_cd",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_rcvr_anthr_yy",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_rcvr_anthr_yy",
+                "nativeName" : "clm_rcvr_anthr_yy",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 38,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "high_cv_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "high_cv_at",
+                "nativeName" : "high_cv_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "ltst_cv_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "ltst_cv_at",
+                "nativeName" : "ltst_cv_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "cv_end_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "cv_end_dt",
+                "nativeName" : "cv_end_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "empl_stat_cd",
+                "fieldType" : "CONNECTOR",
+                "label" : "empl_stat_cd",
+                "nativeName" : "empl_stat_cd",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "intr_fl",
+                "fieldType" : "CONNECTOR",
+                "label" : "intr_fl",
+                "nativeName" : "intr_fl",
+                "nativeType" : "bpchar",
+                "original" : "false",
+                "precision" : 1,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "crvr_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "crvr_at",
+                "nativeName" : "crvr_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "cv_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "cv_at",
+                "nativeName" : "cv_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "cv_at2",
+                "fieldType" : "CONNECTOR",
+                "label" : "cv_at2",
+                "nativeName" : "cv_at2",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_id",
+                "nativeName" : "plan_id",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_yy_end_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_yy_end_dt",
+                "nativeName" : "plan_yy_end_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "rlvr_gnrc_prvs_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "rlvr_gnrc_prvs_id",
+                "nativeName" : "rlvr_gnrc_prvs_id",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "brk_in_cv_rlvr_cd",
+                "fieldType" : "CONNECTOR",
+                "label" : "brk_in_cv_rlvr_cd",
+                "nativeName" : "brk_in_cv_rlvr_cd",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 1,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              },
+              {
+                "name" : "cat_cd",
+                "fieldType" : "CONNECTOR",
+                "label" : "cat_cd",
+                "nativeName" : "cat_cd",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "INFARS_CUSTOM_SCHEMA"
+                  }
+                ]
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "Read Mode",
+                "value" : "Staging"
+              },
+              {
+                "name" : "Fetch Size",
+                "value" : "10000"
+              },
+              {
+                "name" : "S3 Bucket Name",
+                "value" : "$$S3_Bucket_Name"
+              },
+              {
+                "name" : "Enable Compression",
+                "value" : "YES"
+              },
+              {
+                "name" : "Staging Directory Location",
+                "value" : "$$Stg_Dir_Loc"
+              },
+              {
+                "name" : "Unload Options",
+                "value" : "$$Unload_Options"
+              },
+              {
+                "name" : "Temporary Credential Duration",
+                "value" : "900"
+              },
+              {
+                "name" : "Treat NULL Value as NULL",
+                "value" : "YES"
+              },
+              {
+                "name" : "Encryption Type",
+                "value" : "SSE-KMS"
+              },
+              {
+                "name" : "Download S3 Files In Multiple Parts",
+                "value" : "NO"
+              },
+              {
+                "name" : "Multipart Download Threshold Size",
+                "value" : "5242880"
+              },
+              {
+                "name" : "Select Distinct",
+                "value" : "NO"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "createTime" : "2022-11-22T16:19:32.172Z",
+        "name" : "EXP_TRANS",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "DEN_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(CLM_PAID_AT_N_INSU=0,0,RQST_AT-CLM_PAID_AT_N_INSU)"
+          },
+          {
+            "name" : "v_PLAN_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(INSTR(PLAN_TYP_CD,'FSA',1)>=1,'FSA',IIF(INSTR(PLAN_TYP_CD,'HRA',1)>=1,'HRA','NA'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "o_PLAN_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "v_PLAN_TYPE"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "LTST_CV_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(plan_id =5710 , IIF(cal_dt>cv_end_dt\nAND \ncv_end_dt<>PLAN_YY_END_DT,0.00,LTST_CV_AT),\nIIF(cal_dt>cv_end_dt\nand EMPL_STAT_CD='N'\nAND\nINTR_FL='N',0.00,LTST_CV_AT))"
+          },
+          {
+            "name" : "RMN_OPMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "OPMT_AT- TOT_RCVY_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "RMN_OPMT_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "RMN_OPMT_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_CLM_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "CLM_RCVY_AT+CLM_RCVR_ANTHR_YY"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2022-11-22T16:49:31.609Z",
+        "name" : "EXP_TRANS1",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "conflictResolutions" : [
+              {
+                "precedingGroupName" : "DefaultGroup",
+                "precedingTxName" : "EXP_TRANS",
+                "rule" : {
+                  "bulkRename" : "true",
+                  "include" : "true",
+                  "bulkRenameOption" : {
+                    "literal" : "Exp_",
+                    "suffix" : "false"
+                  }
+                }
+              }
+            ],
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              },
+              {
+                "bulkRename" : "false",
+                "include" : "false",
+                "names" : [
+                  {
+                    "inputName" : "Exp_clm_paid_at_n_insu"
+                  },
+                  {
+                    "inputName" : "Exp_clm_rcvy_at"
+                  },
+                  {
+                    "inputName" : "Exp_ltst_cv_at"
+                  },
+                  {
+                    "inputName" : "Exp_plan_typ_cd"
+                  },
+                  {
+                    "inputName" : "Exp_plan_yy_end_dt"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "v_LASTDAY_OF_YEAR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(GET_DATE_PART(Exp_cv_end_dt, 'MM') = 12 and\nGET_DATE_PART(Exp_cv_end_dt, 'DD') = 31,\n'Y','N')"
+          },
+          {
+            "name" : "ROW_EXIST",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF( Exp_PRSN_INTN_ID = PREV_PRSN_INTN_ID AND Exp_PLAN_KY =PREV_PLAN_KY,'Y','F')"
+          },
+          {
+            "name" : "V_EE_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_EE_CTRB_AT + Exp_ee_ctrb_at,Exp_ee_ctrb_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_EE_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_EE_CTRB_AT"
+          },
+          {
+            "name" : "PREV_EE_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_EE_CTRB_AT"
+          },
+          {
+            "name" : "V_ER_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_ER_CTRB_AT + Exp_er_ctrb_at,Exp_er_ctrb_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_ER_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_ER_CTRB_AT"
+          },
+          {
+            "name" : "PREV_ER_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_ER_CTRB_AT"
+          },
+          {
+            "name" : "V_EXCS_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_EXCS_CTRB_AT + Exp_excs_ctrb_at,Exp_excs_ctrb_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_EXCS_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_EXCS_CTRB_AT"
+          },
+          {
+            "name" : "PREV_EXCS_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_EXCS_CTRB_AT"
+          },
+          {
+            "name" : "V_TOT_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_TOT_CTRB_AT + Exp_tot_ctrb_at,Exp_tot_ctrb_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_TOT_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_TOT_CTRB_AT"
+          },
+          {
+            "name" : "PREV_TOT_CTRB_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_TOT_CTRB_AT"
+          },
+          {
+            "name" : "V_INTR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_INTR_AT + Exp_intr_at,Exp_intr_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_INTR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_INTR_AT"
+          },
+          {
+            "name" : "PREV_INTR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_INTR_AT"
+          },
+          {
+            "name" : "V_EARN_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_EARN_AT + Exp_earn_at,Exp_earn_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_EARN_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_EARN_AT"
+          },
+          {
+            "name" : "PREV_EARN_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_EARN_AT"
+          },
+          {
+            "name" : "V_RLVR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y' ,iif(Exp_cat_cd<>'NOT_ELIG', iif( PREV_RLVR_AT<>Exp_RLVR_AT\nand Exp_RLVR_AT  != 0 , Exp_RLVR_AT , PREV_RLVR_AT),0),Exp_RLVR_AT)"
+          },
+          {
+            "name" : "V_RLVR_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(V_RLVR_AT= -99999.00, 0 ,V_RLVR_AT)\n--IIF(ROW_EXIST='Y',PREV_RLVR_AT + RLVR_AT,RLVR_AT)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_RLVR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_RLVR_AT"
+          },
+          {
+            "name" : "V_RLVR_USED_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_RLVR_USED_AT + Exp_rlvr_used_at,Exp_rlvr_used_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_RLVR_USED_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_RLVR_USED_AT"
+          },
+          {
+            "name" : "PREV_RLVR_USED_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_RLVR_USED_AT"
+          },
+          {
+            "name" : "V_CLM_PMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',V_CLM_PMT_AT + Exp_clm_pmt_at,Exp_clm_pmt_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_CLM_PMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_CLM_PMT_AT"
+          },
+          {
+            "name" : "PREV_CLM_PMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_CLM_PMT_AT"
+          },
+          {
+            "name" : "V_CHK_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_CHK_RCVY_AT+Exp_chk_rcvy_at,Exp_chk_rcvy_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_CHK_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_CHK_RCVY_AT"
+          },
+          {
+            "name" : "PREV_CHK_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_CHK_RCVY_AT"
+          },
+          {
+            "name" : "V_ONLN_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_ONLN_RCVY_AT+Exp_onln_rcvy_at,Exp_onln_rcvy_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_ONLN_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_ONLN_RCVY_AT"
+          },
+          {
+            "name" : "PREV_ONLN_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_ONLN_RCVY_AT"
+          },
+          {
+            "name" : "V_CLM_PAID_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',V_CLM_PAID_AT+Exp_clm_paid_at,Exp_clm_paid_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_CLM_PAID_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_CLM_PAID_AT"
+          },
+          {
+            "name" : "PREV_CLM_PAID_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_CLM_PAID_AT"
+          },
+          {
+            "name" : "V_OPMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_OPMT_AT+Exp_opmt_at,Exp_opmt_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_OPMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_OPMT_AT"
+          },
+          {
+            "name" : "PREV_OPMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_OPMT_AT"
+          },
+          {
+            "name" : "V_CRVR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y' ,iif( PREV_CRVR_AT<>Exp_CRVR_AT\nand Exp_CRVR_AT  != 0 , Exp_CRVR_AT , PREV_CRVR_AT),Exp_CRVR_AT)\n--IIF(ROW_EXIST='Y',PREV_RLVR_AT + RLVR_AT,RLVR_AT)"
+          },
+          {
+            "name" : "V_CRVR_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(V_CRVR_AT= -99999.00, 0 ,V_CRVR_AT)\n--IIF(ROW_EXIST='Y',PREV_RLVR_AT + RLVR_AT,RLVR_AT)"
+          },
+          {
+            "name" : "V_CLM_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_CLM_RCVY_AT+Exp_O_CLM_RCVY_AT,Exp_O_CLM_RCVY_AT)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_CLM_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_CLM_RCVY_AT"
+          },
+          {
+            "name" : "PREV_CLM_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_CLM_RCVY_AT"
+          },
+          {
+            "name" : "V_TOT_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_TOT_RCVY_AT+Exp_tot_rcvy_at,Exp_tot_rcvy_at)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_TOT_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_TOT_RCVY_AT"
+          },
+          {
+            "name" : "PREV_TOT_RCVY_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_TOT_RCVY_AT"
+          },
+          {
+            "name" : "V_RMN_OPMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_RMN_OPMT_AT+Exp_RMN_OPMT_AT1,Exp_RMN_OPMT_AT1)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_RMN_OPMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_RMN_OPMT_AT"
+          },
+          {
+            "name" : "PREV_RMN_OPMT_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_RMN_OPMT_AT"
+          },
+          {
+            "name" : "V_CLM_RCVR_ANTHR_YY",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_CLM_RCVR_ANTHR_YY+Exp_clm_rcvr_anthr_yy,Exp_clm_rcvr_anthr_yy)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_CLM_RCVR_ANTHR_YY",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_CLM_RCVR_ANTHR_YY"
+          },
+          {
+            "name" : "PREV_CLM_RCVR_ANTHR_YY",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_CLM_RCVR_ANTHR_YY"
+          },
+          {
+            "name" : "PREV_ESTM_FORF_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_ESTM_FORF_AT"
+          },
+          {
+            "name" : "V_DEN_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(ROW_EXIST='Y',PREV_DEN_AT+Exp_DEN_AT,Exp_DEN_AT)"
+          },
+          {
+            "name" : "PREV_DEN_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_DEN_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "APRVD_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "Exp_ELIG_AT-V_DEN_AT"
+          },
+          {
+            "name" : "V_TOT_FND_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(Exp_cv_fl='Y',\n(Exp_LTST_CV_AT1+V_RLVR_AT1+V_INTR_AT+V_EARN_AT),\nIIF(Exp_ctrb_fl='Y',V_TOT_CTRB_AT+V_RLVR_AT1+V_INTR_AT+V_EARN_AT,0))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_TOT_FND_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(Exp_cal_dt>Exp_cv_end_dt\nand v_LASTDAY_OF_YEAR = 'N'\nand Exp_cv_at2=0.00\nand Exp_plan_id <>5710\nand Exp_plan_id <>9100\nand ( Exp_EMPL_STAT_CD='N'\nOR\nExp_INTR_FL='N' OR isNull(Exp_INTR_FL) OR isNull(Exp_EMPL_STAT_CD) OR Exp_INTR_FL='' OR Exp_EMPL_STAT_CD='')\nand ((Exp_rlvr_gnrc_prvs_id = 0 and Exp_brk_in_cv_rlvr_cd <>'Y') or (Exp_rlvr_gnrc_prvs_id > 0 and Exp_cat_cd = 'NOT_ELIG'))\n,0.00,\nIIF(\n(TO_CHAR(Exp_cv_end_dt,'YYYY-MM-DD') = \n'1800-01-01'),0,V_TOT_FND_AT\n))"
+          },
+          {
+            "name" : "V_ESTM_FORF_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(Exp_o_PLAN_TYPE='FSA',V_TOT_CTRB_AT+V_CHK_RCVY_AT+V_ONLN_RCVY_AT-V_CLM_PAID_AT,IIF(Exp_o_PLAN_TYPE='HRA',V_TOT_FND_AT+V_CHK_RCVY_AT+V_ONLN_RCVY_AT-V_CLM_PAID_AT,0))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_ESTM_FORF_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_ESTM_FORF_AT"
+          },
+          {
+            "name" : "v_ACCT_FND_AMT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(Exp_plan_max>0 AND V_TOT_FND_AT>Exp_plan_max,Exp_plan_max,V_TOT_FND_AT)"
+          },
+          {
+            "name" : "v_ACCT_ACTVTY",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_CLM_PAID_AT"
+          },
+          {
+            "name" : "V_AVLB_BAL_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "v_ACCT_FND_AMT-v_ACCT_ACTVTY"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_AVLB_BAL_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(Exp_cal_dt>Exp_cv_end_dt\nand v_LASTDAY_OF_YEAR = 'N'\nand Exp_cv_at2=0.00\nand Exp_plan_id <> 5710\nand Exp_plan_id <>9100\nand ( Exp_EMPL_STAT_CD='N'\nOR\nExp_INTR_FL='N' OR isNull(Exp_INTR_FL) OR isNull(Exp_EMPL_STAT_CD) OR Exp_INTR_FL='' OR Exp_EMPL_STAT_CD='')\nand ((Exp_rlvr_gnrc_prvs_id=0 and Exp_brk_in_cv_rlvr_cd<>'Y') or (Exp_rlvr_gnrc_prvs_id>0 and Exp_cat_cd = 'NOT_ELIG'))\n,0.00,\nIIF( V_AVLB_BAL_AT<0 OR \nExp_PLAN_YY_STAT_CD='CLOS' OR Exp_PLAN_YY_STAT_CD='PEND' \nOR TO_CHAR(Exp_cv_end_dt,'YYYY-MM-DD') = '1800-01-01',0,V_AVLB_BAL_AT)\n)"
+          },
+          {
+            "name" : "PREV_plan_id",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "PREV_plan_id"
+          },
+          {
+            "name" : "PREV_PRSN_INTN_ID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "Exp_PRSN_INTN_ID"
+          },
+          {
+            "name" : "PREV_PLAN_KY",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "Exp_PLAN_KY"
+          },
+          {
+            "name" : "PREV_CRVR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_CRVR_AT"
+          },
+          {
+            "name" : "PREV_RLVR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "VARIABLE",
+            "expression" : "V_RLVR_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "O_CRVR_AT",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "V_CRVR_AT"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2022-11-22T17:14:26.560Z",
+        "name" : "SRT_Key",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              },
+              {
+                "bulkRename" : "false",
+                "include" : "false",
+                "names" : [
+                  {
+                    "inputName" : "Exp_cat_cd"
+                  },
+                  {
+                    "inputName" : "Exp_chk_rcvy_at"
+                  },
+                  {
+                    "inputName" : "Exp_clm_paid_at"
+                  },
+                  {
+                    "inputName" : "Exp_clm_pmt_at"
+                  },
+                  {
+                    "inputName" : "Exp_crvr_at"
+                  },
+                  {
+                    "inputName" : "Exp_cv_at"
+                  },
+                  {
+                    "inputName" : "Exp_cv_at2"
+                  },
+                  {
+                    "inputName" : "Exp_cv_end_dt"
+                  },
+                  {
+                    "inputName" : "Exp_earn_at"
+                  },
+                  {
+                    "inputName" : "Exp_ee_ctrb_at"
+                  },
+                  {
+                    "inputName" : "Exp_empl_stat_cd"
+                  },
+                  {
+                    "inputName" : "Exp_er_ctrb_at"
+                  },
+                  {
+                    "inputName" : "Exp_excs_ctrb_at"
+                  },
+                  {
+                    "inputName" : "Exp_intr_at"
+                  },
+                  {
+                    "inputName" : "Exp_intr_fl"
+                  },
+                  {
+                    "inputName" : "Exp_O_CLM_RCVY_AT"
+                  },
+                  {
+                    "inputName" : "Exp_o_PLAN_TYPE"
+                  },
+                  {
+                    "inputName" : "Exp_onln_rcvy_at"
+                  },
+                  {
+                    "inputName" : "Exp_opmt_at"
+                  },
+                  {
+                    "inputName" : "Exp_plan_id"
+                  },
+                  {
+                    "inputName" : "Exp_rlvr_at"
+                  },
+                  {
+                    "inputName" : "Exp_rlvr_used_at"
+                  },
+                  {
+                    "inputName" : "Exp_tot_ctrb_at"
+                  },
+                  {
+                    "inputName" : "Exp_tot_rcvy_at"
+                  },
+                  {
+                    "inputName" : "Exp_RMN_OPMT_AT1"
+                  },
+                  {
+                    "inputName" : "Exp_clm_rcvr_anthr_yy"
+                  },
+                  {
+                    "inputName" : "Exp_DEN_AT"
+                  },
+                  {
+                    "inputName" : "Exp_rlvr_gnrc_prvs_id"
+                  },
+                  {
+                    "inputName" : "Exp_brk_in_cv_rlvr_cd"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sorterMode" : "SIMPLE",
+        "sortEntries" : [
+          {
+            "ascending" : "false",
+            "fieldName" : "Exp_prsn_intn_id"
+          },
+          {
+            "ascending" : "false",
+            "fieldName" : "Exp_plan_ky"
+          },
+          {
+            "ascending" : "false",
+            "fieldName" : "Exp_cal_dt"
+          }
+        ]
+      },
+      {
+        "createTime" : "2022-11-22T17:16:18.406Z",
+        "name" : "TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Ins",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "prsn_ky"
+            },
+            "name" : "prsn_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "plan_ky"
+            },
+            "name" : "plan_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "rep_beg_dt"
+            },
+            "name" : "rep_beg_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "rep_end_dt"
+            },
+            "name" : "rep_end_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "prsn_intn_id"
+            },
+            "name" : "prsn_intn_id",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "clnt_ky"
+            },
+            "name" : "clnt_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "prsn_addr_ky"
+            },
+            "name" : "prsn_addr_ky",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_ee_ctrb_at"
+            },
+            "name" : "tot_ee_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_er_ctrb_at"
+            },
+            "name" : "tot_er_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_ctrb_at"
+            },
+            "name" : "tot_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_excs_ctrb_at"
+            },
+            "name" : "tot_excs_ctrb_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "intr_at"
+            },
+            "name" : "intr_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "earn_at"
+            },
+            "name" : "earn_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rlvr_at"
+            },
+            "name" : "rlvr_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rlvr_used_at"
+            },
+            "name" : "rlvr_used_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_paid_at"
+            },
+            "name" : "clm_paid_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "chk_rcvy_at"
+            },
+            "name" : "chk_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "onln_rcvy_at"
+            },
+            "name" : "onln_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_opmt_at"
+            },
+            "name" : "tot_opmt_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "clm_rcvy_at"
+            },
+            "name" : "clm_rcvy_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "avlb_bal_at"
+            },
+            "name" : "avlb_bal_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "rmn_opmt_at"
+            },
+            "name" : "rmn_opmt_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "high_cv_at"
+            },
+            "name" : "high_cv_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "ltst_cv_at"
+            },
+            "name" : "ltst_cv_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "tot_fnd_at"
+            },
+            "name" : "tot_fnd_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "estm_forf_at"
+            },
+            "name" : "estm_forf_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "load_ts"
+            },
+            "name" : "load_ts",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "rqst_at"
+            },
+            "name" : "rqst_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "elig_at"
+            },
+            "name" : "elig_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "aprvd_at"
+            },
+            "name" : "aprvd_at",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "crvr_at_ct"
+            },
+            "name" : "crvr_at_ct",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId$" : {
+            "name" : "Tgt_RS_Conn"
+          },
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "healthsa_rpt/acct_bal_prcs_fact",
+            "label" : "acct_bal_prcs_fact",
+            "objectName" : "acct_bal_prcs_fact",
+            "objectType" : "amazonredshift",
+            "path" : "healthsa_rpt/acct_bal_prcs_fact",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "prsn_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_ky",
+                "nativeName" : "prsn_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "plan_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "plan_ky",
+                "nativeName" : "plan_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rep_beg_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "rep_beg_dt",
+                "nativeName" : "rep_beg_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rep_end_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "rep_end_dt",
+                "nativeName" : "rep_end_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 13,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "prsn_intn_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_intn_id",
+                "nativeName" : "prsn_intn_id",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "clnt_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "clnt_ky",
+                "nativeName" : "clnt_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "prsn_addr_ky",
+                "fieldType" : "CONNECTOR",
+                "label" : "prsn_addr_ky",
+                "nativeName" : "prsn_addr_ky",
+                "nativeType" : "int4",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_ee_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_ee_ctrb_at",
+                "nativeName" : "tot_ee_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_er_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_er_ctrb_at",
+                "nativeName" : "tot_er_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_ctrb_at",
+                "nativeName" : "tot_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_excs_ctrb_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_excs_ctrb_at",
+                "nativeName" : "tot_excs_ctrb_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "intr_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "intr_at",
+                "nativeName" : "intr_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "earn_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "earn_at",
+                "nativeName" : "earn_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rlvr_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rlvr_at",
+                "nativeName" : "rlvr_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rlvr_used_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rlvr_used_at",
+                "nativeName" : "rlvr_used_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_paid_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_paid_at",
+                "nativeName" : "clm_paid_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "chk_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "chk_rcvy_at",
+                "nativeName" : "chk_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "onln_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "onln_rcvy_at",
+                "nativeName" : "onln_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_opmt_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_opmt_at",
+                "nativeName" : "tot_opmt_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "clm_rcvy_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "clm_rcvy_at",
+                "nativeName" : "clm_rcvy_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "avlb_bal_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "avlb_bal_at",
+                "nativeName" : "avlb_bal_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rmn_opmt_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rmn_opmt_at",
+                "nativeName" : "rmn_opmt_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "high_cv_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "high_cv_at",
+                "nativeName" : "high_cv_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "ltst_cv_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "ltst_cv_at",
+                "nativeName" : "ltst_cv_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "tot_fnd_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "tot_fnd_at",
+                "nativeName" : "tot_fnd_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "estm_forf_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "estm_forf_at",
+                "nativeName" : "estm_forf_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "load_ts",
+                "fieldType" : "CONNECTOR",
+                "label" : "load_ts",
+                "nativeName" : "load_ts",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 6,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "rqst_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "rqst_at",
+                "nativeName" : "rqst_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "elig_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "elig_at",
+                "nativeName" : "elig_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "aprvd_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "aprvd_at",
+                "nativeName" : "aprvd_at",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              },
+              {
+                "name" : "crvr_at_ct",
+                "fieldType" : "CONNECTOR",
+                "label" : "crvr_at_ct",
+                "nativeName" : "crvr_at_ct",
+                "nativeType" : "numeric",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "acct_bal_prcs_fact"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "recordType",
+                "value" : "TABLE"
+              }
+            ]
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "S3 Bucket Name",
+                "value" : "$$S3_Bucket_Name"
+              },
+              {
+                "name" : "Enable Compression",
+                "value" : "YES"
+              },
+              {
+                "name" : "Staging Directory Location",
+                "value" : "$$Stg_Dir_Loc"
+              },
+              {
+                "name" : "Batch Size",
+                "value" : "20000000"
+              },
+              {
+                "name" : "Max Errors Per Batch Upload Insert",
+                "value" : "1"
+              },
+              {
+                "name" : "Truncate Target Table Before Data Upload",
+                "value" : "NO"
+              },
+              {
+                "name" : "Require Null Value For Char And Varchar",
+                "value" : "null"
+              },
+              {
+                "name" : "WaitTime In Seconds For S3 File Consistency",
+                "value" : "0"
+              },
+              {
+                "name" : "Copy Options",
+                "value" : "$$Unload_Options"
+              },
+              {
+                "name" : "Temporary Credential Duration",
+                "value" : "900"
+              },
+              {
+                "name" : "S3 Server Side Encryption",
+                "value" : "NO"
+              },
+              {
+                "name" : "S3 Client Side Encryption",
+                "value" : "NO"
+              },
+              {
+                "name" : "Analyze Target Table",
+                "value" : "NO"
+              },
+              {
+                "name" : "Vacuum Target Table",
+                "value" : "None"
+              },
+              {
+                "name" : "Treat Source Rows As",
+                "value" : "INSERT"
+              },
+              {
+                "name" : "Transfer Manager Thread Pool Size",
+                "value" : "10"
+              },
+              {
+                "name" : "Minimum Upload Part Size",
+                "value" : "5242880"
+              },
+              {
+                "name" : "Preserve record order on write",
+                "value" : "NO"
+              },
+              {
+                "name" : "Number of files per batch",
+                "value" : "0"
+              },
+              {
+                "name" : "Pre-SQL",
+                "value" : "$$Param_Tgt_Presql"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "Exp_plan_ky",
+              "toField" : {
+                "name" : "plan_ky"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "RPT_END_DT",
+              "toField" : {
+                "name" : "rep_end_dt"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_prsn_intn_id",
+              "toField" : {
+                "name" : "prsn_intn_id"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_clnt_ky",
+              "toField" : {
+                "name" : "clnt_ky"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_prsn_addr_ky",
+              "toField" : {
+                "name" : "prsn_addr_ky"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_EE_CTRB_AT",
+              "toField" : {
+                "name" : "tot_ee_ctrb_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_ER_CTRB_AT",
+              "toField" : {
+                "name" : "tot_er_ctrb_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_TOT_CTRB_AT",
+              "toField" : {
+                "name" : "tot_ctrb_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_EXCS_CTRB_AT",
+              "toField" : {
+                "name" : "tot_excs_ctrb_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_INTR_AT",
+              "toField" : {
+                "name" : "intr_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_EARN_AT",
+              "toField" : {
+                "name" : "earn_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "RLVR_AT1",
+              "toField" : {
+                "name" : "rlvr_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_RLVR_USED_AT",
+              "toField" : {
+                "name" : "rlvr_used_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_CLM_PAID_AT",
+              "toField" : {
+                "name" : "clm_paid_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "CHK_RCVY_AT1",
+              "toField" : {
+                "name" : "chk_rcvy_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "ONLN_RCVY_AT1",
+              "toField" : {
+                "name" : "onln_rcvy_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_OPMT_AT",
+              "toField" : {
+                "name" : "tot_opmt_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "CLM_RCVY_AT1",
+              "toField" : {
+                "name" : "clm_rcvy_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_AVLB_BAL_AT",
+              "toField" : {
+                "name" : "avlb_bal_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "RMN_OPMT_AT1",
+              "toField" : {
+                "name" : "rmn_opmt_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_high_cv_at",
+              "toField" : {
+                "name" : "high_cv_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_TOT_FND_AT",
+              "toField" : {
+                "name" : "tot_fnd_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "O_ESTM_FORF_AT",
+              "toField" : {
+                "name" : "estm_forf_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "LOAD_TS",
+              "toField" : {
+                "name" : "load_ts"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_rqst_at",
+              "toField" : {
+                "name" : "rqst_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_elig_at",
+              "toField" : {
+                "name" : "elig_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "APRVD_AT",
+              "toField" : {
+                "name" : "aprvd_at"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "CRVR_AT1",
+              "toField" : {
+                "name" : "crvr_at_ct"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_prsn_intn_id",
+              "toField" : {
+                "name" : "prsn_ky"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_cal_dt",
+              "toField" : {
+                "name" : "rep_beg_dt"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Exp_LTST_CV_AT1",
+              "toField" : {
+                "name" : "ltst_cv_at"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2022-11-22T17:16:30.106Z",
+        "name" : "EXP_TRANS2",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true",
+                "names" : [
+                  {
+                    "inputName" : "Exp_prsn_intn_id"
+                  },
+                  {
+                    "inputName" : "Exp_plan_ky"
+                  },
+                  {
+                    "inputName" : "Exp_prsn_addr_ky"
+                  },
+                  {
+                    "inputName" : "Exp_cal_dt"
+                  },
+                  {
+                    "inputName" : "Exp_plan_yy_stat_cd"
+                  },
+                  {
+                    "inputName" : "Exp_ctrb_fl"
+                  },
+                  {
+                    "inputName" : "Exp_plan_max"
+                  },
+                  {
+                    "inputName" : "Exp_clnt_ky"
+                  },
+                  {
+                    "inputName" : "O_EE_CTRB_AT"
+                  },
+                  {
+                    "inputName" : "O_ER_CTRB_AT"
+                  },
+                  {
+                    "inputName" : "O_EXCS_CTRB_AT"
+                  },
+                  {
+                    "inputName" : "O_TOT_CTRB_AT"
+                  },
+                  {
+                    "inputName" : "O_INTR_AT"
+                  },
+                  {
+                    "inputName" : "O_EARN_AT"
+                  },
+                  {
+                    "inputName" : "O_RLVR_AT"
+                  },
+                  {
+                    "inputName" : "O_RLVR_USED_AT"
+                  },
+                  {
+                    "inputName" : "O_CLM_PMT_AT"
+                  },
+                  {
+                    "inputName" : "O_CHK_RCVY_AT"
+                  },
+                  {
+                    "inputName" : "O_ONLN_RCVY_AT"
+                  },
+                  {
+                    "inputName" : "O_CLM_PAID_AT"
+                  },
+                  {
+                    "inputName" : "O_OPMT_AT"
+                  },
+                  {
+                    "inputName" : "O_CLM_RCVY_AT"
+                  },
+                  {
+                    "inputName" : "O_TOT_RCVY_AT"
+                  },
+                  {
+                    "inputName" : "O_CLM_RCVR_ANTHR_YY"
+                  },
+                  {
+                    "inputName" : "O_ESTM_FORF_AT"
+                  },
+                  {
+                    "inputName" : "O_TOT_FND_AT"
+                  },
+                  {
+                    "inputName" : "O_RMN_OPMT_AT"
+                  },
+                  {
+                    "inputName" : "O_AVLB_BAL_AT"
+                  },
+                  {
+                    "inputName" : "Exp_high_cv_at"
+                  },
+                  {
+                    "inputName" : "Exp_LTST_CV_AT1"
+                  },
+                  {
+                    "inputName" : "Exp_rqst_at"
+                  },
+                  {
+                    "inputName" : "Exp_elig_at"
+                  },
+                  {
+                    "inputName" : "APRVD_AT"
+                  },
+                  {
+                    "inputName" : "O_CRVR_AT"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "RLVR_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(O_RLVR_AT= -99999.00\nOR O_RLVR_AT= -9999.00 , 0 ,O_RLVR_AT)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "CHK_RCVY_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "O_CHK_RCVY_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "ONLN_RCVY_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "O_ONLN_RCVY_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "OPMT_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "O_OPMT_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "CLM_RCVY_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "O_CLM_RCVY_AT"
+          },
+          {
+            "name" : "v_RPT_END_DT",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "VARIABLE",
+            "expression" : "IIF(Exp_prsn_intn_id= Pre_PRSN_INTN_ID and Exp_plan_ky = Pre_PLAN_KY, ADD_TO_DATE(Pre_RPT_BEG_DT,'DD',-1),TO_DATE('2299-12-31','YYYY-MM-DD'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "RPT_END_DT",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "v_RPT_END_DT"
+          },
+          {
+            "name" : "Pre_PRSN_INTN_ID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "Exp_PRSN_INTN_ID"
+          },
+          {
+            "name" : "Pre_PLAN_KY",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "Exp_PLAN_KY"
+          },
+          {
+            "name" : "Pre_RPT_BEG_DT",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "VARIABLE",
+            "expression" : "Exp_cal_dt"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "RMN_OPMT_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "O_RMN_OPMT_AT"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "CRVR_AT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 2,
+            "expFieldType" : "OUTPUT",
+            "expression" : "IIF(O_CRVR_AT= -99999.00\nOR\nO_CRVR_AT= -9999.00\n, 0 ,O_CRVR_AT)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "LOAD_TS",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "SESSSTARTTIME"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2023-09-08T19:14:38.013Z",
+        "name" : "Sorter",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Sorter Cache Size",
+            "value" : "500MB"
+          },
+          {
+            "name" : "Case Sensitive",
+            "value" : "true"
+          },
+          {
+            "name" : "Work Directory",
+            "value" : "$PMTempDir"
+          },
+          {
+            "name" : "Distinct",
+            "value" : "false"
+          },
+          {
+            "name" : "Null Treated Low",
+            "value" : "false"
+          },
+          {
+            "name" : "Transformation Scope",
+            "value" : "All Input"
+          },
+          {
+            "name" : "Optional",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sorterMode" : "SIMPLE",
+        "sortEntries" : [
+          {
+            "ascending" : "true",
+            "fieldName" : "prsn_intn_id"
+          },
+          {
+            "ascending" : "true",
+            "fieldName" : "plan_ky"
+          },
+          {
+            "ascending" : "true",
+            "fieldName" : "plan_yy_end_dt"
+          },
+          {
+            "ascending" : "true",
+            "fieldName" : "cal_dt"
+          }
+        ]
+      }
+    ],
+    "variables" : [
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "S3_Bucket_Name",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 1000,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0,
+        "defaultValue" : "adl-com-d1-healthsa-wrk-us-east-1-om5z5jn"
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "Stg_Dir_Loc",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 100,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0,
+        "defaultValue" : "/opt/tmp"
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "Unload_Options",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 1000,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      },
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "Param_Tgt_Presql",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 1000,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:07 PDT"
+}

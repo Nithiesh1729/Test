@@ -1,0 +1,1505 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_Test_04692179_unknowncharINsrcField - Copy 1",
+    "links" : [
+      {
+        "link" : "Expression -> Target"
+      },
+      {
+        "link" : "Source -> Expression"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-07-19T08:59:14.509Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "﻿TransYear"
+            },
+            "name" : "﻿TransYear",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TransYearMonth"
+            },
+            "name" : "TransYearMonth",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AgentCode"
+            },
+            "name" : "AgentCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "IND_PERSISTENCY"
+            },
+            "name" : "IND_PERSISTENCY",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INCLUDE_MIC_PROJ"
+            },
+            "name" : "INCLUDE_MIC_PROJ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_RATE"
+            },
+            "name" : "MIC_RATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "EMIC_RATE"
+            },
+            "name" : "EMIC_RATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DISCOUNT_FACTOR_MIC"
+            },
+            "name" : "DISCOUNT_FACTOR_MIC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_PROJ"
+            },
+            "name" : "MIC_PROJ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INCLUDE_YIC_PROJ"
+            },
+            "name" : "INCLUDE_YIC_PROJ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_RATE"
+            },
+            "name" : "YIC_RATE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DISCOUNT_FACTOR_YIC"
+            },
+            "name" : "DISCOUNT_FACTOR_YIC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_PROJ"
+            },
+            "name" : "YIC_PROJ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_I_MTD"
+            },
+            "name" : "FYC_I_MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_U_MTD"
+            },
+            "name" : "FYC_U_MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "RYC_U_MTD"
+            },
+            "name" : "RYC_U_MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_M_MTD"
+            },
+            "name" : "FYC_M_MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_G_MTD"
+            },
+            "name" : "FYC_G_MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_I_YTD"
+            },
+            "name" : "FYC_I_YTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_U_YTD"
+            },
+            "name" : "FYC_U_YTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "RYC_U_YTD"
+            },
+            "name" : "RYC_U_YTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_M_YTD"
+            },
+            "name" : "FYC_M_YTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_G_YTD"
+            },
+            "name" : "FYC_G_YTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_I_P2MTD"
+            },
+            "name" : "FYC_I_P2MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_U_P2MTD"
+            },
+            "name" : "FYC_U_P2MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "RYC_U_P2MTD"
+            },
+            "name" : "RYC_U_P2MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_M_P2MTD"
+            },
+            "name" : "FYC_M_P2MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_G_P2MTD"
+            },
+            "name" : "FYC_G_P2MTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_RYC_R3M"
+            },
+            "name" : "FYC_RYC_R3M",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_FYC_FROM"
+            },
+            "name" : "MIC_FYC_FROM",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_FYC_TO"
+            },
+            "name" : "MIC_FYC_TO",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_RATE_CURRENT"
+            },
+            "name" : "MIC_RATE_CURRENT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_RATE_NEXT"
+            },
+            "name" : "MIC_RATE_NEXT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_FYC_INTERVAL"
+            },
+            "name" : "MIC_FYC_INTERVAL",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MIC_BALANCE2GO"
+            },
+            "name" : "MIC_BALANCE2GO",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FYC_RYC_YTD"
+            },
+            "name" : "FYC_RYC_YTD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_FYC_FROM"
+            },
+            "name" : "YIC_FYC_FROM",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_FYC_TO"
+            },
+            "name" : "YIC_FYC_TO",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_RATE_CURRENT"
+            },
+            "name" : "YIC_RATE_CURRENT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_RATE_NEXT"
+            },
+            "name" : "YIC_RATE_NEXT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_FYC_INTERVAL"
+            },
+            "name" : "YIC_FYC_INTERVAL",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YIC_BALANCE2GO"
+            },
+            "name" : "YIC_BALANCE2GO",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Actual_MIC_paid"
+            },
+            "name" : "Actual_MIC_paid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Actual_YIC_paid"
+            },
+            "name" : "Actual_YIC_paid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MaxTranasactionDate"
+            },
+            "name" : "MaxTranasactionDate",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MONTH_END_FLAG"
+            },
+            "name" : "MONTH_END_FLAG",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YEAR_END_FLAG"
+            },
+            "name" : "YEAR_END_FLAG",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Fact_MIC_YIC.csv",
+            "label" : "Fact_MIC_YIC.csv",
+            "objectName" : "Fact_MIC_YIC.csv",
+            "path" : "Fact_MIC_YIC.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "﻿TransYear",
+                "fieldType" : "CONNECTOR",
+                "label" : "﻿TransYear",
+                "nativeName" : "﻿TransYear",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "TransYearMonth",
+                "fieldType" : "CONNECTOR",
+                "label" : "TransYearMonth",
+                "nativeName" : "TransYearMonth",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "AgentCode",
+                "fieldType" : "CONNECTOR",
+                "label" : "AgentCode",
+                "nativeName" : "AgentCode",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "IND_PERSISTENCY",
+                "fieldType" : "CONNECTOR",
+                "label" : "IND_PERSISTENCY",
+                "nativeName" : "IND_PERSISTENCY",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "INCLUDE_MIC_PROJ",
+                "fieldType" : "CONNECTOR",
+                "label" : "INCLUDE_MIC_PROJ",
+                "nativeName" : "INCLUDE_MIC_PROJ",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_RATE",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_RATE",
+                "nativeName" : "MIC_RATE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "EMIC_RATE",
+                "fieldType" : "CONNECTOR",
+                "label" : "EMIC_RATE",
+                "nativeName" : "EMIC_RATE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "DISCOUNT_FACTOR_MIC",
+                "fieldType" : "CONNECTOR",
+                "label" : "DISCOUNT_FACTOR_MIC",
+                "nativeName" : "DISCOUNT_FACTOR_MIC",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_PROJ",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_PROJ",
+                "nativeName" : "MIC_PROJ",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "INCLUDE_YIC_PROJ",
+                "fieldType" : "CONNECTOR",
+                "label" : "INCLUDE_YIC_PROJ",
+                "nativeName" : "INCLUDE_YIC_PROJ",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_RATE",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_RATE",
+                "nativeName" : "YIC_RATE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "DISCOUNT_FACTOR_YIC",
+                "fieldType" : "CONNECTOR",
+                "label" : "DISCOUNT_FACTOR_YIC",
+                "nativeName" : "DISCOUNT_FACTOR_YIC",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_PROJ",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_PROJ",
+                "nativeName" : "YIC_PROJ",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_I_MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_I_MTD",
+                "nativeName" : "FYC_I_MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_U_MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_U_MTD",
+                "nativeName" : "FYC_U_MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "RYC_U_MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "RYC_U_MTD",
+                "nativeName" : "RYC_U_MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_M_MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_M_MTD",
+                "nativeName" : "FYC_M_MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_G_MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_G_MTD",
+                "nativeName" : "FYC_G_MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_I_YTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_I_YTD",
+                "nativeName" : "FYC_I_YTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_U_YTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_U_YTD",
+                "nativeName" : "FYC_U_YTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "RYC_U_YTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "RYC_U_YTD",
+                "nativeName" : "RYC_U_YTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_M_YTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_M_YTD",
+                "nativeName" : "FYC_M_YTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_G_YTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_G_YTD",
+                "nativeName" : "FYC_G_YTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_I_P2MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_I_P2MTD",
+                "nativeName" : "FYC_I_P2MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_U_P2MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_U_P2MTD",
+                "nativeName" : "FYC_U_P2MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "RYC_U_P2MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "RYC_U_P2MTD",
+                "nativeName" : "RYC_U_P2MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_M_P2MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_M_P2MTD",
+                "nativeName" : "FYC_M_P2MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_G_P2MTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_G_P2MTD",
+                "nativeName" : "FYC_G_P2MTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_RYC_R3M",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_RYC_R3M",
+                "nativeName" : "FYC_RYC_R3M",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_FYC_FROM",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_FYC_FROM",
+                "nativeName" : "MIC_FYC_FROM",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_FYC_TO",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_FYC_TO",
+                "nativeName" : "MIC_FYC_TO",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_RATE_CURRENT",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_RATE_CURRENT",
+                "nativeName" : "MIC_RATE_CURRENT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_RATE_NEXT",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_RATE_NEXT",
+                "nativeName" : "MIC_RATE_NEXT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_FYC_INTERVAL",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_FYC_INTERVAL",
+                "nativeName" : "MIC_FYC_INTERVAL",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MIC_BALANCE2GO",
+                "fieldType" : "CONNECTOR",
+                "label" : "MIC_BALANCE2GO",
+                "nativeName" : "MIC_BALANCE2GO",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "FYC_RYC_YTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "FYC_RYC_YTD",
+                "nativeName" : "FYC_RYC_YTD",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_FYC_FROM",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_FYC_FROM",
+                "nativeName" : "YIC_FYC_FROM",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_FYC_TO",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_FYC_TO",
+                "nativeName" : "YIC_FYC_TO",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_RATE_CURRENT",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_RATE_CURRENT",
+                "nativeName" : "YIC_RATE_CURRENT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_RATE_NEXT",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_RATE_NEXT",
+                "nativeName" : "YIC_RATE_NEXT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_FYC_INTERVAL",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_FYC_INTERVAL",
+                "nativeName" : "YIC_FYC_INTERVAL",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YIC_BALANCE2GO",
+                "fieldType" : "CONNECTOR",
+                "label" : "YIC_BALANCE2GO",
+                "nativeName" : "YIC_BALANCE2GO",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Actual_MIC_paid",
+                "fieldType" : "CONNECTOR",
+                "label" : "Actual MIC paid",
+                "nativeName" : "Actual MIC paid",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Actual_YIC_paid",
+                "fieldType" : "CONNECTOR",
+                "label" : "Actual YIC paid",
+                "nativeName" : "Actual YIC paid",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MaxTranasactionDate",
+                "fieldType" : "CONNECTOR",
+                "label" : "MaxTranasactionDate",
+                "nativeName" : "MaxTranasactionDate",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "MONTH_END_FLAG",
+                "fieldType" : "CONNECTOR",
+                "label" : "MONTH_END_FLAG",
+                "nativeName" : "MONTH_END_FLAG",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "YEAR_END_FLAG",
+                "fieldType" : "CONNECTOR",
+                "label" : "YEAR_END_FLAG",
+                "nativeName" : "YEAR_END_FLAG",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fact_MIC_YIC.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : "~",
+              "firstDataRow" : 3,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 2,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "none"
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-19T08:59:14.510Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "tgt_test_04692179.csv",
+            "label" : "tgt_test_04692179.csv",
+            "path" : "tgt_test_04692179.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : "~",
+              "firstDataRow" : 3,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 2,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "none"
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-19T09:06:54.469Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "NewField",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "TransYear"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:04 PDT"
+}

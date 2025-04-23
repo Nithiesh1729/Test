@@ -1,0 +1,4420 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "Mapping11",
+    "links" : [
+      {
+        "link" : "Source -> Target"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "InputFilename"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-11-20T06:48:10.370Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "AccountId"
+            },
+            "name" : "AccountId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AccountRegistryID"
+            },
+            "name" : "AccountRegistryID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AccountName"
+            },
+            "name" : "AccountName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AccountUniqueName"
+            },
+            "name" : "AccountUniqueName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AccountType"
+            },
+            "name" : "AccountType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SalesProfileNumber"
+            },
+            "name" : "SalesProfileNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OwnerPartyId"
+            },
+            "name" : "OwnerPartyId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OwnerRegistryID"
+            },
+            "name" : "OwnerRegistryID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OwnerEmailAddress"
+            },
+            "name" : "OwnerEmailAddress",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OwnerName"
+            },
+            "name" : "OwnerName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContactId"
+            },
+            "name" : "ContactId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContactRegistryID"
+            },
+            "name" : "ContactRegistryID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContactName"
+            },
+            "name" : "ContactName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContactJobTitle"
+            },
+            "name" : "ContactJobTitle",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContactEmail"
+            },
+            "name" : "ContactEmail",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContactPhone"
+            },
+            "name" : "ContactPhone",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ExistingCustomerFlag"
+            },
+            "name" : "ExistingCustomerFlag",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SalesProfileStatus"
+            },
+            "name" : "SalesProfileStatus",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "IndustryCodeType"
+            },
+            "name" : "IndustryCodeType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "IndustryCode"
+            },
+            "name" : "IndustryCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YearEstablished"
+            },
+            "name" : "YearEstablished",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ControlYear"
+            },
+            "name" : "ControlYear",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "YearIncorporated"
+            },
+            "name" : "YearIncorporated",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Status"
+            },
+            "name" : "Status",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CreatedBy"
+            },
+            "name" : "CreatedBy",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CreationDate"
+            },
+            "name" : "CreationDate",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LastUpdateDate"
+            },
+            "name" : "LastUpdateDate",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LastUpdatedBy"
+            },
+            "name" : "LastUpdatedBy",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PreferredContactMethod"
+            },
+            "name" : "PreferredContactMethod",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PhoneCountryCode"
+            },
+            "name" : "PhoneCountryCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PhoneAreaCode"
+            },
+            "name" : "PhoneAreaCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PhoneNumber"
+            },
+            "name" : "PhoneNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PhoneExtension"
+            },
+            "name" : "PhoneExtension",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FormattedPhoneNumber"
+            },
+            "name" : "FormattedPhoneNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "EmailAddress"
+            },
+            "name" : "EmailAddress",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "WebContactPointType"
+            },
+            "name" : "WebContactPointType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "URL"
+            },
+            "name" : "URL",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PrimaryAddressId"
+            },
+            "name" : "PrimaryAddressId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AddressNumber"
+            },
+            "name" : "AddressNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AddressLine1"
+            },
+            "name" : "AddressLine1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AddressLine2"
+            },
+            "name" : "AddressLine2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AddressLine3"
+            },
+            "name" : "AddressLine3",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AddressLine4"
+            },
+            "name" : "AddressLine4",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Building"
+            },
+            "name" : "Building",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "City"
+            },
+            "name" : "City",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Country"
+            },
+            "name" : "Country",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FloorNumber"
+            },
+            "name" : "FloorNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PostalCode"
+            },
+            "name" : "PostalCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Province"
+            },
+            "name" : "Province",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "State"
+            },
+            "name" : "State",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AddressType"
+            },
+            "name" : "AddressType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FormattedAddress"
+            },
+            "name" : "FormattedAddress",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Description"
+            },
+            "name" : "Description",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PrimaryContactDoEmailFlag"
+            },
+            "name" : "PrimaryContactDoEmailFlag",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PrimaryContactDoCallFlag"
+            },
+            "name" : "PrimaryContactDoCallFlag",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Industries"
+            },
+            "name" : "Industries",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AccountCategory"
+            },
+            "name" : "AccountCategory",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CommercialRegNo"
+            },
+            "name" : "CommercialRegNo",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OrganizationType"
+            },
+            "name" : "OrganizationType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OtherOrganizationType"
+            },
+            "name" : "OtherOrganizationType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OtherSource"
+            },
+            "name" : "OtherSource",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Source"
+            },
+            "name" : "Source",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContactOfficePhone"
+            },
+            "name" : "ContactOfficePhone",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CommercialRefNoExpirationDate"
+            },
+            "name" : "CommercialRefNoExpirationDate",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CommercialRefNoExpirationDateHijri"
+            },
+            "name" : "CommercialRefNoExpirationDateHijri",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "HomeFinanceProviderAccount"
+            },
+            "name" : "HomeFinanceProviderAccount",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ProviderType"
+            },
+            "name" : "ProviderType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ARAccountNo"
+            },
+            "name" : "ARAccountNo",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TransactionFlag"
+            },
+            "name" : "TransactionFlag",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SitesCombinations"
+            },
+            "name" : "SitesCombinations",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Nationality"
+            },
+            "name" : "Nationality",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BankId"
+            },
+            "name" : "BankId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BankName"
+            },
+            "name" : "BankName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "IBAN"
+            },
+            "name" : "IBAN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "HomeFinanceType"
+            },
+            "name" : "HomeFinanceType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Category"
+            },
+            "name" : "Category",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ForgeRockID"
+            },
+            "name" : "ForgeRockID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PartnerType"
+            },
+            "name" : "PartnerType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PartnershipSector"
+            },
+            "name" : "PartnershipSector",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OtherPartnershipSector"
+            },
+            "name" : "OtherPartnershipSector",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OffplanSalesLicenseWAFI"
+            },
+            "name" : "OffplanSalesLicenseWAFI",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OfficesInSaudiArabia"
+            },
+            "name" : "OfficesInSaudiArabia",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "EstablishYear"
+            },
+            "name" : "EstablishYear",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CapitalEquityy"
+            },
+            "name" : "CapitalEquityy",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TargetedLocationWithinSaudiArabia"
+            },
+            "name" : "TargetedLocationWithinSaudiArabia",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ValueOfProjectPortfolio"
+            },
+            "name" : "ValueOfProjectPortfolio",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "NumberOfCompletedProjects"
+            },
+            "name" : "NumberOfCompletedProjects",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ValueOfCompletedProjects"
+            },
+            "name" : "ValueOfCompletedProjects",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "NumberOfCurrentProjects"
+            },
+            "name" : "NumberOfCurrentProjects",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ValueOfCurrentProjects"
+            },
+            "name" : "ValueOfCurrentProjects",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SubSource"
+            },
+            "name" : "SubSource",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "NameEnglish"
+            },
+            "name" : "NameEnglish",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DateOfIncorporation"
+            },
+            "name" : "DateOfIncorporation",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "objectType"
+            },
+            "name" : "objectType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "objectNumber"
+            },
+            "name" : "objectNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "eventType"
+            },
+            "name" : "eventType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "objectSource"
+            },
+            "name" : "objectSource",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "transactionId"
+            },
+            "name" : "transactionId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "data"
+            },
+            "name" : "data",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "subscription_name"
+            },
+            "name" : "subscription_name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "message_id"
+            },
+            "name" : "message_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "publish_time"
+            },
+            "name" : "publish_time",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "attributes"
+            },
+            "name" : "attributes",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "crm_raw_data/test_crm",
+            "label" : "crm_raw_data/test_crm",
+            "objectName" : "test_crm",
+            "path" : "crm_raw_data/test_crm",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "AccountId",
+                "fieldType" : "CONNECTOR",
+                "label" : "AccountId",
+                "nativeName" : "AccountId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AccountRegistryID",
+                "fieldType" : "CONNECTOR",
+                "label" : "AccountRegistryID",
+                "nativeName" : "AccountRegistryID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AccountName",
+                "fieldType" : "CONNECTOR",
+                "label" : "AccountName",
+                "nativeName" : "AccountName",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AccountUniqueName",
+                "fieldType" : "CONNECTOR",
+                "label" : "AccountUniqueName",
+                "nativeName" : "AccountUniqueName",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AccountType",
+                "fieldType" : "CONNECTOR",
+                "label" : "AccountType",
+                "nativeName" : "AccountType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "SalesProfileNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesProfileNumber",
+                "nativeName" : "SalesProfileNumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OwnerPartyId",
+                "fieldType" : "CONNECTOR",
+                "label" : "OwnerPartyId",
+                "nativeName" : "OwnerPartyId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OwnerRegistryID",
+                "fieldType" : "CONNECTOR",
+                "label" : "OwnerRegistryID",
+                "nativeName" : "OwnerRegistryID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OwnerEmailAddress",
+                "fieldType" : "CONNECTOR",
+                "label" : "OwnerEmailAddress",
+                "nativeName" : "OwnerEmailAddress",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OwnerName",
+                "fieldType" : "CONNECTOR",
+                "label" : "OwnerName",
+                "nativeName" : "OwnerName",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ContactId",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContactId",
+                "nativeName" : "ContactId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ContactRegistryID",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContactRegistryID",
+                "nativeName" : "ContactRegistryID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ContactName",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContactName",
+                "nativeName" : "ContactName",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ContactJobTitle",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContactJobTitle",
+                "nativeName" : "ContactJobTitle",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ContactEmail",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContactEmail",
+                "nativeName" : "ContactEmail",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ContactPhone",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContactPhone",
+                "nativeName" : "ContactPhone",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ExistingCustomerFlag",
+                "fieldType" : "CONNECTOR",
+                "label" : "ExistingCustomerFlag",
+                "nativeName" : "ExistingCustomerFlag",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "SalesProfileStatus",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesProfileStatus",
+                "nativeName" : "SalesProfileStatus",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "IndustryCodeType",
+                "fieldType" : "CONNECTOR",
+                "label" : "IndustryCodeType",
+                "nativeName" : "IndustryCodeType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "IndustryCode",
+                "fieldType" : "CONNECTOR",
+                "label" : "IndustryCode",
+                "nativeName" : "IndustryCode",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "YearEstablished",
+                "fieldType" : "CONNECTOR",
+                "label" : "YearEstablished",
+                "nativeName" : "YearEstablished",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ControlYear",
+                "fieldType" : "CONNECTOR",
+                "label" : "ControlYear",
+                "nativeName" : "ControlYear",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "YearIncorporated",
+                "fieldType" : "CONNECTOR",
+                "label" : "YearIncorporated",
+                "nativeName" : "YearIncorporated",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Status",
+                "fieldType" : "CONNECTOR",
+                "label" : "Status",
+                "nativeName" : "Status",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "CreatedBy",
+                "fieldType" : "CONNECTOR",
+                "label" : "CreatedBy",
+                "nativeName" : "CreatedBy",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "CreationDate",
+                "fieldType" : "CONNECTOR",
+                "label" : "CreationDate",
+                "nativeName" : "CreationDate",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "LastUpdateDate",
+                "fieldType" : "CONNECTOR",
+                "label" : "LastUpdateDate",
+                "nativeName" : "LastUpdateDate",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "LastUpdatedBy",
+                "fieldType" : "CONNECTOR",
+                "label" : "LastUpdatedBy",
+                "nativeName" : "LastUpdatedBy",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PreferredContactMethod",
+                "fieldType" : "CONNECTOR",
+                "label" : "PreferredContactMethod",
+                "nativeName" : "PreferredContactMethod",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PhoneCountryCode",
+                "fieldType" : "CONNECTOR",
+                "label" : "PhoneCountryCode",
+                "nativeName" : "PhoneCountryCode",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PhoneAreaCode",
+                "fieldType" : "CONNECTOR",
+                "label" : "PhoneAreaCode",
+                "nativeName" : "PhoneAreaCode",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PhoneNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "PhoneNumber",
+                "nativeName" : "PhoneNumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PhoneExtension",
+                "fieldType" : "CONNECTOR",
+                "label" : "PhoneExtension",
+                "nativeName" : "PhoneExtension",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "FormattedPhoneNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "FormattedPhoneNumber",
+                "nativeName" : "FormattedPhoneNumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "EmailAddress",
+                "fieldType" : "CONNECTOR",
+                "label" : "EmailAddress",
+                "nativeName" : "EmailAddress",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "WebContactPointType",
+                "fieldType" : "CONNECTOR",
+                "label" : "WebContactPointType",
+                "nativeName" : "WebContactPointType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "URL",
+                "fieldType" : "CONNECTOR",
+                "label" : "URL",
+                "nativeName" : "URL",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PrimaryAddressId",
+                "fieldType" : "CONNECTOR",
+                "label" : "PrimaryAddressId",
+                "nativeName" : "PrimaryAddressId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AddressNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "AddressNumber",
+                "nativeName" : "AddressNumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AddressLine1",
+                "fieldType" : "CONNECTOR",
+                "label" : "AddressLine1",
+                "nativeName" : "AddressLine1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AddressLine2",
+                "fieldType" : "CONNECTOR",
+                "label" : "AddressLine2",
+                "nativeName" : "AddressLine2",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AddressLine3",
+                "fieldType" : "CONNECTOR",
+                "label" : "AddressLine3",
+                "nativeName" : "AddressLine3",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AddressLine4",
+                "fieldType" : "CONNECTOR",
+                "label" : "AddressLine4",
+                "nativeName" : "AddressLine4",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Building",
+                "fieldType" : "CONNECTOR",
+                "label" : "Building",
+                "nativeName" : "Building",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "City",
+                "fieldType" : "CONNECTOR",
+                "label" : "City",
+                "nativeName" : "City",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Country",
+                "fieldType" : "CONNECTOR",
+                "label" : "Country",
+                "nativeName" : "Country",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "FloorNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "FloorNumber",
+                "nativeName" : "FloorNumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PostalCode",
+                "fieldType" : "CONNECTOR",
+                "label" : "PostalCode",
+                "nativeName" : "PostalCode",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Province",
+                "fieldType" : "CONNECTOR",
+                "label" : "Province",
+                "nativeName" : "Province",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "State",
+                "fieldType" : "CONNECTOR",
+                "label" : "State",
+                "nativeName" : "State",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AddressType",
+                "fieldType" : "CONNECTOR",
+                "label" : "AddressType",
+                "nativeName" : "AddressType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "FormattedAddress",
+                "fieldType" : "CONNECTOR",
+                "label" : "FormattedAddress",
+                "nativeName" : "FormattedAddress",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Description",
+                "fieldType" : "CONNECTOR",
+                "label" : "Description",
+                "nativeName" : "Description",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PrimaryContactDoEmailFlag",
+                "fieldType" : "CONNECTOR",
+                "label" : "PrimaryContactDoEmailFlag",
+                "nativeName" : "PrimaryContactDoEmailFlag",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PrimaryContactDoCallFlag",
+                "fieldType" : "CONNECTOR",
+                "label" : "PrimaryContactDoCallFlag",
+                "nativeName" : "PrimaryContactDoCallFlag",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Industries",
+                "fieldType" : "CONNECTOR",
+                "label" : "Industries",
+                "nativeName" : "Industries",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "AccountCategory",
+                "fieldType" : "CONNECTOR",
+                "label" : "AccountCategory",
+                "nativeName" : "AccountCategory",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "CommercialRegNo",
+                "fieldType" : "CONNECTOR",
+                "label" : "CommercialRegNo",
+                "nativeName" : "CommercialRegNo",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OrganizationType",
+                "fieldType" : "CONNECTOR",
+                "label" : "OrganizationType",
+                "nativeName" : "OrganizationType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OtherOrganizationType",
+                "fieldType" : "CONNECTOR",
+                "label" : "OtherOrganizationType",
+                "nativeName" : "OtherOrganizationType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OtherSource",
+                "fieldType" : "CONNECTOR",
+                "label" : "OtherSource",
+                "nativeName" : "OtherSource",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Source",
+                "fieldType" : "CONNECTOR",
+                "label" : "Source",
+                "nativeName" : "Source",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ContactOfficePhone",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContactOfficePhone",
+                "nativeName" : "ContactOfficePhone",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "CommercialRefNoExpirationDate",
+                "fieldType" : "CONNECTOR",
+                "label" : "CommercialRefNoExpirationDate",
+                "nativeName" : "CommercialRefNoExpirationDate",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "CommercialRefNoExpirationDateHijri",
+                "fieldType" : "CONNECTOR",
+                "label" : "CommercialRefNoExpirationDateHijri",
+                "nativeName" : "CommercialRefNoExpirationDateHijri",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "HomeFinanceProviderAccount",
+                "fieldType" : "CONNECTOR",
+                "label" : "HomeFinanceProviderAccount",
+                "nativeName" : "HomeFinanceProviderAccount",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ProviderType",
+                "fieldType" : "CONNECTOR",
+                "label" : "ProviderType",
+                "nativeName" : "ProviderType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ARAccountNo",
+                "fieldType" : "CONNECTOR",
+                "label" : "ARAccountNo",
+                "nativeName" : "ARAccountNo",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "TransactionFlag",
+                "fieldType" : "CONNECTOR",
+                "label" : "TransactionFlag",
+                "nativeName" : "TransactionFlag",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "SitesCombinations",
+                "fieldType" : "CONNECTOR",
+                "label" : "SitesCombinations",
+                "nativeName" : "SitesCombinations",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Nationality",
+                "fieldType" : "CONNECTOR",
+                "label" : "Nationality",
+                "nativeName" : "Nationality",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "BankId",
+                "fieldType" : "CONNECTOR",
+                "label" : "BankId",
+                "nativeName" : "BankId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "BankName",
+                "fieldType" : "CONNECTOR",
+                "label" : "BankName",
+                "nativeName" : "BankName",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "IBAN",
+                "fieldType" : "CONNECTOR",
+                "label" : "IBAN",
+                "nativeName" : "IBAN",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "HomeFinanceType",
+                "fieldType" : "CONNECTOR",
+                "label" : "HomeFinanceType",
+                "nativeName" : "HomeFinanceType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "Category",
+                "fieldType" : "CONNECTOR",
+                "label" : "Category",
+                "nativeName" : "Category",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ForgeRockID",
+                "fieldType" : "CONNECTOR",
+                "label" : "ForgeRockID",
+                "nativeName" : "ForgeRockID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PartnerType",
+                "fieldType" : "CONNECTOR",
+                "label" : "PartnerType",
+                "nativeName" : "PartnerType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "PartnershipSector",
+                "fieldType" : "CONNECTOR",
+                "label" : "PartnershipSector",
+                "nativeName" : "PartnershipSector",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OtherPartnershipSector",
+                "fieldType" : "CONNECTOR",
+                "label" : "OtherPartnershipSector",
+                "nativeName" : "OtherPartnershipSector",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OffplanSalesLicenseWAFI",
+                "fieldType" : "CONNECTOR",
+                "label" : "OffplanSalesLicenseWAFI",
+                "nativeName" : "OffplanSalesLicenseWAFI",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "OfficesInSaudiArabia",
+                "fieldType" : "CONNECTOR",
+                "label" : "OfficesInSaudiArabia",
+                "nativeName" : "OfficesInSaudiArabia",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "EstablishYear",
+                "fieldType" : "CONNECTOR",
+                "label" : "EstablishYear",
+                "nativeName" : "EstablishYear",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "CapitalEquityy",
+                "fieldType" : "CONNECTOR",
+                "label" : "CapitalEquityy",
+                "nativeName" : "CapitalEquityy",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "TargetedLocationWithinSaudiArabia",
+                "fieldType" : "CONNECTOR",
+                "label" : "TargetedLocationWithinSaudiArabia",
+                "nativeName" : "TargetedLocationWithinSaudiArabia",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ValueOfProjectPortfolio",
+                "fieldType" : "CONNECTOR",
+                "label" : "ValueOfProjectPortfolio",
+                "nativeName" : "ValueOfProjectPortfolio",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "NumberOfCompletedProjects",
+                "fieldType" : "CONNECTOR",
+                "label" : "NumberOfCompletedProjects",
+                "nativeName" : "NumberOfCompletedProjects",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ValueOfCompletedProjects",
+                "fieldType" : "CONNECTOR",
+                "label" : "ValueOfCompletedProjects",
+                "nativeName" : "ValueOfCompletedProjects",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "NumberOfCurrentProjects",
+                "fieldType" : "CONNECTOR",
+                "label" : "NumberOfCurrentProjects",
+                "nativeName" : "NumberOfCurrentProjects",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "ValueOfCurrentProjects",
+                "fieldType" : "CONNECTOR",
+                "label" : "ValueOfCurrentProjects",
+                "nativeName" : "ValueOfCurrentProjects",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "SubSource",
+                "fieldType" : "CONNECTOR",
+                "label" : "SubSource",
+                "nativeName" : "SubSource",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "NameEnglish",
+                "fieldType" : "CONNECTOR",
+                "label" : "NameEnglish",
+                "nativeName" : "NameEnglish",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "DateOfIncorporation",
+                "fieldType" : "CONNECTOR",
+                "label" : "DateOfIncorporation",
+                "nativeName" : "DateOfIncorporation",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "objectType",
+                "fieldType" : "CONNECTOR",
+                "label" : "objectType",
+                "nativeName" : "objectType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "objectNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "objectNumber",
+                "nativeName" : "objectNumber",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "eventType",
+                "fieldType" : "CONNECTOR",
+                "label" : "eventType",
+                "nativeName" : "eventType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "objectSource",
+                "fieldType" : "CONNECTOR",
+                "label" : "objectSource",
+                "nativeName" : "objectSource",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "transactionId",
+                "fieldType" : "CONNECTOR",
+                "label" : "transactionId",
+                "nativeName" : "transactionId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "data",
+                "fieldType" : "CONNECTOR",
+                "label" : "data",
+                "nativeName" : "data",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "subscription_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "subscription_name",
+                "nativeName" : "subscription_name",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "message_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "message_id",
+                "nativeName" : "message_id",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "publish_time",
+                "fieldType" : "CONNECTOR",
+                "label" : "publish_time",
+                "nativeName" : "publish_time",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              },
+              {
+                "name" : "attributes",
+                "fieldType" : "CONNECTOR",
+                "label" : "attributes",
+                "nativeName" : "attributes",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "test_crm"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "connectorType",
+                "value" : "Simple"
+              },
+              {
+                "name" : "originalDataSetId",
+                "value" : "crm_raw_data"
+              },
+              {
+                "name" : "recordType",
+                "value" : "TABLE"
+              },
+              {
+                "name" : "isLegacySQLView",
+                "value" : "false"
+              },
+              {
+                "name" : "uniqueId",
+                "value" : "d1142fb7-acd1-4b53-b3bc-b1294f838f9e"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-11-25T08:54:42.486Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@68z2zWOini8lFNhy2owZ2p",
+          "connectionName" : "GCS_V2_NEW_RT",
+          "excludeDynamicFileNameField" : "false",
+          "object$" : {
+            "name" : "InputFilename"
+          },
+          "objectType" : "PARAMETERIZED",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "dataFormat" : {
+            "formatId" : "Parquet",
+            "validateHSchema" : "false"
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "Google Cloud Storage Path",
+                "value" : "gs://roshn_raw_layer/test_crm"
+              },
+              {
+                "name" : "Is Directory",
+                "value" : "NO"
+              },
+              {
+                "name" : "Allow Wildcard Characters",
+                "value" : "NO"
+              },
+              {
+                "name" : "Incremental File Load",
+                "value" : "NO"
+              },
+              {
+                "name" : "Encryption Type",
+                "value" : "None"
+              },
+              {
+                "name" : "Compression Format",
+                "value" : "None"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:03 PDT"
+}

@@ -1,0 +1,395 @@
+{
+  "content" : {
+    "description" : "For a material in a \"Source Ready\" status, an active Contract must exist for this material and plant (ECC; ME31 or ME32).",
+    "allowMaxFieldLength" : "false",
+    "documentType" : "DMAPPLET",
+    "name" : "rl_MT049_Contract",
+    "links" : [
+      {
+        "link" : "_EXPR_exp_Rule_Logic -> Output"
+      },
+      {
+        "link" : "input_Group -> _EXPR_exp_Rule_Logic"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "true",
+        "expressionVariable" : "false",
+        "name" : "DBConnection_CODA",
+        "anonymousType" : {
+          "typeSystem" : "Oracle",
+          "connectionType" : "Oracle"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "true",
+        "expressionVariable" : "false",
+        "name" : "Mapplet_DBConnection_SOURCES",
+        "defaultValue" : {
+          "valueLiteral" : "CODA_SOURCES_ORCL"
+        },
+        "anonymousType" : {
+          "connectionType" : "Oracle"
+        }
+      }
+    ],
+    "transformations" : [
+      {
+        "description" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG_Group : No comment provided\n",
+        "name" : "input_Group",
+        "advancedProperties" : [
+          {
+            "name" : "Optional",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "fields" : [
+          {
+            "name" : "Material_Nr_MATNR_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "name" : "Plant_WERKS_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "name" : "Material_Type_MTART_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "name" : "Plant_Specific_Material_Status_MMSTA_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "name" : "Procurement_Type_MARC_BESKZ_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "name" : "Special_Procurement_Type_SOBSL_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "name" : "Special_Procurement_Type_for_Costing_SOBSK_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "name" : "Purchasing_Group_EKGRP_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP_Group",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          }
+        ]
+      },
+      {
+        "description" : "This is a helper expression for exp_Rule_Logic, used to resolve the name conflicts. \n",
+        "name" : "_EXPR_exp_Rule_Logic",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "lkp_Purchasing_Document_EKKO",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : ":LKP.lkp_Purchasing_Document_LKP(Material_Nr_MATNR_Group, Plant_WERKS_Group)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "RULE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'T049'"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "RULE_RMR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "Material_Nr_MATNR_Group || '~OK~' || Plant_WERKS_Group || '~' || :LKP.lkp_Purchasing_Document_LKP(Material_Nr_MATNR_Group, Plant_WERKS_Group)"
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-07-02T19:01:21.332Z",
+        "name" : "lkp_Purchasing_Document_LKP",
+        "advancedProperties" : [
+          {
+            "name" : "Use Lookup Field Default Value",
+            "value" : "false"
+          },
+          {
+            "name" : "Re-cache from lookup source",
+            "value" : "false"
+          },
+          {
+            "name" : "Update Dynamic Cache Condition",
+            "value" : "TRUE"
+          },
+          {
+            "name" : "Output Old Value On Update",
+            "value" : "false"
+          },
+          {
+            "name" : "Insert Else Update",
+            "value" : "false"
+          },
+          {
+            "name" : "Sorted Input",
+            "value" : "false"
+          },
+          {
+            "name" : "Optional",
+            "value" : "true"
+          },
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Lookup caching enabled",
+            "value" : "true"
+          },
+          {
+            "name" : "Lookup cache directory name",
+            "value" : "$PMCacheDir"
+          },
+          {
+            "name" : "Lookup cache persistent",
+            "value" : "false"
+          },
+          {
+            "name" : "Lookup Data Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Lookup Index Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Dynamic Lookup Cache",
+            "value" : "false"
+          },
+          {
+            "name" : "Synchronize dynamic cache",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          },
+          {
+            "name" : "Case Sensitive String Comparison",
+            "value" : "false"
+          },
+          {
+            "name" : "Lookup source is static",
+            "value" : "false"
+          },
+          {
+            "name" : "Pre-build lookup cache",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Subsecond Precision",
+            "value" : "6"
+          }
+        ],
+        "multipleMatchPolicy" : "Use First Value",
+        "returnPortName" : "MATERIAL_NR_MATNR",
+        "unconnected" : "true",
+        "useLabels" : "false",
+        "inputPortNames" : [
+          "MATNR",
+          "WERKS"
+        ],
+        "lookupConditions" : [
+          {
+            "leftOperand" : "MATERIAL_NR_MATNR",
+            "operator" : "=",
+            "rightOperand" : "MATNR"
+          },
+          {
+            "leftOperand" : "PLANT_WERKS",
+            "operator" : "=",
+            "rightOperand" : "WERKS"
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@2RQYjGay0PHcF1MyYVSGq8",
+          "connectionName" : "Oracle DB Connector",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "Oracle",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "customQuery" : "SELECT Material_Nr_MATNR as Material_Nr_MATNR, Plant_WERKS as Plant_WERKS\nfrom(\nSELECT PDC.\"Material_Nr_MATNR\" as Material_Nr_MATNR, PDC.\"Plant_WERKS\" as Plant_WERKS\nFROM   \"LKP_Purchasing_Document_EKKO\" PDC\nLEFT OUTER JOIN \"VW_Plant\"  PLN  ON PDC.\"Plant_WERKS\" = PLN.\"Plant_WERKS\"\nLEFT OUTER JOIN \"VW_Vendor\" VDR  ON PDC.\"Vendor_Account_Number_LIFNR\" = VDR.\"Vendor_Account_Nr_LIFNR\"\nWHERE  NVL (VDR.\"Central_Posting_Block_SPERR\" ,'.') <> 'X'\nAND    NVL (VDR.\"Purchase_Block_Org_Level_SPERM\" ,'.') <> 'X'\nAND    NVL (VDR.\"Central_Del_Flag_Mst_Rec_LOEVM\" ,'.') <> 'X'\nAND    PDC.\"Purchasing_Document_Cat_BSTYP\" IN ('K' , 'L')\nAND    (PDC.\"Deletion_Ind_PurDoc_EKPO_LOEKZ\" IS NULL OR PDC.\"Deletion_Ind_PurDoc_EKPO_LOEKZ\" = ' ')\nAND    NVL (PDC.\"Delivery_Complete_Indica_ELIKZ\" ,'.') <> 'X'\nAND    SYSDATE >= PDC.\"Start_of_Validity_Period_KDATB\"\nAND    SYSDATE <= PDC.\"End_of_Validity_Period_KDATE\"\nAND    NVL (PDC.\"Deletion_Ind_PurDoc_EKKO_LOEKZ\" ,'.') <> 'X'\nAND    NVL (PDC.\"Purchase_Organizatn_EKKO_EKORG\" ,'.') = NVL (PDC.\"Purchase_Organizatn_LFM1_EKORG\" ,'.')\nAND    (PDC.NACH_VAKEY IS NOT NULL OR ( (SUBSTR (PDC.\"Vendor_Account_Number_LIFNR\",1,2)='IS') OR (SUBSTR(PDC.\"Vendor_Account_Number_LIFNR\",1,2)='IP' AND PLN.\"Plant_Vendor_number_LIFNR\" IS NULL) ))\n)",
+            "retainMetadata" : "false"
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-23T08:53:03.377Z",
+        "name" : "Output",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "fieldMappingMode" : "MANUAL",
+        "fields" : [
+          {
+            "name" : "RULE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "name" : "RULE_RMR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          }
+        ],
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "RULE",
+              "toField" : {
+                "name" : "RULE"
+              }
+            },
+            {
+              "fromFieldName" : "RULE_RMR",
+              "toField" : {
+                "name" : "RULE_RMR"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "variables" : [
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "Mapplet_par_Company_Identifier",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 10,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0,
+        "defaultValue" : "M"
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:07 PDT"
+}

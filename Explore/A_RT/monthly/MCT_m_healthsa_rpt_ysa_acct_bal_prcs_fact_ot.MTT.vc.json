@@ -1,0 +1,321 @@
+{
+  "name" : "MCT_m_healthsa_rpt_ysa_acct_bal_prcs_fact_ot",
+  "description" : "prcs_fact_ot",
+  "runtimeEnvironmentId" : "@7rGUkpqxviilEt1HC44BQ0",
+  "runtimeEnvironmentName" : "A_RT",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SRC_REDSHIFT_ACCT_BAL_PRCS_FACT_CustomQry$",
+      "type" : "SOURCE",
+      "label" : "Src_RS_Conn",
+      "uiProperties" : {
+        "cnxtype" : "Amazon Redshift v2",
+        "connDefault" : "Redshift_healthsa_rsproducer",
+        "connectionParameterized" : "true",
+        "paramName" : "Src_RS_Conn",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Src_RS_Conn",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "SRC_REDSHIFT_ACCT_BAL_PRCS_FACT_CustomQry"
+      },
+      "sourceConnectionId" : "@i8CiArppTqobxSs41Sr1QS",
+      "connectionName" : "Redshift_healthsa_rsproducer",
+      "sourceObject" : "DUMMY_SRC_REDSHIFT_ACCT_BAL_PRCS_FACT_CustomQry",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "customQuery" : "select prsn_intn_id, plan_ky, rep_beg_dt, rep_end_dt, case when rnum=1 then date('2299-12-31') else prev_date  end as act_rep_end_dt from (\nselect prsn_intn_id, clnt_ky, plan_ky, rep_beg_dt, rep_end_dt, dateadd(day,-1,(max(rep_beg_dt) over (partition by clnt_ky, prsn_intn_id, plan_ky order by rep_beg_dt desc rows between 1 preceding and current row))) as prev_date, \nrow_number() over (partition by clnt_ky, prsn_intn_id, plan_ky order by rep_beg_dt desc)  as rnum from healthsa_rpt.acct_bal_prcs_fact where rep_beg_dt> rep_end_dt and 1=0 ) t1",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SRC_REDSHIFT_ACCT_BAL_PRCS_FACT_CustomQry",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionParameterName" : "Src_RS_Conn",
+        "connectionRuntimeParameter" : true,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$SRC_REDSHIFT_ACCT_TRNSPRCS_FACT_CustomQry$",
+      "type" : "SOURCE",
+      "label" : "Src_RS_Conn",
+      "uiProperties" : {
+        "cnxtype" : "Amazon Redshift v2",
+        "connDefault" : "Redshift_healthsa_rsproducer",
+        "connectionParameterized" : "true",
+        "paramName" : "Src_RS_Conn",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Src_RS_Conn",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "SRC_REDSHIFT_ACCT_TRNSPRCS_FACT_CustomQry"
+      },
+      "sourceConnectionId" : "@i8CiArppTqobxSs41Sr1QS",
+      "connectionName" : "Redshift_healthsa_rsproducer",
+      "sourceObject" : "DUMMY_SRC_REDSHIFT_ACCT_TRNSPRCS_FACT_CustomQry",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "customQuery" : "select a.EE_CTRB_AT,a.ER_CTRB_AT,a.EXCS_CTRB_AT,a.TOT_CTRB_AT,a.INTR_AT,a.EARN_AT,case when nvl(check_elig.cat_cd,'ELIG') = 'NOT_ELIG' and a.RLVR_GNRC_PRVS_ID>0 then 0 else a.rlvr_at end as rlvr_at ,a.RLVR_USED_AT,a.CLM_PMT_AT,a.CHK_RCVY_AT,a.ONLN_RCVY_AT,a.CLM_PAID_AT,a.OPMT_AT,a.CLM_RCVY_AT,a.TOT_RCVY_AT,a.PRSN_INTN_ID,a.PLAN_KY,a.PRSN_ADDR_KY,a.CLM_PAID_AT_N_INSU,a.RQST_AT,a.ELIG_AT,a.CAL_DT,a.PLAN_YY_STAT_CD,a.CV_FL,a.CTRB_FL,a.PLAN_MAX,a.CLNT_KY,a.PLAN_TYP_CD,a.CLM_RCVR_ANTHR_YY,a.HIGH_CV_AT,a.LTST_CV_AT,a.CV_END_DT,a.EMPL_STAT_CD,a.INTR_FL,a.CRVR_AT,a.CV_AT,a.CV_AT2,a.PLAN_ID,a.PLAN_YY_END_DT,a.RLVR_GNRC_PRVS_ID,a.BRK_IN_CV_RLVR_CD\n,nvl(check_elig.cat_cd,'ELIG')as cat_cd  from\n(\nSELECT distinct ee_ctrb_at, \n       er_ctrb_at, \n       excs_ctrb_at, \n       tot_ctrb_at, \n       intr_at, \n       earn_at, \n       max(case when (f.cv_at=0.00 and aa.rlvr_gnrc_prvs_id>0 and pldim.plan_id<>5710 and not(pldim.plan_id=5720 and aa.clnt_ky = 100736) and not(pldim.plan_id=5720 and aa.clnt_ky = 101040) and not(pldim.plan_id=5720 and aa.clnt_ky = 101165) and not(pldim.plan_id=5720 and aa.clnt_ky = 101576) and not(pldim.plan_id=5720 and aa.clnt_ky = 101881) and not(pldim.plan_id=5720 and aa.clnt_ky = 101995) and not(pldim.plan_id=5720 and aa.clnt_ky = 102273) and not(pldim.plan_id=5720 and aa.clnt_ky = 102525) and not(pldim.plan_id=5720 and aa.clnt_ky = 102789) and not(pldim.plan_id=5720 and aa.clnt_ky = 103078) and not(pldim.plan_id=5720 and aa.clnt_ky = 103687) and not(pldim.plan_id=5720 and aa.clnt_ky = 104508) and not(pldim.plan_id=5720 and aa.clnt_ky = 104665) and not(pldim.plan_id=5720 and aa.clnt_ky = 106223) and not(pldim.plan_id=5720 and aa.clnt_ky = 107471) and not(pldim.plan_id=5720 and aa.clnt_ky = 108666) and not(pldim.plan_id=5720 and aa.clnt_ky = 109086) and not(pldim.plan_id=5720 and aa.clnt_ky = 109571) and not(pldim.plan_id=5720 and aa.clnt_ky = 109866) and not(pldim.plan_id=5720 and aa.clnt_ky = 110197) and not(pldim.plan_id=5720 and aa.clnt_ky = 110542) and not(pldim.plan_id=5720 and aa.clnt_ky = 113546) and not(pldim.plan_id=5720 and aa.clnt_ky = 113863) and not(pldim.plan_id=5720 and aa.clnt_ky = 116144) and not(pldim.plan_id=5720 and aa.clnt_ky = 116521) and not(pldim.plan_id=5720 and aa.clnt_ky = 116593) and not(pldim.plan_id=5720 and aa.clnt_ky = 116695) and not(pldim.plan_id=5720 and aa.clnt_ky = 134153) and not(pldim.plan_id=5720 and aa.clnt_ky = 1941931) and not(pldim.plan_id=5720 and aa.clnt_ky = 1946597) and not(pldim.plan_id=5720 and aa.clnt_ky = 19141697) and not(pldim.plan_id=5720 and aa.clnt_ky = 19191909) and not(pldim.plan_id=5720 and aa.clnt_ky = 19228042) and not(pldim.plan_id=5720 and aa.clnt_ky = 19238101) and not(pldim.plan_id=5720 and aa.clnt_ky = 100892) and not(pldim.plan_id=5720 and aa.clnt_ky = 101283) and not(pldim.plan_id=5720 and aa.clnt_ky = 101656) and not(pldim.plan_id=5720 and aa.clnt_ky = 102197) and not(pldim.plan_id=5720 and aa.clnt_ky = 105728) and not(pldim.plan_id=5720 and aa.clnt_ky = 109950) and not(pldim.plan_id=5720 and aa.clnt_ky = 113002) and not(pldim.plan_id=5720 and aa.clnt_ky = 115596) and not(pldim.plan_id=5720 and aa.clnt_ky = 116498) and not(pldim.plan_id=5720 and aa.clnt_ky = 1972491) and not(pldim.plan_id=5720 and aa.clnt_ky = 100707) and not(pldim.plan_id=5720 and aa.clnt_ky = 101762) and not(pldim.plan_id=5720 and aa.clnt_ky = 103377) and not(pldim.plan_id=5720 and aa.clnt_ky = 103979) and not(pldim.plan_id=5720 and aa.clnt_ky = 1980994) and pldim.plan_id<>9100 and crvr_at<>-9999  AND ((pldim.INTR_FL='N' OR EMPL.EMPL_STAT_CD='N') OR ((pldim.INTR_FL='' OR COALESCE(empl.EMPL_STAT_CD,'')='') and crvr_at<>-9999))) THEN -99999\nelse rlvr_at end  )over(partition by aa.prsn_intn_id, aa.plan_ky, cast(Date_part(year,aa.cal_dt) as char(4)) ) as rlvr_at ,\n       rlvr_used_at, \n       clm_pmt_at, \n       chk_rcvy_at, \n       onln_rcvy_at, \n       clm_paid_at, \n       opmt_at, \n       clm_rcvy_at, \n       tot_rcvy_at, \n       aa.prsn_intn_id  ,\n       aa.plan_ky, \n       aa.prsn_addr_ky, \n       CLM_PAID_AT_N_INSU, \n       rqst_at, \n       elig_at, \n       aa.cal_dt , \n       aa.plan_yy_stat_cd, \n       aa.cv_fl, \n       aa.ctrb_fl, \n       aa.plan_max, \n       aa.clnt_ky, \n       aa.plan_typ_cd, \n       CLM_RCVR_ANTHR_YY, \n       aa.HIGH_CV_AT, \n       coalesce(cv.LTST_CV_AT,cv3.LTST_CV_AT,0.00) as LTST_CV_AT,\n       aa.cv_end_dt ,\nCOALESCE(empl.EMPL_STAT_CD,'') as EMPL_STAT_CD,\npldim.INTR_FL,\n       case when (f.cv_at=0.00 and pldim.plan_id<>5710 and not(pldim.plan_id=5720 and aa.clnt_ky = 100736) and not(pldim.plan_id=5720 and aa.clnt_ky = 101040) and not(pldim.plan_id=5720 and aa.clnt_ky = 101165) and not(pldim.plan_id=5720 and aa.clnt_ky = 101576) and not(pldim.plan_id=5720 and aa.clnt_ky = 101881) and not(pldim.plan_id=5720 and aa.clnt_ky = 101995) and not(pldim.plan_id=5720 and aa.clnt_ky = 102273) and not(pldim.plan_id=5720 and aa.clnt_ky = 102525) and not(pldim.plan_id=5720 and aa.clnt_ky = 102789) and not(pldim.plan_id=5720 and aa.clnt_ky = 103078) and not(pldim.plan_id=5720 and aa.clnt_ky = 103687) and not(pldim.plan_id=5720 and aa.clnt_ky = 104508) and not(pldim.plan_id=5720 and aa.clnt_ky = 104665) and not(pldim.plan_id=5720 and aa.clnt_ky = 106223) and not(pldim.plan_id=5720 and aa.clnt_ky = 107471) and not(pldim.plan_id=5720 and aa.clnt_ky = 108666) and not(pldim.plan_id=5720 and aa.clnt_ky = 109086) and not(pldim.plan_id=5720 and aa.clnt_ky = 109571) and not(pldim.plan_id=5720 and aa.clnt_ky = 109866) and not(pldim.plan_id=5720 and aa.clnt_ky = 110197) and not(pldim.plan_id=5720 and aa.clnt_ky = 110542) and not(pldim.plan_id=5720 and aa.clnt_ky = 113546) and not(pldim.plan_id=5720 and aa.clnt_ky = 113863) and not(pldim.plan_id=5720 and aa.clnt_ky = 116144) and not(pldim.plan_id=5720 and aa.clnt_ky = 116521) and not(pldim.plan_id=5720 and aa.clnt_ky = 116593) and not(pldim.plan_id=5720 and aa.clnt_ky = 116695) and not(pldim.plan_id=5720 and aa.clnt_ky = 134153) and not(pldim.plan_id=5720 and aa.clnt_ky = 1941931) and not(pldim.plan_id=5720 and aa.clnt_ky = 1946597) and not(pldim.plan_id=5720 and aa.clnt_ky = 19141697) and not(pldim.plan_id=5720 and aa.clnt_ky = 19191909) and not(pldim.plan_id=5720 and aa.clnt_ky = 19228042) and not(pldim.plan_id=5720 and aa.clnt_ky = 19238101) and not(pldim.plan_id=5720 and aa.clnt_ky = 100892) and not(pldim.plan_id=5720 and aa.clnt_ky = 101283) and not(pldim.plan_id=5720 and aa.clnt_ky = 101656) and not(pldim.plan_id=5720 and aa.clnt_ky = 102197) and not(pldim.plan_id=5720 and aa.clnt_ky = 105728) and not(pldim.plan_id=5720 and aa.clnt_ky = 109950) and not(pldim.plan_id=5720 and aa.clnt_ky = 113002) and not(pldim.plan_id=5720 and aa.clnt_ky = 115596) and not(pldim.plan_id=5720 and aa.clnt_ky = 116498) and not(pldim.plan_id=5720 and aa.clnt_ky = 1972491) and not(pldim.plan_id=5720 and aa.clnt_ky = 100707) and not(pldim.plan_id=5720 and aa.clnt_ky = 101762) and not(pldim.plan_id=5720 and aa.clnt_ky = 103377) and not(pldim.plan_id=5720 and aa.clnt_ky = 103979) and not(pldim.plan_id=5720 and aa.clnt_ky = 1980994) and pldim.plan_id<>9100   AND ((pldim.INTR_FL='N' OR EMPL.EMPL_STAT_CD='N') OR (pldim.INTR_FL='' OR COALESCE(empl.EMPL_STAT_CD,'')=''))) THEN -99999\nwhen empl1.EMPL_STAT_CD='DEATH' THEN -99999 \nwhen (CASE WHEN RL.prsn_intn_id IS NOT NULL THEN 'Y' ELSE 'N' END) ='Y' AND aa.CRVR_AT=0 THEN -99999 \nelse crvr_at end as CRVR_AT,coalesce(f.cv_at,0.00) as cv_at,coalesce(f1.cv_at,0.00) as cv_at2,pldim.plan_id,c.PLAN_YY_END_DT,aa.rlvr_gnrc_prvs_id,aa.BRK_IN_CV_RLVR_CD\nFROM   (SELECT Max(ee_ctrb_at)         AS ee_ctrb_at, \n       Max(er_ctrb_at)         AS er_ctrb_at, \n       Max(excs_ctrb_at)       AS excs_ctrb_at, \n       Max(tot_ctrb_at)        AS tot_ctrb_at, \n       Max(intr_at)            AS intr_at, \n       Max(earn_at)            AS earn_at, \n       Max(rlvr_at)            AS rlvr_at, \n       Max(rlvr_used_at)       AS rlvr_used_at, \n       Max(clm_pmt_at)         AS clm_pmt_at, \n       Max(chk_rcvy_at)        AS chk_rcvy_at, \n       Max(onln_rcvy_at)       AS onln_rcvy_at, \n       Max(clm_paid_at)        AS clm_paid_at, \n       Max(opmt_at)            AS opmt_at, \n       Max(clm_rcvy_at)        AS clm_rcvy_at, \n       Max(tot_rcvy_at)        AS tot_rcvy_at, \n       FACT.prsn_intn_id  ,\n       plan_ky, \n       Max(prsn_addr_ky)       AS prsn_addr_ky, \n       Max(clm_paid_at_n_insu) AS CLM_PAID_AT_N_INSU, \n       Max(rqst_at)            AS rqst_at, \n       Max(elig_at)            AS elig_at, \n       cal_dt , \n       Max(plan_yy_stat_cd)    AS plan_yy_stat_cd, \n       Max(cv_fl)              AS cv_fl, \n       Max(ctrb_fl)            AS ctrb_fl, \n       Max(plan_max)           AS plan_max, \n       Max(clnt_ky)            AS clnt_ky, \n       Max(plan_typ_cd)        AS plan_typ_cd, \n       Max(clm_rcvr_anthr_yy)  AS CLM_RCVR_ANTHR_YY, \n       Max(high_cv_at)         AS HIGH_CV_AT, \n       MAX(cv_end_dt) AS cv_end_dt ,\n\t   MAX(CRVR_AT) AS CRVR_AT,\n\t   max(rlvr_gnrc_prvs_id) as rlvr_gnrc_prvs_id,\n\t   max(BRK_IN_CV_RLVR_CD) as BRK_IN_CV_RLVR_CD\nFROM   (SELECT A.ee_ctrb_at, \n               A.er_ctrb_at, \n               A.excs_ctrb_at, \n               A.tot_ctrb_at, \n               A.intr_at, \n               A.earn_at, \n               A.rlvr_at, \n               A.rlvr_used_at, \n               A.clm_pmt_at, \n               A.chk_rcvy_at, \n               A.onln_rcvy_at, \n               A.clm_paid_at, \n               A.opmt_at, \n               A.clm_rcvy_at, \n               A.tot_rcvy_at, \n               A.prsn_intn_id, \n               A.plan_ky, \n               A.prsn_addr_ky, \n               A.aprvd_at                         AS CLM_PAID_AT_N_INSU, \n               A.rqst_at, \n               A.elig_at, \n               B.cal_dt, \n               C.plan_yy_stat_cd, \n               C.cv_fl, \n               C.ctrb_fl, \n               C.plan_max, \n               C.clnt_ky, \n               C.plan_typ_cd,\n               c.rlvr_gnrc_prvs_id, \nc.BRK_IN_CV_RLVR_CD,\n               Coalesce(CLM.clm_rcvr_anthr_yy, 0) AS CLM_RCVR_ANTHR_YY, \n               Coalesce(e.high_cv_at, 0)         AS HIGH_CV_AT, \n               coalesce(D.cv_end_dt,'2299-12-31') AS cv_end_dt,\nA.CRVR_AT_CT AS CRVR_AT\n        FROM   healthsa_rpt.acct_trnsprcs_fact A \n               INNER JOIN healthsa_rpt.plan_dimn C \n               ON A.plan_ky = C.plan_ky \n             LEFT JOIN (\nSELECT MAX(cv_end_dt) AS cv_end_dt,prsn_intn_id ,plan_ky FROM healthsa_rpt.CV_FACT\nwhere CV_AT<>0.00    \nGROUP BY PRSN_INTN_ID,PLAN_KY  \n\n)D\n               ON        D.prsn_intn_id = A.prsn_intn_id \n                       AND D.PLAN_KY = C.PLAN_KY \ninner JOIN (SELECT MAX(cv_at) AS high_cv_at,prsn_intn_id AS prsn_intn_id,plan_ky AS plan_ky FROM healthsa_rpt.acct_trnsprcs_fact          \nGROUP BY PRSN_INTN_ID,PLAN_KY  )e\n               ON        e.prsn_intn_id = A.prsn_intn_id \n                       AND e.plan_ky = A.plan_ky\n               INNER JOIN healthsa_rpt.date_dimn B \n                       ON A.trns_dt_ky = B.date_ky \n               LEFT JOIN (SELECT prsn_intn_id, \n                                 plan_ky, \n                                 prcs_dt_ky, \n                                 Sum(clm_rcvy_an_yy_at) AS CLM_RCVR_ANTHR_YY \n                          FROM   healthsa_rpt.clm_pmt_fact \n                          WHERE  clm_rcvy_an_yy_at != 0 \n                          GROUP  BY prsn_intn_id, \n                                    plan_ky, \n                                    prcs_dt_ky)CLM \n                      ON A.prsn_intn_id = CLM.prsn_intn_id \n                         AND A.plan_ky = CLM.plan_ky \n                         AND A.trns_dt_ky = CLM.prcs_dt_ky \n) FACT       \nGROUP  BY FACT.prsn_intn_id, \n          FACT.plan_ky, \n          cal_dt ) aa\n               INNER JOIN healthsa_rpt.PLAN_DIMN C \n                       ON Aa.plan_ky = C.plan_ky \nleft outer join healthsa_ctd.EE_EMPL_CAT_SH empl\non aa.PRSN_INTN_ID = empl.PRSN_INTN_ID\nand EMPL.EMPL_CAT_ID='5740'\nand aa.cal_dt between EMPL.EE_EMPLCAT_EFBEGDT and EMPL.EE_EMPLCAT_EFENDDT\nleft outer join healthsa_ctd.EE_EMPL_CAT_SH empl1\non aa.PRSN_INTN_ID = empl1.PRSN_INTN_ID\nand EMPL1.EMPL_CAT_ID='1'\nand aa.cal_dt between EMPL1.EE_EMPLCAT_EFBEGDT and EMPL1.EE_EMPLCAT_EFENDDT\nINNER JOIN healthsa_rpt.PLAN_DIMN PLDIM\nON aa.plan_ky=pldim.plan_ky \nleft outer join healthsa_ctd.prsn_saa_cv_sh f\non aa.PRSN_INTN_ID=f.PRSN_INTN_ID\nand pldim.plan_id=f.Plan_id\nand aa.cal_dt >= f.EFBEGDT and aa.cal_dt <= f.EFENDDT\n               INNER JOIN healthsa_rpt.date_dimn B \n                       ON Aa.cal_dt = B.cal_dt \nleft outer join healthsa_rpt.cv_fact f1\non aa.PRSN_INTN_ID=f1.PRSN_INTN_ID\nand pldim.PLAN_KY=f1.PLAN_KY\nAND B.cal_dt >= f1.cv_beg_dt AND (B.cal_dt <= f1.cv_end_dt)\n               LEFT outer JOIN healthsa_rpt.cv_fact CV \n                      ON aa.prsn_intn_id = CV.prsn_intn_id \n                         AND aa.plan_ky = CV.plan_ky \n                        AND (B.cal_dt BETWEEN CV.cv_beg_dt AND CV.cv_end_dt) \n               LEFT outer JOIN healthsa_rpt.cv_fact CV3 \n                      ON aa.prsn_intn_id = CV3.prsn_intn_id \n                         AND aa.plan_ky = CV3.plan_ky \n                        AND (c.PLAN_YY_END_DT BETWEEN CV3.cv_beg_dt AND CV3.cv_end_dt) \nLEFT OUTER JOIN (SELECT prsn_intn_id,plan_ky,BB.cal_dt FROM healthsa_rpt.prsn_rlvr_fact RF\n                      INNER JOIN healthsa_rpt.date_dimn BB \n                       ON RF.SRC_DT_KY = BB.DATE_KY)  RL \n                           ON RL.prsn_intn_id=aa.prsn_intn_id\n                          and RL.plan_ky=aa.plan_ky\n                          and RL.cal_dt=aa.cal_dt \n) a\n\nleft outer join\n(\n\nselect eec.prsn_intn_id, eec.ee_emplcat_efbegdt, eec.ee_emplcat_efenddt,spys.plan_yy_efbegdt\n, nvl(cgcs.cat_cd,'NOT_ELIG') as cat_cd from \nhealthsa_ctd.ee_empl_cat_sh eec\ninner join healthsa_ctd.prsn_sh pr\non pr.prsn_intn_id= eec.prsn_intn_id\ninner join (select distinct em_clnt_id,rlvr_gnrc_prvs_id, plan_yy_efbegdt from healthsa_ctd.saa_pln_yy_stat_sh where rlvr_cd='Y') spys\non spys.em_clnt_id= pr.em_clnt_id\nand (eec.ee_emplcat_efbegdt between spys.plan_yy_efbegdt and Dateadd(day,-1,Dateadd(year,1,spys.plan_yy_efbegdt))\nor eec.ee_emplcat_efenddt between spys.plan_yy_efbegdt and Dateadd(day,-1,Dateadd(year,1,spys.plan_yy_efbegdt)))\nleft outer join healthsa_ctd.gnrc_id_gp gig\non gig.gp_id= spys.rlvr_gnrc_prvs_id\nleft outer join healthsa_ctd.saa_rlvr_rule_sh srrs\non srrs.saa_rlvr_rule_id= gig.gnrc_id\nleft outer join healthsa_ctd.cat_gp_sh cg\non cg.gp_id= srrs.rlvr_elig_gp_id\nleft outer join healthsa_ctd.cat_gp_cd_sh cgcs \non cgcs.gp_id= cg.gp_id\nand eec.empl_stat_cd= cgcs.cat_cd\nwhere\neec.empl_cat_id= cg.cat_id\nand cgcs.cat_cd is null\n\n) check_elig\non check_elig.prsn_intn_id=a.prsn_intn_id \nand a.cal_dt between check_elig.EE_EMPLCAT_EFBEGDT and check_elig.EE_EMPLCAT_EFENDDT\n\nwhere  \n(a.prsn_intn_id, \na.plan_ky,a.cal_dt)\nnot in (select prf.prsn_intn_id, prf.plan_ky, dd.cal_dt from healthsa_rpt.prsn_rlvr_fact prf\ninner join healthsa_rpt.plan_dimn pd\non prf.plan_ky= pd.plan_ky\ninner join healthsa_rpt.date_dimn dd\non dd.cal_dt= pd.plan_yy_end_dt\nwhere (pd.plan_id = 5710 or (pd.plan_id = 5720 and pd.clnt_ky = 109086))\nand (dd.date_ky)= prf.src_dt_ky\nand (prf.prsn_intn_id, prf.plan_ky, prf.rlvr_at) in ( select tab1.prsn_intn_id, tab1.plan_ky, tab1.rlvr_at from (\nselect distinct p1.*, count(prsn_intn_id) over(partition by prsn_intn_id, plan_ky, rlvr_at) as cnt from healthsa_rpt.prsn_rlvr_fact p1) tab1\nwhere tab1.cnt>1) )\nORDER  BY a.prsn_intn_id, \na.plan_ky,\n         a.PLAN_YY_END_DT,\n          a.cal_dt asc",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SRC_REDSHIFT_ACCT_TRNSPRCS_FACT_CustomQry",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionParameterName" : "Src_RS_Conn",
+        "connectionRuntimeParameter" : true,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Ins$",
+      "type" : "TARGET",
+      "label" : "Tgt_RS_Conn",
+      "uiProperties" : {
+        "cnxtype" : "Amazon Redshift v2",
+        "connDefault" : "Redshift_healthsa_rsproducer",
+        "connectionParameterized" : "true",
+        "paramName" : "Tgt_RS_Conn",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Tgt_RS_Conn",
+        "default" : "healthsa_rpt/acct_bal_prcs_fact",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Ins"
+      },
+      "targetConnectionId" : "@i8CiArppTqobxSs41Sr1QS",
+      "connectionName" : "Redshift_healthsa_rsproducer",
+      "targetObject" : "healthsa_rpt/acct_bal_prcs_fact",
+      "targetObjectLabel" : "acct_bal_prcs_fact",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "healthsa_rpt/acct_bal_prcs_fact",
+      "objectLabel" : "acct_bal_prcs_fact",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionParameterName" : "Tgt_RS_Conn",
+        "connectionRuntimeParameter" : true,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Upd$",
+      "type" : "TARGET",
+      "label" : "Tgt_RS_Conn",
+      "uiProperties" : {
+        "cnxtype" : "Amazon Redshift v2",
+        "connDefault" : "Redshift_healthsa_rsproducer",
+        "connectionParameterized" : "true",
+        "paramName" : "Tgt_RS_Conn",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Tgt_RS_Conn",
+        "default" : "healthsa_rpt/acct_bal_prcs_fact",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "defaultTargetUpdateColumns" : "prsn_ky,plan_ky,rep_beg_dt",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "TGT_REDSHIFT_ACCT_BAL_PRCS_FACT_Upd"
+      },
+      "targetConnectionId" : "@i8CiArppTqobxSs41Sr1QS",
+      "connectionName" : "Redshift_healthsa_rsproducer",
+      "targetObject" : "healthsa_rpt/acct_bal_prcs_fact",
+      "targetObjectLabel" : "acct_bal_prcs_fact",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "prsn_ky",
+        "plan_ky",
+        "rep_beg_dt"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "healthsa_rpt/acct_bal_prcs_fact",
+      "objectLabel" : "acct_bal_prcs_fact",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionParameterName" : "Tgt_RS_Conn",
+        "connectionRuntimeParameter" : true,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@2GU2hDHwK8ldVxOUSaP9wI",
+  "mappingTemplateName" : "m_healthsa_rpt_ysa_acct_bal_prcs_fact_ot",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Default buffer block size",
+      "value" : "1GB"
+    },
+    {
+      "name" : "DTM buffer size",
+      "value" : "1GB"
+    },
+    {
+      "name" : "Error Log File Directory",
+      "value" : "/apps/ysa/errorfiles/"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "$CurrentTaskName_$CurrentTime.bad"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "Full"
+    },
+    {
+      "name" : "Pushdown Optimization Context",
+      "value" : "None"
+    },
+    {
+      "name" : "Pushdown Optimization Fallback Option",
+      "value" : "Partial PDO"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "/apps/ysa/logfiles/"
+    },
+    {
+      "name" : "Session Log File Name",
+      "value" : "$CurrentTaskName_$CurrentTime.log"
+    }
+  ],
+  "inOutParameters" : [
+    {
+      "name" : "S3_Bucket_Name",
+      "initialValue" : "adl-com-d1-healthsa-wrk-us-east-1-om5z5jn",
+      "datatype" : "STRING",
+      "precision" : "1000",
+      "scale" : "0",
+      "retentionPolicy" : "NEVER",
+      "aggregationType" : "MAX",
+      "currentValue" : "adl-com-d1-healthsa-wrk-us-east-1-om5z5jn"
+    },
+    {
+      "name" : "Stg_Dir_Loc",
+      "initialValue" : "/opt/tmp",
+      "datatype" : "STRING",
+      "precision" : "100",
+      "scale" : "0",
+      "retentionPolicy" : "NEVER",
+      "aggregationType" : "MAX",
+      "currentValue" : "/opt/tmp"
+    },
+    {
+      "name" : "Unload_Options",
+      "datatype" : "STRING",
+      "precision" : "1000",
+      "scale" : "0",
+      "retentionPolicy" : "NEVER",
+      "aggregationType" : "MAX"
+    },
+    {
+      "name" : "Param_Tgt_Presql",
+      "datatype" : "STRING",
+      "precision" : "1000",
+      "scale" : "0",
+      "retentionPolicy" : "NEVER",
+      "aggregationType" : "MAX"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : true,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "parameterFileName" : "tf_healthsa_rpt_ysa_acct_clm_accu_init.parm",
+  "parameterFileDir" : "/apps/ysa/parameterfiles",
+  "paramFileType" : "PARAM_FILE_LOCAL",
+  "schemaMode" : "async",
+  "valid" : true,
+  "parameterFileEncoding" : "UTF-8",
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-04-23 04:07:11 PDT"
+}

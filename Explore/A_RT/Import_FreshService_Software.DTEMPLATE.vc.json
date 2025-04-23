@@ -1,0 +1,2796 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "Import_FreshService_Software",
+    "links" : [
+      {
+        "link" : "Change_Type -> AuditingLog"
+      },
+      {
+        "link" : "Change_Type -> Router",
+        "groupLink" : "DefaultGroup -> INPUT"
+      },
+      {
+        "link" : "Router -> Data_Driven_Data_Fields",
+        "groupLink" : "Update -> DefaultGroup"
+      },
+      {
+        "link" : "Router -> Insert_DataFields_and_Defaults",
+        "groupLink" : "Insert -> DefaultGroup"
+      },
+      {
+        "link" : "Insert_DataFields_and_Defaults -> Insert_To_PAC"
+      },
+      {
+        "link" : "Data_Driven_Data_Fields -> Target"
+      },
+      {
+        "link" : "Data_Driven_Data_Fields -> Update_Application"
+      },
+      {
+        "link" : "Source_FF -> Change_Type"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2023-10-16T05:44:56.838Z",
+        "name" : "Router",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "INPUT",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "DEFAULT1",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Delete",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Insert",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "Update",
+            "output" : "true"
+          }
+        ],
+        "groupFilterConditions" : [
+          {
+            "advancedFilterCondition" : "Change_Type='D'",
+            "name" : "Delete"
+          },
+          {
+            "name" : "Insert",
+            "simpleFilterConditions" : [
+              {
+                "fieldName" : "Change_Type",
+                "filterValue" : "I",
+                "operator" : "="
+              }
+            ]
+          },
+          {
+            "name" : "Update",
+            "simpleFilterConditions" : [
+              {
+                "fieldName" : "Change_Type",
+                "filterValue" : "U",
+                "operator" : "="
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "createTime" : "2023-10-17T01:34:24.172Z",
+        "name" : "Change_Type",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Change_Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(\n   isnull(Title) , 'D', \n   IIF(COLUMN_ID = '1', 'I', 'U')\n      )"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2023-10-19T01:42:49.132Z",
+        "name" : "Data_Driven_Data_Fields",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "conflictResolutions" : [
+              {
+                "precedingGroupName" : "Update",
+                "precedingTxName" : "Router",
+                "rule" : {
+                  "bulkRename" : "true",
+                  "include" : "true",
+                  "bulkRenameOption" : {
+                    "literal" : "rtr_",
+                    "suffix" : "false"
+                  }
+                }
+              }
+            ],
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "FreshServiceName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "ltrim(rtrim(rtr_Title))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Description",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 2000,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(rtr_DATA_DEFAULT = '', rtr_COMMENTS, rtr_DATA_DEFAULT)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "ActiveUserCount",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "ltrim(rtrim(to_char(rtr_Title)))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "ID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "rtr_Title"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2023-10-19T08:04:50.837Z",
+        "name" : "Update_Application",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Modified"
+            },
+            "name" : "Modified",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "field_3"
+            },
+            "name" : "field_3",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_4"
+            },
+            "name" : "field_4",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_1"
+            },
+            "name" : "field_1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_2"
+            },
+            "name" : "field_2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContentTypeId"
+            },
+            "name" : "ContentTypeId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Attachments"
+            },
+            "name" : "Attachments",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Created"
+            },
+            "name" : "Created",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "field_7"
+            },
+            "name" : "field_7",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_8"
+            },
+            "name" : "field_8",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_5"
+            },
+            "name" : "field_5",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_6"
+            },
+            "name" : "field_6",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ID"
+            },
+            "name" : "ID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OData__ColorTag"
+            },
+            "name" : "OData__ColorTag",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AuthorId"
+            },
+            "name" : "AuthorId",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "GUID"
+            },
+            "name" : "GUID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Title"
+            },
+            "name" : "Title",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "EditorId"
+            },
+            "name" : "EditorId",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ServerRedirectedEmbedUri"
+            },
+            "name" : "ServerRedirectedEmbedUri",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "id0"
+            },
+            "name" : "id0",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ServerRedirectedEmbedUrl"
+            },
+            "name" : "ServerRedirectedEmbedUrl",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FileSystemObjectType"
+            },
+            "name" : "FileSystemObjectType",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ComplianceAssetId"
+            },
+            "name" : "ComplianceAssetId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Id1"
+            },
+            "name" : "Id1",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OData__UIVersionString"
+            },
+            "name" : "OData__UIVersionString",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8CNgsyngH4afrjGchWoQaL",
+          "connectionName" : "SharepointOnline_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "Fields_Test_RT_List",
+            "label" : "Fields_Test_RT_List",
+            "objectName" : "Fields_Test_RT_List",
+            "path" : "Fields_Test_RT_List",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Modified",
+                "fieldType" : "CONNECTOR",
+                "label" : "Modified",
+                "nativeName" : "Modified",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_3",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_3",
+                "nativeName" : "field_3",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_4",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_4",
+                "nativeName" : "field_4",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_1",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_1",
+                "nativeName" : "field_1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_2",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_2",
+                "nativeName" : "field_2",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ContentTypeId",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContentTypeId",
+                "nativeName" : "ContentTypeId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Attachments",
+                "fieldType" : "CONNECTOR",
+                "label" : "Attachments",
+                "nativeName" : "Attachments",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Created",
+                "fieldType" : "CONNECTOR",
+                "label" : "Created",
+                "nativeName" : "Created",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_7",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_7",
+                "nativeName" : "field_7",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_8",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_8",
+                "nativeName" : "field_8",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_5",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_5",
+                "nativeName" : "field_5",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_6",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_6",
+                "nativeName" : "field_6",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "ID",
+                "nativeName" : "ID",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "OData__ColorTag",
+                "fieldType" : "CONNECTOR",
+                "label" : "OData__ColorTag",
+                "nativeName" : "OData__ColorTag",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "AuthorId",
+                "fieldType" : "CONNECTOR",
+                "label" : "AuthorId",
+                "nativeName" : "AuthorId",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "GUID",
+                "fieldType" : "CONNECTOR",
+                "label" : "GUID",
+                "nativeName" : "GUID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Title",
+                "fieldType" : "CONNECTOR",
+                "label" : "Title",
+                "nativeName" : "Title",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "EditorId",
+                "fieldType" : "CONNECTOR",
+                "label" : "EditorId",
+                "nativeName" : "EditorId",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ServerRedirectedEmbedUri",
+                "fieldType" : "CONNECTOR",
+                "label" : "ServerRedirectedEmbedUri",
+                "nativeName" : "ServerRedirectedEmbedUri",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "id0",
+                "fieldType" : "CONNECTOR",
+                "label" : "id0",
+                "nativeName" : "id0",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ServerRedirectedEmbedUrl",
+                "fieldType" : "CONNECTOR",
+                "label" : "ServerRedirectedEmbedUrl",
+                "nativeName" : "ServerRedirectedEmbedUrl",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "FileSystemObjectType",
+                "fieldType" : "CONNECTOR",
+                "label" : "FileSystemObjectType",
+                "nativeName" : "FileSystemObjectType",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ComplianceAssetId",
+                "fieldType" : "CONNECTOR",
+                "label" : "ComplianceAssetId",
+                "nativeName" : "ComplianceAssetId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Id1",
+                "fieldType" : "CONNECTOR",
+                "label" : "Id",
+                "nativeName" : "Id1",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "OData__UIVersionString",
+                "fieldType" : "CONNECTOR",
+                "label" : "OData__UIVersionString",
+                "nativeName" : "OData__UIVersionString",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Update"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "ID",
+              "toField" : {
+                "name" : "ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "rtr_Title",
+              "toField" : {
+                "name" : "Title"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "rtr_Attachments",
+              "toField" : {
+                "name" : "Attachments"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2023-10-20T14:27:13.193Z",
+        "name" : "AuditingLog",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "Audit_Software_Sync.csv",
+            "label" : "Audit_Software_Sync.csv",
+            "path" : "Audit_Software_Sync.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-02-13T06:39:09.344Z",
+        "name" : "Insert_DataFields_and_Defaults",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "conflictResolutions" : [
+              {
+                "precedingGroupName" : "Insert",
+                "precedingTxName" : "Router",
+                "rule" : {
+                  "bulkRename" : "true",
+                  "include" : "true",
+                  "bulkRenameOption" : {
+                    "literal" : "rtr_",
+                    "suffix" : "false"
+                  }
+                }
+              }
+            ],
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Entity",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'Clough'"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "ApplicationStatus",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 15,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'Core'"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "LifecycleStatus",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 15,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'In Production'"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "Attachments",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'False'"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2024-02-13T06:39:41.388Z",
+        "name" : "Insert_To_PAC",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Modified"
+            },
+            "name" : "Modified",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "field_3"
+            },
+            "name" : "field_3",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_4"
+            },
+            "name" : "field_4",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_1"
+            },
+            "name" : "field_1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_2"
+            },
+            "name" : "field_2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContentTypeId"
+            },
+            "name" : "ContentTypeId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Attachments"
+            },
+            "name" : "Attachments",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Created"
+            },
+            "name" : "Created",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "field_7"
+            },
+            "name" : "field_7",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_8"
+            },
+            "name" : "field_8",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_5"
+            },
+            "name" : "field_5",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "field_6"
+            },
+            "name" : "field_6",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ID"
+            },
+            "name" : "ID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OData__ColorTag"
+            },
+            "name" : "OData__ColorTag",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "AuthorId"
+            },
+            "name" : "AuthorId",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "GUID"
+            },
+            "name" : "GUID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Title"
+            },
+            "name" : "Title",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "EditorId"
+            },
+            "name" : "EditorId",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ServerRedirectedEmbedUri"
+            },
+            "name" : "ServerRedirectedEmbedUri",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "id0"
+            },
+            "name" : "id0",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ServerRedirectedEmbedUrl"
+            },
+            "name" : "ServerRedirectedEmbedUrl",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FileSystemObjectType"
+            },
+            "name" : "FileSystemObjectType",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ComplianceAssetId"
+            },
+            "name" : "ComplianceAssetId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Id1"
+            },
+            "name" : "Id1",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OData__UIVersionString"
+            },
+            "name" : "OData__UIVersionString",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8CNgsyngH4afrjGchWoQaL",
+          "connectionName" : "SharepointOnline_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Fields_Test_RT_List",
+            "label" : "Fields_Test_RT_List",
+            "objectName" : "Fields_Test_RT_List",
+            "path" : "Fields_Test_RT_List",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Modified",
+                "fieldType" : "CONNECTOR",
+                "label" : "Modified",
+                "nativeName" : "Modified",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_3",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_3",
+                "nativeName" : "field_3",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_4",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_4",
+                "nativeName" : "field_4",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_1",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_1",
+                "nativeName" : "field_1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_2",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_2",
+                "nativeName" : "field_2",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ContentTypeId",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContentTypeId",
+                "nativeName" : "ContentTypeId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Attachments",
+                "fieldType" : "CONNECTOR",
+                "label" : "Attachments",
+                "nativeName" : "Attachments",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Created",
+                "fieldType" : "CONNECTOR",
+                "label" : "Created",
+                "nativeName" : "Created",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_7",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_7",
+                "nativeName" : "field_7",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_8",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_8",
+                "nativeName" : "field_8",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_5",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_5",
+                "nativeName" : "field_5",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "field_6",
+                "fieldType" : "CONNECTOR",
+                "label" : "field_6",
+                "nativeName" : "field_6",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "ID",
+                "nativeName" : "ID",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "OData__ColorTag",
+                "fieldType" : "CONNECTOR",
+                "label" : "OData__ColorTag",
+                "nativeName" : "OData__ColorTag",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "AuthorId",
+                "fieldType" : "CONNECTOR",
+                "label" : "AuthorId",
+                "nativeName" : "AuthorId",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "GUID",
+                "fieldType" : "CONNECTOR",
+                "label" : "GUID",
+                "nativeName" : "GUID",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Title",
+                "fieldType" : "CONNECTOR",
+                "label" : "Title",
+                "nativeName" : "Title",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "EditorId",
+                "fieldType" : "CONNECTOR",
+                "label" : "EditorId",
+                "nativeName" : "EditorId",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ServerRedirectedEmbedUri",
+                "fieldType" : "CONNECTOR",
+                "label" : "ServerRedirectedEmbedUri",
+                "nativeName" : "ServerRedirectedEmbedUri",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "id0",
+                "fieldType" : "CONNECTOR",
+                "label" : "id0",
+                "nativeName" : "id0",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ServerRedirectedEmbedUrl",
+                "fieldType" : "CONNECTOR",
+                "label" : "ServerRedirectedEmbedUrl",
+                "nativeName" : "ServerRedirectedEmbedUrl",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "FileSystemObjectType",
+                "fieldType" : "CONNECTOR",
+                "label" : "FileSystemObjectType",
+                "nativeName" : "FileSystemObjectType",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "ComplianceAssetId",
+                "fieldType" : "CONNECTOR",
+                "label" : "ComplianceAssetId",
+                "nativeName" : "ComplianceAssetId",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "Id1",
+                "fieldType" : "CONNECTOR",
+                "label" : "Id",
+                "nativeName" : "Id1",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 12,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              },
+              {
+                "name" : "OData__UIVersionString",
+                "fieldType" : "CONNECTOR",
+                "label" : "OData__UIVersionString",
+                "nativeName" : "OData__UIVersionString",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Fields_Test_RT_List"
+                  }
+                ]
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "rtr_ID",
+              "toField" : {
+                "name" : "ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "rtr_Title",
+              "toField" : {
+                "name" : "Title"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "rtr_Compliance_Asset_Id",
+              "toField" : {
+                "name" : "ComplianceAssetId"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "rtr_Attachments",
+              "toField" : {
+                "name" : "Attachments"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2024-02-13T09:33:20.716Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "MPDTEST.1csv",
+            "label" : "MPDTEST.1csv",
+            "path" : "MPDTEST.1csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-03-06T09:27:26.948Z",
+        "name" : "Source_FF",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Title"
+            },
+            "name" : "Title",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DATA_TYPE"
+            },
+            "name" : "DATA_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "NULLABLE"
+            },
+            "name" : "NULLABLE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DATA_DEFAULT"
+            },
+            "name" : "DATA_DEFAULT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "COLUMN_ID"
+            },
+            "name" : "COLUMN_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "COMMENTS"
+            },
+            "name" : "COMMENTS",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "INSERTABLE"
+            },
+            "name" : "INSERTABLE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "UPDATABLE"
+            },
+            "name" : "UPDATABLE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "DELETABLE"
+            },
+            "name" : "DELETABLE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Compliance_Asset_Id"
+            },
+            "name" : "Compliance_Asset_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ID"
+            },
+            "name" : "ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Content_Type"
+            },
+            "name" : "Content_Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Modified"
+            },
+            "name" : "Modified",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Created"
+            },
+            "name" : "Created",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Created_By"
+            },
+            "name" : "Created_By",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Modified_By"
+            },
+            "name" : "Modified_By",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Attachments"
+            },
+            "name" : "Attachments",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Item_Child_Count"
+            },
+            "name" : "Item_Child_Count",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Folder_Child_Count"
+            },
+            "name" : "Folder_Child_Count",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Label_setting"
+            },
+            "name" : "Label_setting",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Retention_label"
+            },
+            "name" : "Retention_label",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Retention_label_Applied"
+            },
+            "name" : "Retention_label_Applied",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Label_applied_by"
+            },
+            "name" : "Label_applied_by",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Item_is_a_Record"
+            },
+            "name" : "Item_is_a_Record",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "id_1"
+            },
+            "name" : "id_1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@eSHSWsoIe8OerqjiP3liO3",
+          "connectionName" : "FlatFile_Vijay",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "EmployeeListSource.csv",
+            "label" : "EmployeeListSource.csv",
+            "objectName" : "EmployeeListSource.csv",
+            "path" : "EmployeeListSource.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Title",
+                "fieldType" : "CONNECTOR",
+                "label" : "Title",
+                "nativeName" : "Title",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "DATA_TYPE",
+                "fieldType" : "CONNECTOR",
+                "label" : "DATA_TYPE",
+                "nativeName" : "DATA_TYPE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "NULLABLE",
+                "fieldType" : "CONNECTOR",
+                "label" : "NULLABLE",
+                "nativeName" : "NULLABLE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "DATA_DEFAULT",
+                "fieldType" : "CONNECTOR",
+                "label" : "DATA_DEFAULT",
+                "nativeName" : "DATA_DEFAULT",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "COLUMN_ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "COLUMN_ID",
+                "nativeName" : "COLUMN_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "COMMENTS",
+                "fieldType" : "CONNECTOR",
+                "label" : "COMMENTS",
+                "nativeName" : "COMMENTS",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "INSERTABLE",
+                "fieldType" : "CONNECTOR",
+                "label" : "INSERTABLE",
+                "nativeName" : "INSERTABLE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "UPDATABLE",
+                "fieldType" : "CONNECTOR",
+                "label" : "UPDATABLE",
+                "nativeName" : "UPDATABLE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "DELETABLE",
+                "fieldType" : "CONNECTOR",
+                "label" : "DELETABLE",
+                "nativeName" : "DELETABLE",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Compliance_Asset_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Compliance Asset Id",
+                "nativeName" : "Compliance Asset Id",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "ID",
+                "nativeName" : "ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Content_Type",
+                "fieldType" : "CONNECTOR",
+                "label" : "Content Type",
+                "nativeName" : "Content Type",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Modified",
+                "fieldType" : "CONNECTOR",
+                "label" : "Modified",
+                "nativeName" : "Modified",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Created",
+                "fieldType" : "CONNECTOR",
+                "label" : "Created",
+                "nativeName" : "Created",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Created_By",
+                "fieldType" : "CONNECTOR",
+                "label" : "Created By",
+                "nativeName" : "Created By",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Modified_By",
+                "fieldType" : "CONNECTOR",
+                "label" : "Modified By",
+                "nativeName" : "Modified By",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Attachments",
+                "fieldType" : "CONNECTOR",
+                "label" : "Attachments",
+                "nativeName" : "Attachments",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Item_Child_Count",
+                "fieldType" : "CONNECTOR",
+                "label" : "Item Child Count",
+                "nativeName" : "Item Child Count",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Folder_Child_Count",
+                "fieldType" : "CONNECTOR",
+                "label" : "Folder Child Count",
+                "nativeName" : "Folder Child Count",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Label_setting",
+                "fieldType" : "CONNECTOR",
+                "label" : "Label setting",
+                "nativeName" : "Label setting",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Retention_label",
+                "fieldType" : "CONNECTOR",
+                "label" : "Retention label",
+                "nativeName" : "Retention label",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Retention_label_Applied",
+                "fieldType" : "CONNECTOR",
+                "label" : "Retention label Applied",
+                "nativeName" : "Retention label Applied",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Label_applied_by",
+                "fieldType" : "CONNECTOR",
+                "label" : "Label applied by",
+                "nativeName" : "Label applied by",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Item_is_a_Record",
+                "fieldType" : "CONNECTOR",
+                "label" : "Item is a Record",
+                "nativeName" : "Item is a Record",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "id_1",
+                "fieldType" : "CONNECTOR",
+                "label" : "id",
+                "nativeName" : "id",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "EmployeeListSource.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:02 PDT"
+}

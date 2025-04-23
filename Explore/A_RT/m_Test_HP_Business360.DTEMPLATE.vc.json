@@ -1,0 +1,708 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_Test_HP_Business360",
+    "links" : [
+      {
+        "link" : "Source -> Union",
+        "groupLink" : "DefaultGroup -> Input1"
+      },
+      {
+        "link" : "Source1 -> Union",
+        "groupLink" : "DefaultGroup -> Input2"
+      },
+      {
+        "link" : "Union -> WebServices",
+        "groupLink" : "OutputGroup -> DefaultGroup"
+      },
+      {
+        "link" : "Expression -> Target"
+      },
+      {
+        "link" : "WebServices -> Expression",
+        "groupLink" : "root -> DefaultGroup"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-08-20T10:33:08.733Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Sessionid"
+            },
+            "name" : "Sessionid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BusinessId"
+            },
+            "name" : "BusinessId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "GPPID"
+            },
+            "name" : "GPPID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Sessionid.csv",
+            "label" : "Sessionid.csv",
+            "objectName" : "Sessionid.csv",
+            "path" : "Sessionid.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Sessionid",
+                "fieldType" : "CONNECTOR",
+                "label" : "Sessionid",
+                "nativeName" : "Sessionid",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Sessionid.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BusinessId",
+                "fieldType" : "CONNECTOR",
+                "label" : "BusinessId",
+                "nativeName" : "BusinessId",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Sessionid.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "GPPID",
+                "fieldType" : "CONNECTOR",
+                "label" : "GPPID",
+                "nativeName" : "GPPID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Sessionid.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-08-20T10:33:08.741Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "tgt_HP_business360.csv",
+            "label" : "tgt_HP_business360.csv",
+            "path" : "tgt_HP_business360.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-08-20T11:10:29.470Z",
+        "name" : "WebServices",
+        "advancedProperties" : [
+          {
+            "name" : "requestXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "100"
+          },
+          {
+            "name" : "inputFlush",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "conflictResolutions" : [
+              {
+                "precedingGroupName" : "OutputGroup",
+                "precedingTxName" : "Union",
+                "rule" : {
+                  "bulkRename" : "true",
+                  "include" : "true",
+                  "bulkRenameOption" : {
+                    "literal" : "U_",
+                    "suffix" : "false"
+                  }
+                }
+              }
+            ],
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "FaultGroup",
+            "output" : "true"
+          },
+          {
+            "input" : "false",
+            "name" : "root",
+            "output" : "true"
+          }
+        ],
+        "operation" : "@5SiqfsxqHaPfFjhSwWOUo1@MDM_BusinessEntity",
+        "serviceDefinitionId" : "@5SiqfsxqHaPfFjhSwWOUo1",
+        "serviceDefinitionName" : "bs_haripriya_B360",
+        "fieldMap" : {
+          "mappings" : [
+            {
+              "groupName" : "Union",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "U_BusinessId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:bodyArray/json:body/json:businessId"
+                },
+                {
+                  "name" : "U_Sessionid",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:IDS-SESSION-ID"
+                }
+              ]
+            }
+          ]
+        },
+        "outputFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "FaultGroup",
+              "isRoot" : "false",
+              "xPath" : "/INFA:MDM_BusinessEntity_FAULT/MDM_BusinessEntity",
+              "xfields" : [
+                {
+                  "name" : "RequestXML",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:MDM_BusinessEntity_FAULT/MDM_BusinessEntity/RequestXML"
+                },
+                {
+                  "name" : "ErrorCode",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:MDM_BusinessEntity_FAULT/MDM_BusinessEntity/ErrorCode"
+                },
+                {
+                  "name" : "ErrorMessage",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/INFA:MDM_BusinessEntity_FAULT/MDM_BusinessEntity/ErrorMessage"
+                }
+              ]
+            },
+            {
+              "groupName" : "root",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "approvalRequired",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200/json:approvalRequired"
+                },
+                {
+                  "name" : "businessId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200/json:businessId"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "createTime" : "2024-08-20T11:13:17.022Z",
+        "name" : "Union",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "Input1",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "true",
+            "name" : "Input2",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "OutputGroup",
+            "output" : "true"
+          }
+        ],
+        "fields" : [
+          {
+            "name" : "BusinessId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "name" : "Sessionid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "inputGroups" : [
+          {
+            "name" : "Input1",
+            "fieldMappingMode" : "MANUAL",
+            "fieldMapping" : {
+              "fields" : [
+                {
+                  "name" : "BusinessId",
+                  "precision" : 0,
+                  "scale" : 0,
+                  "txField" : {
+                    "name" : "BusinessId"
+                  }
+                },
+                {
+                  "name" : "Sessionid",
+                  "precision" : 0,
+                  "scale" : 0,
+                  "txField" : {
+                    "name" : "Sessionid"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name" : "Input2",
+            "fieldMappingMode" : "MANUAL",
+            "fieldMapping" : {
+              "fields" : [
+                {
+                  "name" : "GPPID",
+                  "precision" : 0,
+                  "scale" : 0,
+                  "txField" : {
+                    "name" : "BusinessId"
+                  }
+                },
+                {
+                  "name" : "Sessionid",
+                  "precision" : 0,
+                  "scale" : 0,
+                  "txField" : {
+                    "name" : "Sessionid"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "createTime" : "2024-08-20T10:33:08.733Z",
+        "name" : "Source1",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Sessionid"
+            },
+            "name" : "Sessionid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BusinessId"
+            },
+            "name" : "BusinessId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "GPPID"
+            },
+            "name" : "GPPID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Sessionid.csv",
+            "label" : "Sessionid.csv",
+            "objectName" : "Sessionid.csv",
+            "path" : "Sessionid.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Sessionid",
+                "fieldType" : "CONNECTOR",
+                "label" : "Sessionid",
+                "nativeName" : "Sessionid",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Sessionid.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BusinessId",
+                "fieldType" : "CONNECTOR",
+                "label" : "BusinessId",
+                "nativeName" : "BusinessId",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Sessionid.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "GPPID",
+                "fieldType" : "CONNECTOR",
+                "label" : "GPPID",
+                "nativeName" : "GPPID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Sessionid.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-08-20T11:17:05.554Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:05 PDT"
+}

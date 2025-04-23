@@ -1,0 +1,267 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>AfW90LK2D86CjqF-gt-208-2024-11-26T15:33:40.425Z::tf.xml</types1:EntryId>
+      <types1:Name>Task2</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>Resh_APSE_Suborg</types1:CreatedBy>
+      <types1:CreationDate>2024-11-26T15:33:40Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="Task2"
+                   name="Task2"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="Data Task 1" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:mt-realtime-7o1WzO4Ys8kiTTnzAnXUw0</option>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                  </options>
+               </field>
+               <field description="" name="FILE name" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Data Task 2" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:MappingTask-gcs-gbq-eLP8iI2b2crft51OQYst8Y</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>caicdiintegration</user>
+                  </allowedUsers>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">false</nvpair>
+            </extData>
+            <flow id="a">
+               <start id="b">
+                  <link id="m3q4gqlq" targetId="m3q4gqme"/>
+               </start>
+               <eventContainer id="m3q4gqme">
+                  <service id="m3q4gqlp">
+                     <title>Data Task 1</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">mt_realtime</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">7o1WzO4Ys8kiTTnzAnXUw0</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="mt-realtime-7o1WzO4Ys8kiTTnzAnXUw0">temp.Data Task 1</operation>
+                           <operation source="formula"
+                                      to="mt-realtime-7o1WzO4Ys8kiTTnzAnXUw0/input[1]/target[1]/Target[1]/object">
+                              <expression language="XQuery">'FILE_'||date:toChar(fn:current-dateTime(),'YYYYMMDDHH24MISS')</expression>
+                           </operation>
+                           <operation source="formula"
+                                      to="temp.Data Task 1[1]/input[1]/target[1]/Target[1]/object">
+                              <expression language="XQuery">'FILE_'||date:toChar(fn:current-dateTime(),'YYYYMMDDHH24MISS')</expression>
+                           </operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.Data Task 1/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Task_Id">Task Id</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Task_Status">Task Status</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.Data Task 1/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.Data Task 1/output/Error_Message">Error Message</operation>
+                        <operation source="field" to="temp.Data Task 1/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field" to="temp.Data Task 1/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="m3x14sln" targetId="m3wqvki4"/>
+                  <events>
+                     <catch faultField="temp.Data Task 1/fault"
+                            id="m3q4gqmc"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.Data Task 1/fault"
+                            id="m3q4gqmd"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <eventContainer id="m3wqvki4">
+                  <service id="m3wqvkhf">
+                     <title>Data Task 2</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MappingTask_gcs-gbq</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">eLP8iI2b2crft51OQYst8Y</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="MappingTask-gcs-gbq-eLP8iI2b2crft51OQYst8Y">temp.Data Task 2</operation>
+                           <operation source="formula"
+                                      to="MappingTask-gcs-gbq-eLP8iI2b2crft51OQYst8Y/input[1]/source[1]/Source[1]/object">
+                              <expression language="XQuery">$temp.DataTask1[1]/input[1]/target[1]/Target[1]/object </expression>
+                           </operation>
+                           <operation source="formula"
+                                      to="temp.Data Task 2[1]/input[1]/source[1]/Source[1]/object">
+                              <expression language="XQuery">$temp.DataTask1[1]/input[1]/target[1]/Target[1]/object </expression>
+                           </operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.Data Task 2/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Task_Id">Task Id</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Task_Status">Task Status</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.Data Task 2/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.Data Task 2/output/Error_Message">Error Message</operation>
+                        <operation source="field" to="temp.Data Task 2/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field" to="temp.Data Task 2/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="m3wqvkhh" targetId="c"/>
+                  <events>
+                     <catch faultField="temp.Data Task 2/fault"
+                            id="m3wqvki2"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.Data Task 2/fault"
+                            id="m3wqvki3"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mt-realtime-7o1WzO4Ys8kiTTnzAnXUw0"
+                              isByCopy="true"
+                              name="mt-realtime-7o1WzO4Ys8kiTTnzAnXUw0">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MappingTask-gcs-gbq-eLP8iI2b2crft51OQYst8Y"
+                              isByCopy="true"
+                              name="MappingTask-gcs-gbq-eLP8iI2b2crft51OQYst8Y">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>e4faa018-9eae-4823-bd73-c7d0991654f4</ns1:Id>
+               <ns1:Name>t</ns1:Name>
+               <ns1:CreatedBy>Resh_APSE_Suborg</ns1:CreatedBy>
+               <ns1:CreationDate>2024-11-26T15:33:41Z</ns1:CreationDate>
+               <ns1:ModifiedBy>Resh_APSE_Suborg</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-11-26T15:33:41Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+	 "Filename1": ""
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>aB6VdQkEy4VbNTTMj0NUix</types1:GUID>
+      <types1:DisplayName>Task2</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:08.885Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

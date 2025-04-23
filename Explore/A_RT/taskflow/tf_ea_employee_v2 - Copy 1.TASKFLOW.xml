@@ -1,0 +1,483 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>J4pbgchwAQlBWlD-gt-265533-2024-12-27T08:54:47.573Z::tf.xml</types1:EntryId>
+      <types1:Name>tf_ea_employee_v2_-_Copy_1</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description>Data source from HR SAP</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>pranf</types1:CreatedBy>
+      <types1:CreationDate>2024-12-27T08:54:48Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="tf_ea_employee_v2 - Copy 1"
+                   name="tf_ea_employee_v2_-_Copy_1"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description>Data source from HR SAP</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="vDate" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="No_of_days" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                     <option name="source">constant</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="Str_vDate" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Current Date" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="char_SD" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="char_ED" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Negative_No_of_Day" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="API_Condition" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Get_vDate" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Param_Condition" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="ToDate_vDate" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Final_vDate" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="T1_vDate" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="API_Condition2" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="char_D" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Check row count" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:mt-ea-emp-check-rowcount-0Gx57Cb78YbcmertLjElSA</option>
+                  </options>
+               </field>
+               <field description="" name="Generate File" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:mt-ea-emp-9RtXNH0hoNQi9UlM4b4Gcb</option>
+                  </options>
+               </field>
+               <field description="" name="Archive Files" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="untitled1" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="untitled2" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedGroups>
+                     <group>Administrators</group>
+                  </allowedGroups>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">false</nvpair>
+            </extData>
+            <flow id="a">
+               <start id="b">
+                  <link id="lygrp6gf" targetId="lygrp6ge"/>
+               </start>
+               <assignment id="lygrp6ge">
+                  <title>ResetParameter</title>
+                  <operation source="formula" to="temp.Generate File[1]/inout[1]/ErrorCount">
+                     <expression language="XQuery">-1</expression>
+                  </operation>
+                  <operation source="formula" to="temp.Current Date">
+                     <expression language="XQuery">fn:adjust-dateTime-to-timezone(fn:current-dateTime() , xs:dayTimeDuration("PT8H"))</expression>
+                  </operation>
+                  <operation source="formula" to="temp.API_Condition">
+                     <expression language="XQuery">util:isNull($input.vDate)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.API_Condition2">
+                     <expression language="XQuery">util:isNull($input.No_of_days)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.ToDate_vDate">
+                     <expression language="XQuery">date:toDate($input.vDate , 'yyyy-MM-dd')</expression>
+                  </operation>
+                  <operation source="formula" to="temp.T1_vDate">
+                     <expression language="XQuery">date:addToDate($temp.CurrentDate , 'DD', -1)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.Param_Condition">
+                     <expression language="XQuery">util:iif($input.vDate='1900-01-01', $temp.CurrentDate,  $temp.ToDate_vDate )</expression>
+                  </operation>
+                  <operation source="formula" to="temp.Get_vDate">
+                     <expression language="XQuery">util:iif($temp.API_Condition='true' , $temp.CurrentDate,  $temp.Param_Condition )</expression>
+                  </operation>
+                  <operation source="formula" to="temp.Negative_No_of_Day">
+                     <expression language="XQuery">-1*$input.No_of_days</expression>
+                  </operation>
+                  <operation source="formula" to="input.No_of_days">
+                     <expression language="XQuery">util:iif($temp.API_Condition2 ='false', $input.No_of_days , 0)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.Final_vDate">
+                     <expression language="XQuery">date:addToDate($temp.Get_vDate , 'DD', $temp.Negative_No_of_Day)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.char_D">
+                     <expression language="XQuery">date:toChar($temp.Final_vDate, 'yyyyMMdd')</expression>
+                  </operation>
+                  <link id="m4s9xpwf" targetId="m4s9xpx6"/>
+               </assignment>
+               <assignment id="m56hfdu4">
+                  <title>Assignment 1</title>
+                  <operation source="field" to="temp.untitled1">temp.Check row count[1]/inout[1]/p_row_count</operation>
+                  <link id="m56hfdu6" targetId="m562ffl8"/>
+               </assignment>
+               <eventContainer id="m4s9xpx6">
+                  <service id="m4s9xpwe">
+                     <title>Check row count</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">mt_ea_emp_check_rowcount</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">0Gx57Cb78YbcmertLjElSA</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="mt-ea-emp-check-rowcount-0Gx57Cb78YbcmertLjElSA">temp.Check row count</operation>
+                           <operation source="field"
+                                      to="mt-ea-emp-check-rowcount-0Gx57Cb78YbcmertLjElSA/inout[1]/p_date">temp.char_D</operation>
+                           <operation source="constant"
+                                      to="mt-ea-emp-check-rowcount-0Gx57Cb78YbcmertLjElSA/inout[1]/p_row_count">0</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.Check row count/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.Check row count/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.Check row count/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.Check row count/output/Task_Id">Task Id</operation>
+                        <operation source="field" to="temp.Check row count/output/Task_Status">Task Status</operation>
+                        <operation source="field" to="temp.Check row count/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field" to="temp.Check row count/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field" to="temp.Check row count/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field" to="temp.Check row count/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field" to="temp.Check row count/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.Check row count/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.Check row count/output/Error_Message">Error Message</operation>
+                        <operation source="field" to="temp.Check row count/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field" to="temp.Check row count/output/FirstErrorCode">First Error Code</operation>
+                        <operation source="field" to="temp.Check row count/inout/p_date">p_date</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="m56hfdu5" targetId="m56hfdu4"/>
+                  <events>
+                     <catch faultField="temp.Check row count/fault"
+                            id="m4s9xpx4"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.Check row count/fault"
+                            id="m4s9xpx5"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <container id="m562ffl8" type="exclusive">
+                  <title>Decision 2</title>
+                  <flow id="m562fflc">
+                     <eventContainer id="m562ffmg">
+                        <service id="m562fflo">
+                           <title>Generate File</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">mt_ea_emp</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">9RtXNH0hoNQi9UlM4b4Gcb</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="mt-ea-emp-9RtXNH0hoNQi9UlM4b4Gcb">temp.Generate File</operation>
+                                 <operation source="field" to="mt-ea-emp-9RtXNH0hoNQi9UlM4b4Gcb/inout[1]/p_date">temp.char_D</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.Generate File/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.Generate File/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.Generate File/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.Generate File/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.Generate File/output/Task_Status">Task Status</operation>
+                              <operation source="field" to="temp.Generate File/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field" to="temp.Generate File/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field" to="temp.Generate File/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field" to="temp.Generate File/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.Generate File/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.Generate File/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.Generate File/output/Error_Message">Error Message</operation>
+                              <operation source="field" to="temp.Generate File/output/TotalTransErrors">Total Transformation Errors</operation>
+                              <operation source="field" to="temp.Generate File/output/FirstErrorCode">First Error Code</operation>
+                              <operation source="field" to="temp.Generate File/inout/ErrorCount">ErrorCount</operation>
+                              <operation source="field" to="temp.Generate File/inout/p_date">p_date</operation>
+                           </serviceOutput>
+                        </service>
+                        <link id="m562ffne" targetId="m562ffn7"/>
+                        <events>
+                           <catch faultField="temp.Generate File/fault"
+                                  id="lvkasltl"
+                                  interrupting="true"
+                                  name="error"/>
+                           <catch faultField="temp.Generate File/fault"
+                                  id="lvkasltm"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <eventContainer id="m562ffoe">
+                        <service id="m562ffns">
+                           <title>Archive Files</title>
+                           <serviceName>ICSExecuteCommandTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Task Name" source="constant">Archive Files</parameter>
+                              <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                              <parameter name="Runtime Environment" source="constant">012CRY25000000000003:A_RT</parameter>
+                              <parameter name="Max Wait" source="constant">86400</parameter>
+                              <parameter name="Script Name" source="constant"/>
+                              <parameter name="Input Arguments" source="constant"/>
+                              <parameter name="Work Directory" source="constant"/>
+                              <parameter name="RuntimeEnvGUID" source="constant">7rGUkpqxviilEt1HC44BQ0</parameter>
+                              <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="INFA-commandTask">temp.Command Task 1</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">Script1</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName"> \\\hkeqxinfafile\infa\IICS\CommonScript\move_generic.bat </operation>
+                                 <operation source="constant"
+                                            to="INFA-commandTask/input[1]/script-1/inputArguments"> "\\\hkeqxinfafile\INFA\HR\EmployeeApp\Employee", "\\\hkeqxinfafile\INFA\HR\EmployeeApp\Employee\Archive", "psv" </operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.Archive Files/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.Archive Files/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.Archive Files/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.Archive Files/output/Exit_Code">Exit Code</operation>
+                              <operation source="field" to="temp.Archive Files/output/Execution_Status">Execution Status</operation>
+                              <operation source="field" to="temp.Archive Files/output/Std_Error">Std Error</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.Archive Files/fault"
+                                  id="luw96s7t"
+                                  interrupting="true"
+                                  name="error"/>
+                        </events>
+                     </eventContainer>
+                     <container id="m562ffn7" type="exclusive">
+                        <title>ErrorNotification</title>
+                        <flow id="m562ffn8">
+                           <link id="m562ffnc" targetId="m562ffn7" type="containerLink"/>
+                        </flow>
+                        <flow id="m562ffn9">
+                           <link id="m562ffnd" targetId="m562ffn7" type="containerLink"/>
+                        </flow>
+                        <link id="m562ffna" targetId="m562ffn8" type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-than">
+                                 <arg name="left">{$temp.GenerateFile[1]/inout[1]/ErrorCount}</arg>
+                                 <arg name="right">{0}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="m562ffnb" targetId="m562ffn9" type="containerLink"/>
+                        <link id="m562ffnt" targetId="m562ffoe"/>
+                     </container>
+                     <link id="m562ffld" targetId="m562ffl8" type="containerLink"/>
+                  </flow>
+                  <flow id="m562fflf">
+                     <assignment id="m56hfdsy">
+                        <title>Assignment 2</title>
+                        <operation source="field" to="temp.untitled2">temp.Check row count[1]/inout[1]/p_row_count</operation>
+                     </assignment>
+                     <link id="m562fflg" targetId="m562ffl8" type="containerLink"/>
+                  </flow>
+                  <link id="m562fflb" targetId="m562fflc" type="containerLink">
+                     <condition source="formula">
+                        <function name="greater-or-equals">
+                           <arg name="left">{$temp.Checkrowcount[1]/inout[1]/p_row_count}</arg>
+                           <arg name="right">{10000}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="m56hfdst" targetId="c"/>
+                  <link id="m562ffle" targetId="m562fflf" type="containerLink"/>
+               </container>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mt-ea-emp-check-rowcount-0Gx57Cb78YbcmertLjElSA"
+                              isByCopy="true"
+                              name="mt-ea-emp-check-rowcount-0Gx57Cb78YbcmertLjElSA">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="mt-ea-emp-9RtXNH0hoNQi9UlM4b4Gcb"
+                              isByCopy="true"
+                              name="mt-ea-emp-9RtXNH0hoNQi9UlM4b4Gcb">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="INFA-commandTask"
+                              isByCopy="true"
+                              name="INFA-commandTask">
+                  <description>This process object represents a taskflow specific command task output field details.</description>
+                  <tags/>
+                  <detail>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>llKzeVwt5uKlh2yeEydDWa</types1:GUID>
+      <types1:DisplayName>tf_ea_employee_v2 - Copy 1</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-04-23T11:07:11.84Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

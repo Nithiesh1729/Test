@@ -1,0 +1,181 @@
+{
+  "name" : "cxTestMCT_Dynamic_Src_Tgt",
+  "runtimeEnvironmentId" : "@7rGUkpqxviilEt1HC44BQ0",
+  "runtimeEnvironmentName" : "A_RT",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$src_table$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "src_table",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "default" : "a1a_term",
+        "objlabel" : "p_source",
+        "objectParameterized" : "true",
+        "objectParamName" : "p_source",
+        "objectParamType-mapping" : "DataObject",
+        "originalPath" : "src_table"
+      },
+      "sourceConnectionId" : "@28Tc3nb55yVeMReS6Kgns4",
+      "connectionName" : "GBQ_V2_RT_Working",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "gcsdataset/a1a_term",
+          "label" : "a1a_term",
+          "metadataUpdated" : false
+        },
+        "advancedFilterExpression" : "modifiedon>$$p_last_run_date",
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "gcsdataset/a1a_term",
+            "label" : "a1a_term",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "runtimeParameterData" : {
+        "objectParameterName" : "p_source",
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$Target$",
+      "type" : "TARGET",
+      "label" : "Target",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "default" : "banner_test/a1a_term",
+        "objlabel" : "p_target_table",
+        "objectParameterized" : "true",
+        "objectParamName" : "p_target_table",
+        "objectParamType-mapping" : "DataObject",
+        "supportApplyDDLChanges" : "true",
+        "originalPath" : "Target"
+      },
+      "targetConnectionId" : "@8lBeeRGOfGodNsItQ5BZoe",
+      "connectionName" : "Flatfile_A_RT",
+      "targetObject" : "tgt_GBQ_DMT.csv",
+      "targetObjectLabel" : "tgt_GBQ_DMT.csv",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "tgt_GBQ_DMT.csv",
+      "objectLabel" : "tgt_GBQ_DMT.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "runtimeParameterData" : {
+        "objectParameterName" : "p_target_table",
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    },
+    {
+      "name" : "$p_change_col_name$",
+      "type" : "STRING",
+      "text" : "modifiedon",
+      "label" : "p_change_col_name",
+      "uiProperties" : {
+        "paramName" : "p_change_col_name",
+        "paramType-mapping" : "String",
+        "default" : "modifiedon",
+        "originalPath" : "Expression"
+      },
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "unspecified" : false,
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "lastRunTime" : 1713406225000,
+  "mappingId" : "@4bYjAmNQh1SdYpGBijJp8k",
+  "mappingTemplateName" : "cxTestMT_Dynamic_Src_Tgt",
+  "inOutParameters" : [
+    {
+      "name" : "p_last_run_date",
+      "initialValue" : "2024-12-12 00:00:00.000",
+      "datatype" : "DATETIME",
+      "precision" : "29",
+      "scale" : "9",
+      "retentionPolicy" : "ON_SUCCESS",
+      "aggregationType" : "MAX"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : true,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "paramFileType" : "PARAM_FILE_LOCAL",
+  "schemaMode" : "async",
+  "valid" : true,
+  "parameterFileEncoding" : "UTF-8",
+  "allowMaxFieldLength" : false,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-04-23 04:07:10 PDT"
+}

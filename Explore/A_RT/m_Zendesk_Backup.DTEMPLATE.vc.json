@@ -1,0 +1,1035 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_Zendesk_Backup",
+    "links" : [
+      {
+        "link" : "Source -> Target"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-07-26T10:23:18.825Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Id"
+            },
+            "name" : "Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Url"
+            },
+            "name" : "Url",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "External_Id"
+            },
+            "name" : "External_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Type"
+            },
+            "name" : "Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Subject"
+            },
+            "name" : "Subject",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Raw_Subject"
+            },
+            "name" : "Raw_Subject",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Description"
+            },
+            "name" : "Description",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Priority"
+            },
+            "name" : "Priority",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Status"
+            },
+            "name" : "Status",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Recipient"
+            },
+            "name" : "Recipient",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Requester_Id"
+            },
+            "name" : "Requester_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Submitter_Id"
+            },
+            "name" : "Submitter_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Assignee_Id"
+            },
+            "name" : "Assignee_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Oraganization_Id"
+            },
+            "name" : "Oraganization_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Group_Id"
+            },
+            "name" : "Group_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Collaborator_Ids"
+            },
+            "name" : "Collaborator_Ids",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Forum_Topic_Id"
+            },
+            "name" : "Forum_Topic_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Problem_Id"
+            },
+            "name" : "Problem_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Has_Incidents"
+            },
+            "name" : "Has_Incidents",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Due_At"
+            },
+            "name" : "Due_At",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Sharing_Agreement_Ids"
+            },
+            "name" : "Sharing_Agreement_Ids",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Followup_Ids"
+            },
+            "name" : "Followup_Ids",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Ticket_Form_Id"
+            },
+            "name" : "Ticket_Form_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Brand_Id"
+            },
+            "name" : "Brand_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Created_At"
+            },
+            "name" : "Created_At",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Updated_At"
+            },
+            "name" : "Updated_At",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Tags"
+            },
+            "name" : "Tags",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Via_Followup_Source_Id"
+            },
+            "name" : "Via_Followup_Source_Id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Allow_Channelback"
+            },
+            "name" : "Allow_Channelback",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Is_Public"
+            },
+            "name" : "Is_Public",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Follower_Ids"
+            },
+            "name" : "Follower_Ids",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Allow_Attachments"
+            },
+            "name" : "Allow_Attachments",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@3ggFIKdruTShmItZe8eteC",
+          "connectionName" : "Zendesk_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Tickets",
+            "label" : "Tickets",
+            "objectName" : "Tickets",
+            "path" : "Tickets",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Id",
+                "nativeName" : "Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Url",
+                "fieldType" : "CONNECTOR",
+                "label" : "Url",
+                "nativeName" : "Url",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "External_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "External_Id",
+                "nativeName" : "External_Id",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Type",
+                "fieldType" : "CONNECTOR",
+                "label" : "Type",
+                "nativeName" : "Type",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Subject",
+                "fieldType" : "CONNECTOR",
+                "label" : "Subject",
+                "nativeName" : "Subject",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Raw_Subject",
+                "fieldType" : "CONNECTOR",
+                "label" : "Raw_Subject",
+                "nativeName" : "Raw_Subject",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Description",
+                "fieldType" : "CONNECTOR",
+                "label" : "Description",
+                "nativeName" : "Description",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Priority",
+                "fieldType" : "CONNECTOR",
+                "label" : "Priority",
+                "nativeName" : "Priority",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Status",
+                "fieldType" : "CONNECTOR",
+                "label" : "Status",
+                "nativeName" : "Status",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Recipient",
+                "fieldType" : "CONNECTOR",
+                "label" : "Recipient",
+                "nativeName" : "Recipient",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Requester_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Requester_Id",
+                "nativeName" : "Requester_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Submitter_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Submitter_Id",
+                "nativeName" : "Submitter_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Assignee_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Assignee_Id",
+                "nativeName" : "Assignee_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Oraganization_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Oraganization_Id",
+                "nativeName" : "Oraganization_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Group_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Group_Id",
+                "nativeName" : "Group_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Collaborator_Ids",
+                "fieldType" : "CONNECTOR",
+                "label" : "Collaborator_Ids",
+                "nativeName" : "Collaborator_Ids",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Forum_Topic_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Forum_Topic_Id",
+                "nativeName" : "Forum_Topic_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Problem_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Problem_Id",
+                "nativeName" : "Problem_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Has_Incidents",
+                "fieldType" : "CONNECTOR",
+                "label" : "Has_Incidents",
+                "nativeName" : "Has_Incidents",
+                "nativeType" : "boolean",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Due_At",
+                "fieldType" : "CONNECTOR",
+                "label" : "Due_At",
+                "nativeName" : "Due_At",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Sharing_Agreement_Ids",
+                "fieldType" : "CONNECTOR",
+                "label" : "Sharing_Agreement_Ids",
+                "nativeName" : "Sharing_Agreement_Ids",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Followup_Ids",
+                "fieldType" : "CONNECTOR",
+                "label" : "Followup_Ids",
+                "nativeName" : "Followup_Ids",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Ticket_Form_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Ticket_Form_Id",
+                "nativeName" : "Ticket_Form_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Brand_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Brand_Id",
+                "nativeName" : "Brand_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Created_At",
+                "fieldType" : "CONNECTOR",
+                "label" : "Created_At",
+                "nativeName" : "Created_At",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Updated_At",
+                "fieldType" : "CONNECTOR",
+                "label" : "Updated_At",
+                "nativeName" : "Updated_At",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Tags",
+                "fieldType" : "CONNECTOR",
+                "label" : "Tags",
+                "nativeName" : "Tags",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Via_Followup_Source_Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Via_Followup_Source_Id",
+                "nativeName" : "Via_Followup_Source_Id",
+                "nativeType" : "long",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Allow_Channelback",
+                "fieldType" : "CONNECTOR",
+                "label" : "Allow_Channelback",
+                "nativeName" : "Allow_Channelback",
+                "nativeType" : "boolean",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Is_Public",
+                "fieldType" : "CONNECTOR",
+                "label" : "Is_Public",
+                "nativeName" : "Is_Public",
+                "nativeType" : "boolean",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Follower_Ids",
+                "fieldType" : "CONNECTOR",
+                "label" : "Follower_Ids",
+                "nativeName" : "Follower_Ids",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              },
+              {
+                "name" : "Allow_Attachments",
+                "fieldType" : "CONNECTOR",
+                "label" : "Allow_Attachments",
+                "nativeName" : "Allow_Attachments",
+                "nativeType" : "boolean",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Tickets"
+                  }
+                ]
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-26T10:23:18.825Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "Zendesk_Backup.csv",
+            "label" : "Zendesk_Backup.csv",
+            "path" : "Zendesk_Backup.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:02 PDT"
+}

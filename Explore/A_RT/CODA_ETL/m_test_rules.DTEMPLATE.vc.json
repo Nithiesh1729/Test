@@ -1,0 +1,2797 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_test_rules",
+    "links" : [
+      {
+        "link" : "Source -> Mapplet",
+        "groupLink" : "DefaultGroup -> input_Group"
+      },
+      {
+        "link" : "Mapplet -> Target",
+        "groupLink" : "Output -> DefaultGroup"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "true",
+        "expressionVariable" : "false",
+        "name" : "Mapplet_DBConnection_CODA",
+        "anonymousType" : {
+          "connectionType" : "Oracle"
+        }
+      },
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "true",
+        "expressionVariable" : "false",
+        "name" : "Mapplet_Mapplet_DBConnection_SOURCES",
+        "defaultValue" : {
+          "valueLiteral" : "CODA_SOURCES_ORCL"
+        },
+        "anonymousType" : {
+          "connectionType" : "Oracle"
+        }
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2024-07-19T13:17:18.551Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "PK_MD5"
+            },
+            "name" : "PK_MD5",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 32,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SSIM_LOAD_DATE"
+            },
+            "name" : "SSIM_LOAD_DATE",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Material_Nr_MATNR"
+            },
+            "name" : "Material_Nr_MATNR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Material_Description_MAKTX"
+            },
+            "name" : "Material_Description_MAKTX",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 60,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Material_Type_MTART"
+            },
+            "name" : "Material_Type_MTART",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG"
+            },
+            "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Family_Name_PRDHA_L2"
+            },
+            "name" : "Product_Family_Name_PRDHA_L2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Company_Identifier_ZZMAT_CO_IDENT"
+            },
+            "name" : "Company_Identifier_ZZMAT_CO_IDENT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Company_Identifier_Plant"
+            },
+            "name" : "Company_Identifier_Plant",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "LKP_Top_600_20_Materials"
+            },
+            "name" : "LKP_Top_600_20_Materials",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Plant_WERKS"
+            },
+            "name" : "Plant_WERKS",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Plant_Name_NAME1"
+            },
+            "name" : "Plant_Name_NAME1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Plant_Specific_Material_Status_MMSTA"
+            },
+            "name" : "Plant_Specific_Material_Status_MMSTA",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MRP_Type_DISMM"
+            },
+            "name" : "MRP_Type_DISMM",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Special_Procurement_Type_SOBSL"
+            },
+            "name" : "Special_Procurement_Type_SOBSL",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Procurement_Type_MARC_BESKZ"
+            },
+            "name" : "Procurement_Type_MARC_BESKZ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Material_Location_ZZWERKTOLL"
+            },
+            "name" : "Material_Location_ZZWERKTOLL",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Ownership_Location_ZZWERKOWN"
+            },
+            "name" : "Ownership_Location_ZZWERKOWN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Logistics_Handling_Group_LOGGR"
+            },
+            "name" : "Logistics_Handling_Group_LOGGR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MRP_Controller_DISPO"
+            },
+            "name" : "MRP_Controller_DISPO",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Procurement_Type_MATLOC_BESKZ"
+            },
+            "name" : "Procurement_Type_MATLOC_BESKZ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "RR_Relevant_ZZRR_RELEVANT"
+            },
+            "name" : "RR_Relevant_ZZRR_RELEVANT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "APO_Created_Date_CREATEUTC"
+            },
+            "name" : "APO_Created_Date_CREATEUTC",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "SNP_Planner_PLANNER_SNP"
+            },
+            "name" : "SNP_Planner_PLANNER_SNP",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SNP_Plan_Name_PLANNER_SNP_NAME"
+            },
+            "name" : "SNP_Plan_Name_PLANNER_SNP_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Demand_Planner_PLANNER_DEMAND"
+            },
+            "name" : "Demand_Planner_PLANNER_DEMAND",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Demand_Plan_Name_PLANNER_DEMAND_NAME"
+            },
+            "name" : "Demand_Plan_Name_PLANNER_DEMAND_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Production_Planner_PLANNER_PPS"
+            },
+            "name" : "Production_Planner_PLANNER_PPS",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Production_Plan_Name_PLANNER_PPS_NAME"
+            },
+            "name" : "Production_Plan_Name_PLANNER_PPS_NAME",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "lkp_CIM_Plant_Region"
+            },
+            "name" : "lkp_CIM_Plant_Region",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "lkp_CIM_Plant_Type"
+            },
+            "name" : "lkp_CIM_Plant_Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "lkp_CIM_Darwin_CConsumer_APP"
+            },
+            "name" : "lkp_CIM_Darwin_CConsumer_APP",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "lkp_CIM_Plant_Type_RR_CRapid_Resp"
+            },
+            "name" : "lkp_CIM_Plant_Type_RR_CRapid_Resp",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MK_Number_ZZMAT_MK_NMBR"
+            },
+            "name" : "MK_Number_ZZMAT_MK_NMBR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Date_Created_ERSDA"
+            },
+            "name" : "Date_Created_ERSDA",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Independent_Demand_Material_HAS_FORECAST"
+            },
+            "name" : "Independent_Demand_Material_HAS_FORECAST",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 2,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Independent_Demand_Part_Site_PART_SITE"
+            },
+            "name" : "Independent_Demand_Part_Site_PART_SITE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 2,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Hierarchy_PRDHA"
+            },
+            "name" : "Product_Hierarchy_PRDHA",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP"
+            },
+            "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "APO_Demand_Type_ZZDEMAND_TYPE"
+            },
+            "name" : "APO_Demand_Type_ZZDEMAND_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Extra_1"
+            },
+            "name" : "Extra_1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Extra_2"
+            },
+            "name" : "Extra_2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Extra_3"
+            },
+            "name" : "Extra_3",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "QM_Procurement_Active_QMPUR"
+            },
+            "name" : "QM_Procurement_Active_QMPUR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Maintenance_Status_MARA_PSTAT"
+            },
+            "name" : "Maintenance_Status_MARA_PSTAT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Maintenance_Status_MARC_PSTAT"
+            },
+            "name" : "Maintenance_Status_MARC_PSTAT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Loading_Group_LADGR"
+            },
+            "name" : "Loading_Group_LADGR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Profit_Center_PRCTR"
+            },
+            "name" : "Profit_Center_PRCTR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Purchasing_Group_EKGRP"
+            },
+            "name" : "Purchasing_Group_EKGRP",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Source_List_requirement_KORDB"
+            },
+            "name" : "Source_List_requirement_KORDB",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "MRP_Group_DISGR"
+            },
+            "name" : "MRP_Group_DISGR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Service_Level_LGRAD"
+            },
+            "name" : "Service_Level_LGRAD",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 8,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "Consumption_Mode_MARC_VRMOD"
+            },
+            "name" : "Consumption_Mode_MARC_VRMOD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Backward_Consumption_Period_MARC_VINT1"
+            },
+            "name" : "Backward_Consumption_Period_MARC_VINT1",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Forward_Consumption_Period_MARC_VINT2"
+            },
+            "name" : "Forward_Consumption_Period_MARC_VINT2",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Documentation_Required_KZDKZ"
+            },
+            "name" : "Documentation_Required_KZDKZ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Material_Authorization_Group_QM_Activities_QMATA"
+            },
+            "name" : "Material_Authorization_Group_QM_Activities_QMATA",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Special_Procurement_Type_for_Costing_SOBSK"
+            },
+            "name" : "Special_Procurement_Type_for_Costing_SOBSK",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Plan_Fin5_Flag_ZZMAT_FIN5_FLAG"
+            },
+            "name" : "Plan_Fin5_Flag_ZZMAT_FIN5_FLAG",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Code_MARC_ZZMAT_PROD_CD"
+            },
+            "name" : "Product_Code_MARC_ZZMAT_PROD_CD",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Franchise_ZZMAT_PROD_FRAN"
+            },
+            "name" : "Product_Franchise_ZZMAT_PROD_FRAN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 50,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Inspection_Interval_PRFRQ"
+            },
+            "name" : "Inspection_Interval_PRFRQ",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 6,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "QM_Control_Key_SSQSS"
+            },
+            "name" : "QM_Control_Key_SSQSS",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Certificate_Type_QZGTP"
+            },
+            "name" : "Certificate_Type_QZGTP",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Material_Group_MATKL_WGBEZ"
+            },
+            "name" : "Material_Group_MATKL_WGBEZ",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Registered_Country_Material_Nr_ZGSCM_REG_COUNT_ZZMATNR"
+            },
+            "name" : "Registered_Country_Material_Nr_ZGSCM_REG_COUNT_ZZMATNR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Valid_Date_Plant_Specific_Material_Status_MMSTD"
+            },
+            "name" : "Valid_Date_Plant_Specific_Material_Status_MMSTD",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Division_ZZMAT_PROD_DVN"
+            },
+            "name" : "Product_Division_ZZMAT_PROD_DVN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Packaging_Count_Description_ZZMAT_PKG_CNTDSC"
+            },
+            "name" : "Packaging_Count_Description_ZZMAT_PKG_CNTDSC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Packaging_Type_ZZMAT_PKG_TYPE"
+            },
+            "name" : "Packaging_Type_ZZMAT_PKG_TYPE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Bulk_Size_Units_ZZMAT_PROD_BSU"
+            },
+            "name" : "Bulk_Size_Units_ZZMAT_PROD_BSU",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Bulk_Unit_Desc_ZZMAT_BULK_UNIT"
+            },
+            "name" : "Bulk_Unit_Desc_ZZMAT_BULK_UNIT",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Base_Unit_of_Measure_MEINS"
+            },
+            "name" : "Base_Unit_of_Measure_MEINS",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Product_Number_ZZMAT_PROD_NMBR"
+            },
+            "name" : "Product_Number_ZZMAT_PROD_NMBR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Weight_Unit_GEWEI"
+            },
+            "name" : "Weight_Unit_GEWEI",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Gross_Weight_BRGEW"
+            },
+            "name" : "Gross_Weight_BRGEW",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 4
+          },
+          {
+            "adapterField" : {
+              "name" : "Net_Weight_NTGEW"
+            },
+            "name" : "Net_Weight_NTGEW",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 15,
+            "scale" : 4
+          },
+          {
+            "adapterField" : {
+              "name" : "lkp_TollingModel"
+            },
+            "name" : "lkp_TollingModel",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "lkp_CIM_Plant_Test_Type"
+            },
+            "name" : "lkp_CIM_Plant_Test_Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SNP_Production_Horizon_PRODH"
+            },
+            "name" : "SNP_Production_Horizon_PRODH",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Period_Type_SNP_Prod_Horizon_PKZPRODH"
+            },
+            "name" : "Period_Type_SNP_Prod_Horizon_PKZPRODH",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_PUR__Nr_of_Purchase_Doc_PUR"
+            },
+            "name" : "CALC_PUR__Nr_of_Purchase_Doc_PUR",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_PUR__Nr_of_Purchase_Doc_PUR__Active"
+            },
+            "name" : "CALC_PUR__Nr_of_Purchase_Doc_PUR__Active",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_PUR__Vendor_LIFNR"
+            },
+            "name" : "CALC_PUR__Vendor_LIFNR",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_VDR__PUR_Vendor_Exists"
+            },
+            "name" : "CALC_VDR__PUR_Vendor_Exists",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_VDR__PUR_Active_Vendor"
+            },
+            "name" : "CALC_VDR__PUR_Active_Vendor",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__cv__Nr_of_Alternate_UoM_MEINH"
+            },
+            "name" : "CALC_UOM__cv__Nr_of_Alternate_UoM_MEINH",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__cv__Numerat_Convert_Base_UoM_UMREZ"
+            },
+            "name" : "CALC_UOM__cv__Numerat_Convert_Base_UoM_UMREZ",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__cv__Denomin_Convert_Base_UoM_UMREN"
+            },
+            "name" : "CALC_UOM__cv__Denomin_Convert_Base_UoM_UMREN",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__ea__Nr_of_Alternate_UoM_MEINH"
+            },
+            "name" : "CALC_UOM__ea__Nr_of_Alternate_UoM_MEINH",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__ea__Numerat_Convert_Base_UoM_UMREZ"
+            },
+            "name" : "CALC_UOM__ea__Numerat_Convert_Base_UoM_UMREZ",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__ea__Denomin_Convert_Base_UoM_UMREN"
+            },
+            "name" : "CALC_UOM__ea__Denomin_Convert_Base_UoM_UMREN",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__pac__Nr_of_Alternate_UoM_MEINH"
+            },
+            "name" : "CALC_UOM__pac__Nr_of_Alternate_UoM_MEINH",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__pac__Numerat_Convert_Base_UoM_UMREZ"
+            },
+            "name" : "CALC_UOM__pac__Numerat_Convert_Base_UoM_UMREZ",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__pac__Denomin_Convert_Base_UoM_UMREN"
+            },
+            "name" : "CALC_UOM__pac__Denomin_Convert_Base_UoM_UMREN",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__pal__Nr_of_Alternate_UoM_MEINH"
+            },
+            "name" : "CALC_UOM__pal__Nr_of_Alternate_UoM_MEINH",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__pal__Numerat_Convert_Base_UoM_UMREZ"
+            },
+            "name" : "CALC_UOM__pal__Numerat_Convert_Base_UoM_UMREZ",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__pal__Denomin_Convert_Base_UoM_UMREN"
+            },
+            "name" : "CALC_UOM__pal__Denomin_Convert_Base_UoM_UMREN",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__Nr_of_Alternate_UoM_MEINH__other"
+            },
+            "name" : "CALC_UOM__Nr_of_Alternate_UoM_MEINH__other",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__T127__Nr_of_Alternate_UoM_MEINH"
+            },
+            "name" : "CALC_UOM__T127__Nr_of_Alternate_UoM_MEINH",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CALC_UOM__T128__Nr_of_Alternate_UoM_MEINH"
+            },
+            "name" : "CALC_UOM__T128__Nr_of_Alternate_UoM_MEINH",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Material_Status_MSTAE"
+            },
+            "name" : "Material_Status_MSTAE",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Do_Not_Cost_NCOST"
+            },
+            "name" : "Do_Not_Cost_NCOST",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Tolling_Model_EBX"
+            },
+            "name" : "Tolling_Model_EBX",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@2RQYjGay0PHcF1MyYVSGq8",
+          "connectionName" : "Oracle DB Connector",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "Oracle",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "customQuery" : "SELECT * FROM \"VW_ldo_ECC_Plan_Deploy\" WHERE ROWNUM < 5",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "PK_MD5",
+                "fieldType" : "CONNECTOR",
+                "label" : "PK_MD5",
+                "nativeName" : "PK_MD5",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 32,
+                "scale" : 0
+              },
+              {
+                "name" : "SSIM_LOAD_DATE",
+                "fieldType" : "CONNECTOR",
+                "label" : "SSIM_LOAD_DATE",
+                "nativeName" : "SSIM_LOAD_DATE",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3
+              },
+              {
+                "name" : "Material_Nr_MATNR",
+                "fieldType" : "CONNECTOR",
+                "label" : "Material_Nr_MATNR",
+                "nativeName" : "Material_Nr_MATNR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Material_Description_MAKTX",
+                "fieldType" : "CONNECTOR",
+                "label" : "Material_Description_MAKTX",
+                "nativeName" : "Material_Description_MAKTX",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 60,
+                "scale" : 0
+              },
+              {
+                "name" : "Material_Type_MTART",
+                "fieldType" : "CONNECTOR",
+                "label" : "Material_Type_MTART",
+                "nativeName" : "Material_Type_MTART",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG",
+                "fieldType" : "CONNECTOR",
+                "label" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG",
+                "nativeName" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Product_Family_Name_PRDHA_L2",
+                "fieldType" : "CONNECTOR",
+                "label" : "Product_Family_Name_PRDHA_L2",
+                "nativeName" : "Product_Family_Name_PRDHA_L2",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0
+              },
+              {
+                "name" : "Company_Identifier_ZZMAT_CO_IDENT",
+                "fieldType" : "CONNECTOR",
+                "label" : "Company_Identifier_ZZMAT_CO_IDENT",
+                "nativeName" : "Company_Identifier_ZZMAT_CO_IDENT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "Company_Identifier_Plant",
+                "fieldType" : "CONNECTOR",
+                "label" : "Company_Identifier_Plant",
+                "nativeName" : "Company_Identifier_Plant",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0
+              },
+              {
+                "name" : "LKP_Top_600_20_Materials",
+                "fieldType" : "CONNECTOR",
+                "label" : "LKP_Top_600_20_Materials",
+                "nativeName" : "LKP_Top_600_20_Materials",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Plant_WERKS",
+                "fieldType" : "CONNECTOR",
+                "label" : "Plant_WERKS",
+                "nativeName" : "Plant_WERKS",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Plant_Name_NAME1",
+                "fieldType" : "CONNECTOR",
+                "label" : "Plant_Name_NAME1",
+                "nativeName" : "Plant_Name_NAME1",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0
+              },
+              {
+                "name" : "Plant_Specific_Material_Status_MMSTA",
+                "fieldType" : "CONNECTOR",
+                "label" : "Plant_Specific_Material_Status_MMSTA",
+                "nativeName" : "Plant_Specific_Material_Status_MMSTA",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "MRP_Type_DISMM",
+                "fieldType" : "CONNECTOR",
+                "label" : "MRP_Type_DISMM",
+                "nativeName" : "MRP_Type_DISMM",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Special_Procurement_Type_SOBSL",
+                "fieldType" : "CONNECTOR",
+                "label" : "Special_Procurement_Type_SOBSL",
+                "nativeName" : "Special_Procurement_Type_SOBSL",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Procurement_Type_MARC_BESKZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "Procurement_Type_MARC_BESKZ",
+                "nativeName" : "Procurement_Type_MARC_BESKZ",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Material_Location_ZZWERKTOLL",
+                "fieldType" : "CONNECTOR",
+                "label" : "Material_Location_ZZWERKTOLL",
+                "nativeName" : "Material_Location_ZZWERKTOLL",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Ownership_Location_ZZWERKOWN",
+                "fieldType" : "CONNECTOR",
+                "label" : "Ownership_Location_ZZWERKOWN",
+                "nativeName" : "Ownership_Location_ZZWERKOWN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Logistics_Handling_Group_LOGGR",
+                "fieldType" : "CONNECTOR",
+                "label" : "Logistics_Handling_Group_LOGGR",
+                "nativeName" : "Logistics_Handling_Group_LOGGR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "MRP_Controller_DISPO",
+                "fieldType" : "CONNECTOR",
+                "label" : "MRP_Controller_DISPO",
+                "nativeName" : "MRP_Controller_DISPO",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Procurement_Type_MATLOC_BESKZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "Procurement_Type_MATLOC_BESKZ",
+                "nativeName" : "Procurement_Type_MATLOC_BESKZ",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "RR_Relevant_ZZRR_RELEVANT",
+                "fieldType" : "CONNECTOR",
+                "label" : "RR_Relevant_ZZRR_RELEVANT",
+                "nativeName" : "RR_Relevant_ZZRR_RELEVANT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "APO_Created_Date_CREATEUTC",
+                "fieldType" : "CONNECTOR",
+                "label" : "APO_Created_Date_CREATEUTC",
+                "nativeName" : "APO_Created_Date_CREATEUTC",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3
+              },
+              {
+                "name" : "SNP_Planner_PLANNER_SNP",
+                "fieldType" : "CONNECTOR",
+                "label" : "SNP_Planner_PLANNER_SNP",
+                "nativeName" : "SNP_Planner_PLANNER_SNP",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "SNP_Plan_Name_PLANNER_SNP_NAME",
+                "fieldType" : "CONNECTOR",
+                "label" : "SNP_Plan_Name_PLANNER_SNP_NAME",
+                "nativeName" : "SNP_Plan_Name_PLANNER_SNP_NAME",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0
+              },
+              {
+                "name" : "Demand_Planner_PLANNER_DEMAND",
+                "fieldType" : "CONNECTOR",
+                "label" : "Demand_Planner_PLANNER_DEMAND",
+                "nativeName" : "Demand_Planner_PLANNER_DEMAND",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Demand_Plan_Name_PLANNER_DEMAND_NAME",
+                "fieldType" : "CONNECTOR",
+                "label" : "Demand_Plan_Name_PLANNER_DEMAND_NAME",
+                "nativeName" : "Demand_Plan_Name_PLANNER_DEMAND_NAME",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0
+              },
+              {
+                "name" : "Production_Planner_PLANNER_PPS",
+                "fieldType" : "CONNECTOR",
+                "label" : "Production_Planner_PLANNER_PPS",
+                "nativeName" : "Production_Planner_PLANNER_PPS",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Production_Plan_Name_PLANNER_PPS_NAME",
+                "fieldType" : "CONNECTOR",
+                "label" : "Production_Plan_Name_PLANNER_PPS_NAME",
+                "nativeName" : "Production_Plan_Name_PLANNER_PPS_NAME",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0
+              },
+              {
+                "name" : "lkp_CIM_Plant_Region",
+                "fieldType" : "CONNECTOR",
+                "label" : "lkp_CIM_Plant_Region",
+                "nativeName" : "lkp_CIM_Plant_Region",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "lkp_CIM_Plant_Type",
+                "fieldType" : "CONNECTOR",
+                "label" : "lkp_CIM_Plant_Type",
+                "nativeName" : "lkp_CIM_Plant_Type",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "lkp_CIM_Darwin_CConsumer_APP",
+                "fieldType" : "CONNECTOR",
+                "label" : "lkp_CIM_Darwin_CConsumer_APP",
+                "nativeName" : "lkp_CIM_Darwin_CConsumer_APP",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "lkp_CIM_Plant_Type_RR_CRapid_Resp",
+                "fieldType" : "CONNECTOR",
+                "label" : "lkp_CIM_Plant_Type_RR_CRapid_Resp",
+                "nativeName" : "lkp_CIM_Plant_Type_RR_CRapid_Resp",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "MK_Number_ZZMAT_MK_NMBR",
+                "fieldType" : "CONNECTOR",
+                "label" : "MK_Number_ZZMAT_MK_NMBR",
+                "nativeName" : "MK_Number_ZZMAT_MK_NMBR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Date_Created_ERSDA",
+                "fieldType" : "CONNECTOR",
+                "label" : "Date_Created_ERSDA",
+                "nativeName" : "Date_Created_ERSDA",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3
+              },
+              {
+                "name" : "Independent_Demand_Material_HAS_FORECAST",
+                "fieldType" : "CONNECTOR",
+                "label" : "Independent_Demand_Material_HAS_FORECAST",
+                "nativeName" : "Independent_Demand_Material_HAS_FORECAST",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 2,
+                "scale" : 0
+              },
+              {
+                "name" : "Independent_Demand_Part_Site_PART_SITE",
+                "fieldType" : "CONNECTOR",
+                "label" : "Independent_Demand_Part_Site_PART_SITE",
+                "nativeName" : "Independent_Demand_Part_Site_PART_SITE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 2,
+                "scale" : 0
+              },
+              {
+                "name" : "Product_Hierarchy_PRDHA",
+                "fieldType" : "CONNECTOR",
+                "label" : "Product_Hierarchy_PRDHA",
+                "nativeName" : "Product_Hierarchy_PRDHA",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP",
+                "fieldType" : "CONNECTOR",
+                "label" : "PC_Sub_Type_ZZMAT_PRNSUBTYP",
+                "nativeName" : "PC_Sub_Type_ZZMAT_PRNSUBTYP",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "APO_Demand_Type_ZZDEMAND_TYPE",
+                "fieldType" : "CONNECTOR",
+                "label" : "APO_Demand_Type_ZZDEMAND_TYPE",
+                "nativeName" : "APO_Demand_Type_ZZDEMAND_TYPE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Extra_1",
+                "fieldType" : "CONNECTOR",
+                "label" : "Extra_1",
+                "nativeName" : "Extra_1",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0
+              },
+              {
+                "name" : "Extra_2",
+                "fieldType" : "CONNECTOR",
+                "label" : "Extra_2",
+                "nativeName" : "Extra_2",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0
+              },
+              {
+                "name" : "Extra_3",
+                "fieldType" : "CONNECTOR",
+                "label" : "Extra_3",
+                "nativeName" : "Extra_3",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 100,
+                "scale" : 0
+              },
+              {
+                "name" : "QM_Procurement_Active_QMPUR",
+                "fieldType" : "CONNECTOR",
+                "label" : "QM_Procurement_Active_QMPUR",
+                "nativeName" : "QM_Procurement_Active_QMPUR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Maintenance_Status_MARA_PSTAT",
+                "fieldType" : "CONNECTOR",
+                "label" : "Maintenance_Status_MARA_PSTAT",
+                "nativeName" : "Maintenance_Status_MARA_PSTAT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Maintenance_Status_MARC_PSTAT",
+                "fieldType" : "CONNECTOR",
+                "label" : "Maintenance_Status_MARC_PSTAT",
+                "nativeName" : "Maintenance_Status_MARC_PSTAT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Loading_Group_LADGR",
+                "fieldType" : "CONNECTOR",
+                "label" : "Loading_Group_LADGR",
+                "nativeName" : "Loading_Group_LADGR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Profit_Center_PRCTR",
+                "fieldType" : "CONNECTOR",
+                "label" : "Profit_Center_PRCTR",
+                "nativeName" : "Profit_Center_PRCTR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Purchasing_Group_EKGRP",
+                "fieldType" : "CONNECTOR",
+                "label" : "Purchasing_Group_EKGRP",
+                "nativeName" : "Purchasing_Group_EKGRP",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Source_List_requirement_KORDB",
+                "fieldType" : "CONNECTOR",
+                "label" : "Source_List_requirement_KORDB",
+                "nativeName" : "Source_List_requirement_KORDB",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "MRP_Group_DISGR",
+                "fieldType" : "CONNECTOR",
+                "label" : "MRP_Group_DISGR",
+                "nativeName" : "MRP_Group_DISGR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Service_Level_LGRAD",
+                "fieldType" : "CONNECTOR",
+                "label" : "Service_Level_LGRAD",
+                "nativeName" : "Service_Level_LGRAD",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 8,
+                "scale" : 2
+              },
+              {
+                "name" : "Consumption_Mode_MARC_VRMOD",
+                "fieldType" : "CONNECTOR",
+                "label" : "Consumption_Mode_MARC_VRMOD",
+                "nativeName" : "Consumption_Mode_MARC_VRMOD",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Backward_Consumption_Period_MARC_VINT1",
+                "fieldType" : "CONNECTOR",
+                "label" : "Backward_Consumption_Period_MARC_VINT1",
+                "nativeName" : "Backward_Consumption_Period_MARC_VINT1",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Forward_Consumption_Period_MARC_VINT2",
+                "fieldType" : "CONNECTOR",
+                "label" : "Forward_Consumption_Period_MARC_VINT2",
+                "nativeName" : "Forward_Consumption_Period_MARC_VINT2",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Documentation_Required_KZDKZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "Documentation_Required_KZDKZ",
+                "nativeName" : "Documentation_Required_KZDKZ",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Material_Authorization_Group_QM_Activities_QMATA",
+                "fieldType" : "CONNECTOR",
+                "label" : "Material_Authorization_Group_QM_Activities_QMATA",
+                "nativeName" : "Material_Authorization_Group_QM_Activities_QMATA",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Special_Procurement_Type_for_Costing_SOBSK",
+                "fieldType" : "CONNECTOR",
+                "label" : "Special_Procurement_Type_for_Costing_SOBSK",
+                "nativeName" : "Special_Procurement_Type_for_Costing_SOBSK",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Plan_Fin5_Flag_ZZMAT_FIN5_FLAG",
+                "fieldType" : "CONNECTOR",
+                "label" : "Plan_Fin5_Flag_ZZMAT_FIN5_FLAG",
+                "nativeName" : "Plan_Fin5_Flag_ZZMAT_FIN5_FLAG",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Product_Code_MARC_ZZMAT_PROD_CD",
+                "fieldType" : "CONNECTOR",
+                "label" : "Product_Code_MARC_ZZMAT_PROD_CD",
+                "nativeName" : "Product_Code_MARC_ZZMAT_PROD_CD",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Product_Franchise_ZZMAT_PROD_FRAN",
+                "fieldType" : "CONNECTOR",
+                "label" : "Product_Franchise_ZZMAT_PROD_FRAN",
+                "nativeName" : "Product_Franchise_ZZMAT_PROD_FRAN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 50,
+                "scale" : 0
+              },
+              {
+                "name" : "Inspection_Interval_PRFRQ",
+                "fieldType" : "CONNECTOR",
+                "label" : "Inspection_Interval_PRFRQ",
+                "nativeName" : "Inspection_Interval_PRFRQ",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 6,
+                "scale" : 0
+              },
+              {
+                "name" : "QM_Control_Key_SSQSS",
+                "fieldType" : "CONNECTOR",
+                "label" : "QM_Control_Key_SSQSS",
+                "nativeName" : "QM_Control_Key_SSQSS",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Certificate_Type_QZGTP",
+                "fieldType" : "CONNECTOR",
+                "label" : "Certificate_Type_QZGTP",
+                "nativeName" : "Certificate_Type_QZGTP",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Material_Group_MATKL_WGBEZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "Material_Group_MATKL_WGBEZ",
+                "nativeName" : "Material_Group_MATKL_WGBEZ",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Registered_Country_Material_Nr_ZGSCM_REG_COUNT_ZZMATNR",
+                "fieldType" : "CONNECTOR",
+                "label" : "Registered_Country_Material_Nr_ZGSCM_REG_COUNT_ZZMATNR",
+                "nativeName" : "Registered_Country_Material_Nr_ZGSCM_REG_COUNT_ZZMATNR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Valid_Date_Plant_Specific_Material_Status_MMSTD",
+                "fieldType" : "CONNECTOR",
+                "label" : "Valid_Date_Plant_Specific_Material_Status_MMSTD",
+                "nativeName" : "Valid_Date_Plant_Specific_Material_Status_MMSTD",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3
+              },
+              {
+                "name" : "Product_Division_ZZMAT_PROD_DVN",
+                "fieldType" : "CONNECTOR",
+                "label" : "Product_Division_ZZMAT_PROD_DVN",
+                "nativeName" : "Product_Division_ZZMAT_PROD_DVN",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Packaging_Count_Description_ZZMAT_PKG_CNTDSC",
+                "fieldType" : "CONNECTOR",
+                "label" : "Packaging_Count_Description_ZZMAT_PKG_CNTDSC",
+                "nativeName" : "Packaging_Count_Description_ZZMAT_PKG_CNTDSC",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Packaging_Type_ZZMAT_PKG_TYPE",
+                "fieldType" : "CONNECTOR",
+                "label" : "Packaging_Type_ZZMAT_PKG_TYPE",
+                "nativeName" : "Packaging_Type_ZZMAT_PKG_TYPE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Bulk_Size_Units_ZZMAT_PROD_BSU",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bulk_Size_Units_ZZMAT_PROD_BSU",
+                "nativeName" : "Bulk_Size_Units_ZZMAT_PROD_BSU",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Bulk_Unit_Desc_ZZMAT_BULK_UNIT",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bulk_Unit_Desc_ZZMAT_BULK_UNIT",
+                "nativeName" : "Bulk_Unit_Desc_ZZMAT_BULK_UNIT",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Base_Unit_of_Measure_MEINS",
+                "fieldType" : "CONNECTOR",
+                "label" : "Base_Unit_of_Measure_MEINS",
+                "nativeName" : "Base_Unit_of_Measure_MEINS",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Product_Number_ZZMAT_PROD_NMBR",
+                "fieldType" : "CONNECTOR",
+                "label" : "Product_Number_ZZMAT_PROD_NMBR",
+                "nativeName" : "Product_Number_ZZMAT_PROD_NMBR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Weight_Unit_GEWEI",
+                "fieldType" : "CONNECTOR",
+                "label" : "Weight_Unit_GEWEI",
+                "nativeName" : "Weight_Unit_GEWEI",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Gross_Weight_BRGEW",
+                "fieldType" : "CONNECTOR",
+                "label" : "Gross_Weight_BRGEW",
+                "nativeName" : "Gross_Weight_BRGEW",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 4
+              },
+              {
+                "name" : "Net_Weight_NTGEW",
+                "fieldType" : "CONNECTOR",
+                "label" : "Net_Weight_NTGEW",
+                "nativeName" : "Net_Weight_NTGEW",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 15,
+                "scale" : 4
+              },
+              {
+                "name" : "lkp_TollingModel",
+                "fieldType" : "CONNECTOR",
+                "label" : "lkp_TollingModel",
+                "nativeName" : "lkp_TollingModel",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "lkp_CIM_Plant_Test_Type",
+                "fieldType" : "CONNECTOR",
+                "label" : "lkp_CIM_Plant_Test_Type",
+                "nativeName" : "lkp_CIM_Plant_Test_Type",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "SNP_Production_Horizon_PRODH",
+                "fieldType" : "CONNECTOR",
+                "label" : "SNP_Production_Horizon_PRODH",
+                "nativeName" : "SNP_Production_Horizon_PRODH",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Period_Type_SNP_Prod_Horizon_PKZPRODH",
+                "fieldType" : "CONNECTOR",
+                "label" : "Period_Type_SNP_Prod_Horizon_PKZPRODH",
+                "nativeName" : "Period_Type_SNP_Prod_Horizon_PKZPRODH",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_PUR__Nr_of_Purchase_Doc_PUR",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_PUR__Nr_of_Purchase_Doc_PUR",
+                "nativeName" : "CALC_PUR__Nr_of_Purchase_Doc_PUR",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_PUR__Nr_of_Purchase_Doc_PUR__Active",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_PUR__Nr_of_Purchase_Doc_PUR__Active",
+                "nativeName" : "CALC_PUR__Nr_of_Purchase_Doc_PUR__Active",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_PUR__Vendor_LIFNR",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_PUR__Vendor_LIFNR",
+                "nativeName" : "CALC_PUR__Vendor_LIFNR",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_VDR__PUR_Vendor_Exists",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_VDR__PUR_Vendor_Exists",
+                "nativeName" : "CALC_VDR__PUR_Vendor_Exists",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_VDR__PUR_Active_Vendor",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_VDR__PUR_Active_Vendor",
+                "nativeName" : "CALC_VDR__PUR_Active_Vendor",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__cv__Nr_of_Alternate_UoM_MEINH",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__cv__Nr_of_Alternate_UoM_MEINH",
+                "nativeName" : "CALC_UOM__cv__Nr_of_Alternate_UoM_MEINH",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__cv__Numerat_Convert_Base_UoM_UMREZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__cv__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeName" : "CALC_UOM__cv__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__cv__Denomin_Convert_Base_UoM_UMREN",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__cv__Denomin_Convert_Base_UoM_UMREN",
+                "nativeName" : "CALC_UOM__cv__Denomin_Convert_Base_UoM_UMREN",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__ea__Nr_of_Alternate_UoM_MEINH",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__ea__Nr_of_Alternate_UoM_MEINH",
+                "nativeName" : "CALC_UOM__ea__Nr_of_Alternate_UoM_MEINH",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__ea__Numerat_Convert_Base_UoM_UMREZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__ea__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeName" : "CALC_UOM__ea__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__ea__Denomin_Convert_Base_UoM_UMREN",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__ea__Denomin_Convert_Base_UoM_UMREN",
+                "nativeName" : "CALC_UOM__ea__Denomin_Convert_Base_UoM_UMREN",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__pac__Nr_of_Alternate_UoM_MEINH",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__pac__Nr_of_Alternate_UoM_MEINH",
+                "nativeName" : "CALC_UOM__pac__Nr_of_Alternate_UoM_MEINH",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__pac__Numerat_Convert_Base_UoM_UMREZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__pac__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeName" : "CALC_UOM__pac__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__pac__Denomin_Convert_Base_UoM_UMREN",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__pac__Denomin_Convert_Base_UoM_UMREN",
+                "nativeName" : "CALC_UOM__pac__Denomin_Convert_Base_UoM_UMREN",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__pal__Nr_of_Alternate_UoM_MEINH",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__pal__Nr_of_Alternate_UoM_MEINH",
+                "nativeName" : "CALC_UOM__pal__Nr_of_Alternate_UoM_MEINH",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__pal__Numerat_Convert_Base_UoM_UMREZ",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__pal__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeName" : "CALC_UOM__pal__Numerat_Convert_Base_UoM_UMREZ",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__pal__Denomin_Convert_Base_UoM_UMREN",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__pal__Denomin_Convert_Base_UoM_UMREN",
+                "nativeName" : "CALC_UOM__pal__Denomin_Convert_Base_UoM_UMREN",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__Nr_of_Alternate_UoM_MEINH__other",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__Nr_of_Alternate_UoM_MEINH__other",
+                "nativeName" : "CALC_UOM__Nr_of_Alternate_UoM_MEINH__other",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__T127__Nr_of_Alternate_UoM_MEINH",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__T127__Nr_of_Alternate_UoM_MEINH",
+                "nativeName" : "CALC_UOM__T127__Nr_of_Alternate_UoM_MEINH",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "CALC_UOM__T128__Nr_of_Alternate_UoM_MEINH",
+                "fieldType" : "CONNECTOR",
+                "label" : "CALC_UOM__T128__Nr_of_Alternate_UoM_MEINH",
+                "nativeName" : "CALC_UOM__T128__Nr_of_Alternate_UoM_MEINH",
+                "nativeType" : "decimal",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Material_Status_MSTAE",
+                "fieldType" : "CONNECTOR",
+                "label" : "Material_Status_MSTAE",
+                "nativeName" : "Material_Status_MSTAE",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Do_Not_Cost_NCOST",
+                "fieldType" : "CONNECTOR",
+                "label" : "Do_Not_Cost_NCOST",
+                "nativeName" : "Do_Not_Cost_NCOST",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Tolling_Model_EBX",
+                "fieldType" : "CONNECTOR",
+                "label" : "Tolling_Model_EBX",
+                "nativeName" : "Tolling_Model_EBX",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-19T13:17:18.555Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@8lBeeRGOfGodNsItQ5BZoe",
+          "connectionName" : "Flatfile_A_RT",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "rule_test_123.csv",
+            "label" : "rule_test_123.csv",
+            "path" : "rule_test_123.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2024-07-19T13:17:58.175Z",
+        "name" : "Mapplet",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "input_Group",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "Output",
+            "output" : "true"
+          }
+        ],
+        "active" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "saasMappletId" : "@kWDohm15C4cbbr5Bc6X5Mb",
+        "saasMappletName" : "rl_MT049_Contract",
+        "type" : "NATIVE",
+        "inputGroups" : [
+          {
+            "name" : "input_Group",
+            "fields" : [
+              {
+                "name" : "Material_Nr_MATNR_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Plant_WERKS_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Material_Type_MTART_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Plant_Specific_Material_Status_MMSTA_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "Procurement_Type_MARC_BESKZ_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Special_Procurement_Type_SOBSL_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "Special_Procurement_Type_for_Costing_SOBSK_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 5,
+                "scale" : 0
+              },
+              {
+                "name" : "Purchasing_Group_EKGRP_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP_Group",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 5,
+                "scale" : 0
+              }
+            ]
+          }
+        ],
+        "outputGroups" : [
+          {
+            "name" : "Output",
+            "fields" : [
+              {
+                "name" : "RULE",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "RULE_RMR",
+                "platformType" : {
+                  "name" : "string"
+                },
+                "precision" : 100,
+                "scale" : 0
+              }
+            ]
+          }
+        ],
+        "parameterBindings" : [
+          {
+            "bindedParameter$" : {
+              "name" : "Mapplet_DBConnection_CODA"
+            },
+            "mappletParameter" : {
+              "input" : "true",
+              "output" : "false",
+              "precision" : 0,
+              "scale" : 0,
+              "allowRuntimeOverride" : "true",
+              "expressionVariable" : "false",
+              "name" : "DBConnection_CODA",
+              "anonymousType" : {
+                "connectionType" : "Oracle"
+              }
+            }
+          },
+          {
+            "bindedParameter$" : {
+              "name" : "Mapplet_Mapplet_DBConnection_SOURCES"
+            },
+            "mappletParameter" : {
+              "input" : "true",
+              "output" : "false",
+              "precision" : 0,
+              "scale" : 0,
+              "allowRuntimeOverride" : "true",
+              "expressionVariable" : "false",
+              "name" : "Mapplet_DBConnection_SOURCES",
+              "defaultValue" : {
+                "valueLiteral" : "CODA_SOURCES_ORCL"
+              },
+              "anonymousType" : {
+                "connectionType" : "Oracle"
+              }
+            }
+          }
+        ],
+        "validForEngines" : [
+          "CDI",
+          "CDI_E"
+        ],
+        "variableBindings" : [
+          {
+            "bindedVariable$" : {
+              "name" : "Mapplet_Mapplet_par_Company_Identifier"
+            },
+            "mappletVariable" : {
+              "aggregationType" : "MAX",
+              "expressionVariable" : "false",
+              "name" : "Mapplet_par_Company_Identifier",
+              "platformType" : {
+                "name" : "string"
+              },
+              "precision" : 10,
+              "retentionPolicy" : "NEVER",
+              "scale" : 0,
+              "defaultValue" : "M"
+            }
+          }
+        ],
+        "dataAdapter" : {
+          "inputFields" : [
+            {
+              "name" : "Material_Nr_MATNR_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Material_Nr_MATNR_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 25,
+              "scale" : 0
+            },
+            {
+              "name" : "Plant_WERKS_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Plant_WERKS_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 25,
+              "scale" : 0
+            },
+            {
+              "name" : "Material_Type_MTART_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Material_Type_MTART_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 10,
+              "scale" : 0
+            },
+            {
+              "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 10,
+              "scale" : 0
+            },
+            {
+              "name" : "Plant_Specific_Material_Status_MMSTA_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Plant_Specific_Material_Status_MMSTA_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 25,
+              "scale" : 0
+            },
+            {
+              "name" : "Procurement_Type_MARC_BESKZ_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Procurement_Type_MARC_BESKZ_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 10,
+              "scale" : 0
+            },
+            {
+              "name" : "Special_Procurement_Type_SOBSL_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Special_Procurement_Type_SOBSL_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 10,
+              "scale" : 0
+            },
+            {
+              "name" : "Special_Procurement_Type_for_Costing_SOBSK_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Special_Procurement_Type_for_Costing_SOBSK_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 5,
+              "scale" : 0
+            },
+            {
+              "name" : "Purchasing_Group_EKGRP_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "Purchasing_Group_EKGRP_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 10,
+              "scale" : 0
+            },
+            {
+              "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP_Group",
+              "fieldType" : "UNDEFINED",
+              "label" : "PC_Sub_Type_ZZMAT_PRNSUBTYP_Group",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 5,
+              "scale" : 0
+            }
+          ],
+          "outputFields" : [
+            {
+              "name" : "RULE",
+              "fieldType" : "UNDEFINED",
+              "label" : "RULE",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 10,
+              "scale" : 0
+            },
+            {
+              "name" : "RULE_RMR",
+              "fieldType" : "UNDEFINED",
+              "label" : "RULE_RMR",
+              "nativeType" : "string",
+              "original" : "false",
+              "precision" : 100,
+              "scale" : 0
+            }
+          ]
+        },
+        "fieldMapping" : {
+          "fields" : [
+            {
+              "adapterField" : {
+                "name" : "Material_Nr_MATNR_Group"
+              },
+              "name" : "Material_Nr_MATNR",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Plant_WERKS_Group"
+              },
+              "name" : "Plant_WERKS",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Material_Type_MTART_Group"
+              },
+              "name" : "Material_Type_MTART",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG_Group"
+              },
+              "name" : "Supply_Chain_Stage_Code_ZZMAT_PROD_SCSTG",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Plant_Specific_Material_Status_MMSTA_Group"
+              },
+              "name" : "Plant_Specific_Material_Status_MMSTA",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Procurement_Type_MARC_BESKZ_Group"
+              },
+              "name" : "Procurement_Type_MARC_BESKZ",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Special_Procurement_Type_SOBSL_Group"
+              },
+              "name" : "Special_Procurement_Type_SOBSL",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Special_Procurement_Type_for_Costing_SOBSK_Group"
+              },
+              "name" : "Special_Procurement_Type_for_Costing_SOBSK",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "Purchasing_Group_EKGRP_Group"
+              },
+              "name" : "Purchasing_Group_EKGRP",
+              "precision" : 0,
+              "scale" : 0
+            },
+            {
+              "adapterField" : {
+                "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP_Group"
+              },
+              "name" : "PC_Sub_Type_ZZMAT_PRNSUBTYP",
+              "precision" : 0,
+              "scale" : 0
+            }
+          ]
+        }
+      }
+    ],
+    "variables" : [
+      {
+        "aggregationType" : "MAX",
+        "expressionVariable" : "false",
+        "name" : "Mapplet_Mapplet_par_Company_Identifier",
+        "platformType" : {
+          "name" : "string"
+        },
+        "precision" : 10,
+        "retentionPolicy" : "NEVER",
+        "scale" : 0,
+        "defaultValue" : "M"
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-04-23 04:07:11 PDT"
+}

@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "0qpq0l36JRLcYwYDeSpCMw",
+    "name" : "tf_Test_Integrationops",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "J89SfSmbduaa-gt-31004720-2024-04-15T06:14:26.574Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-04-23T11:07:12.993Z",
+  "objectRefs" : [ {
+    "id" : "5tXhiQd2X4ecyAjUnc9B6a",
+    "name" : "bufferTime_MTT",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CRY0Z000000000011"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "fjljd",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Vijay_vj"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}
